@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UCAT Complete Guidance Course — Sarthak Mehta</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy:   #1A2B4A;
+  --navy2:  #243660;
+  --gold:   #F5A623;
+  --gold2:  #FBBF4A;
+  --white:  #FFFFFF;
+  --offwhite: #F7F8FC;
+  --stone:  #E8EAF0;
+  --text:   #1A2B4A;
+  --muted:  #5A6478;
+  --light:  #8A94A8;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Nunito Sans', sans-serif;
+  color: var(--text);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* ── UTILITIES ── */
+.wrap { max-width: 960px; margin: 0 auto; padding: 0 5vw; }
+.gold { color: var(--gold); }
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  background: rgba(26,43,74,0.97);
+  backdrop-filter: blur(6px);
+  height: 62px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 5vw;
+}
+
+.nav-brand {
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none;
+}
+
+/* SVG logo inline */
+.nav-logo-svg { width: 32px; height: 32px; flex-shrink: 0; }
+
+.nav-brand-text {
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: var(--white);
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+}
+.nav-brand-text span { color: var(--gold); display: block; font-weight: 300; font-size: 0.7rem; letter-spacing: 0.08em; }
+
+.nav-links { display: flex; gap: 1.8rem; list-style: none; align-items: center; }
+.nav-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.85rem; font-weight: 600; transition: color 0.2s; }
+.nav-links a:hover { color: var(--white); }
+.nav-links .nav-btn {
+  background: var(--gold); color: var(--navy);
+  padding: 0.4rem 1.1rem; border-radius: 20px;
+  font-weight: 700; font-size: 0.82rem;
+}
+.nav-links .nav-btn:hover { background: var(--gold2); color: var(--navy); }
+
+/* ── HERO ── */
+.hero {
+  background: var(--navy);
+  padding: 130px 5vw 90px;
+  min-height: 92vh;
+  display: flex; align-items: center;
+}
+
+.hero-inner { max-width: 960px; margin: 0 auto; width: 100%; }
+
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(245,166,35,0.15);
+  border: 1px solid rgba(245,166,35,0.3);
+  color: var(--gold);
+  font-size: 0.78rem; font-weight: 700;
+  padding: 0.35rem 0.9rem; border-radius: 20px;
+  margin-bottom: 1.75rem;
+  letter-spacing: 0.04em;
+}
+
+.hero-eyebrow::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+}
+
+.hero-layout { display: flex; align-items: flex-start; justify-content: space-between; gap: 3rem; }
+
+.hero-left { flex: 1; }
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+  color: var(--white);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.25rem;
+}
+
+
+
+.hero-sub {
+  color: rgba(255,255,255,0.62);
+  font-size: 1rem;
+  line-height: 1.75;
+  max-width: 500px;
+  margin-bottom: 2.25rem;
+  font-weight: 400;
+}
+
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
+
+.btn-gold {
+  background: var(--gold); color: var(--navy);
+  padding: 0.8rem 1.8rem; border-radius: 25px;
+  font-weight: 800; font-size: 0.9rem;
+  text-decoration: none; display: inline-block;
+  transition: background 0.2s, transform 0.15s;
+}
+.btn-gold:hover { background: var(--gold2); transform: translateY(-2px); }
+
+.btn-outline {
+  border: 1.5px solid rgba(255,255,255,0.3); color: var(--white);
+  padding: 0.8rem 1.8rem; border-radius: 25px;
+  font-weight: 600; font-size: 0.9rem;
+  text-decoration: none; display: inline-block;
+  transition: border-color 0.2s, background 0.2s;
+}
+.btn-outline:hover { border-color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.06); }
+
+.hero-stats { display: flex; gap: 2.5rem; flex-wrap: wrap; }
+
+.hero-stat { border-left: 2px solid var(--gold); padding-left: 1rem; }
+.hero-stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem; color: var(--white); line-height: 1;
+  margin-bottom: 0.25rem;
+}
+.hero-stat-label { font-size: 0.75rem; color: rgba(255,255,255,0.5); line-height: 1.4; max-width: 110px; }
+
+
+
+/* ── SECTION BASE ── */
+.section { padding: 88px 5vw; }
+.section-alt { background: var(--offwhite); }
+.section-navy { background: var(--navy); }
+
+.section-tag {
+  font-size: 0.75rem; font-weight: 700;
+  color: var(--gold); letter-spacing: 0.06em;
+  margin-bottom: 0.75rem; display: block;
+}
+
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.9rem, 3vw, 2.6rem);
+  color: var(--navy); line-height: 1.2;
+  letter-spacing: -0.02em; margin-bottom: 1rem;
+}
+.section-navy h2 { color: var(--white); }
+
+.section-intro {
+  color: var(--muted); font-size: 0.97rem;
+  line-height: 1.75; max-width: 580px;
+  margin-bottom: 3rem;
+}
+.section-navy .section-intro { color: rgba(255,255,255,0.6); }
+
+/* ── ABOUT / INSIDER SECTION ── */
+.insider-grid { display: flex; gap: 3.5rem; align-items: flex-start; }
+
+.insider-credentials { flex: 1; }
+
+.cred-item {
+  display: flex; gap: 1rem; align-items: flex-start;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--stone);
+}
+.cred-item:last-child { border-bottom: none; }
+
+.cred-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--gold); flex-shrink: 0;
+  margin-top: 6px;
+}
+
+.cred-title { font-weight: 700; font-size: 0.9rem; color: var(--navy); margin-bottom: 0.2rem; }
+.cred-desc { font-size: 0.83rem; color: var(--muted); line-height: 1.55; }
+
+.insider-tips { flex: 1; }
+
+.tip-box {
+  background: var(--navy);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 0;
+}
+
+.tip-box-title {
+  font-weight: 800; font-size: 0.85rem;
+  color: var(--gold); letter-spacing: 0.04em;
+  margin-bottom: 1.25rem;
+}
+
+.tip-item {
+  display: flex; gap: 0.75rem;
+  margin-bottom: 1rem;
+  align-items: flex-start;
+}
+.tip-item:last-child { margin-bottom: 0; }
+
+.tip-tag {
+  background: rgba(245,166,35,0.2);
+  color: var(--gold);
+  font-size: 0.7rem; font-weight: 800;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px; flex-shrink: 0;
+  margin-top: 2px; letter-spacing: 0.04em;
+}
+
+.tip-text { font-size: 0.83rem; color: rgba(255,255,255,0.7); line-height: 1.6; }
+
+/* ── WHAT'S INCLUDED ── */
+.includes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--stone);
+  border: 1px solid var(--stone);
+  margin-top: 0.5rem;
+}
+
+.include-item {
+  background: var(--white);
+  padding: 1.75rem;
+  display: flex; gap: 1rem; align-items: flex-start;
+}
+
+.include-icon {
+  width: 38px; height: 38px;
+  background: rgba(245,166,35,0.12);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.include-icon svg { width: 18px; height: 18px; }
+
+.include-title { font-weight: 700; font-size: 0.9rem; color: var(--navy); margin-bottom: 0.25rem; }
+.include-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.55; }
+
+/* ── LESSON STRUCTURE ── */
+.lesson-layout { display: flex; gap: 3rem; align-items: flex-start; }
+
+.lesson-meta { flex: 1; }
+
+.lesson-badge {
+  display: inline-block;
+  background: rgba(245,166,35,0.12);
+  border: 1px solid rgba(245,166,35,0.3);
+  color: var(--gold);
+  font-size: 0.8rem; font-weight: 700;
+  padding: 0.4rem 0.9rem;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+}
+
+.lesson-time {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem; color: var(--navy);
+  line-height: 1; margin-bottom: 0.25rem;
+}
+.lesson-time-label { font-size: 0.82rem; color: var(--muted); margin-bottom: 2rem; }
+
+.lesson-breakdown { list-style: none; }
+.lesson-breakdown li {
+  display: flex; gap: 0.75rem; align-items: center;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--stone);
+  font-size: 0.88rem; color: var(--text);
+}
+.lesson-breakdown li:last-child { border-bottom: none; }
+.lesson-breakdown li::before {
+  content: ''; width: 8px; height: 8px;
+  background: var(--gold); border-radius: 50%; flex-shrink: 0;
+}
+
+.lesson-parts { flex: 1; display: flex; flex-direction: column; gap: 1.25rem; }
+
+.lesson-part {
+  border-left: 3px solid var(--gold);
+  padding: 1.5rem 1.5rem 1.5rem 1.75rem;
+  background: var(--offwhite);
+}
+.lesson-part-label {
+  font-size: 0.72rem; font-weight: 800;
+  color: var(--gold); letter-spacing: 0.06em;
+  margin-bottom: 0.4rem;
+}
+.lesson-part h3 { font-size: 1rem; font-weight: 800; color: var(--navy); margin-bottom: 0.4rem; }
+.lesson-part p { font-size: 0.84rem; color: var(--muted); line-height: 1.65; }
+
+/* ── HOW IT WORKS (numbered sequence) ── */
+.how-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin-top: 0;
+  counter-reset: steps;
+}
+
+.how-step {
+  padding: 2rem 1.75rem;
+  border-right: 1px solid rgba(255,255,255,0.08);
+  counter-increment: steps;
+}
+.how-step:last-child { border-right: none; }
+
+.how-step-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem; color: rgba(245,166,35,0.25);
+  line-height: 1; margin-bottom: 0.75rem;
+}
+.how-step-num::before { content: counter(steps); }
+
+.how-step h3 { font-size: 0.95rem; font-weight: 800; color: var(--white); margin-bottom: 0.5rem; }
+.how-step p { font-size: 0.82rem; color: rgba(255,255,255,0.55); line-height: 1.65; }
+
+/* ── REVIEWS ── */
+.reviews-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-top: 0;
+}
+
+.review-card {
+  background: var(--white);
+  border: 1.5px solid var(--stone);
+  padding: 1.6rem;
+  border-radius: 10px;
+  position: relative;
+}
+
+.review-stars {
+  color: var(--gold); font-size: 0.85rem;
+  margin-bottom: 0.75rem; letter-spacing: 1px;
+}
+
+.review-text {
+  font-size: 0.875rem; color: var(--text);
+  line-height: 1.7; margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.review-author { font-weight: 800; font-size: 0.82rem; color: var(--navy); }
+.review-detail { font-size: 0.75rem; color: var(--gold); font-weight: 600; margin-top: 0.15rem; }
+
+.review-highlight {
+  background: var(--navy);
+  border-color: var(--navy);
+}
+.review-highlight .review-text { color: rgba(255,255,255,0.8); }
+.review-highlight .review-author { color: var(--white); }
+
+/* ── WORKSHOP BANNER ── */
+.workshop-banner {
+  background: var(--offwhite);
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  padding: 2rem 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+}
+
+.workshop-label {
+  font-size: 0.72rem; font-weight: 800;
+  color: var(--gold); letter-spacing: 0.08em;
+  margin-bottom: 0.4rem;
+}
+.workshop-title { font-weight: 800; font-size: 1.15rem; color: var(--navy); margin-bottom: 0.3rem; }
+.workshop-detail { font-size: 0.84rem; color: var(--muted); }
+.workshop-detail strong { color: var(--navy); }
+
+/* ── GUARANTEE ── */
+.guarantee-box {
+  background: rgba(245,166,35,0.08);
+  border: 1.5px solid rgba(245,166,35,0.3);
+  border-radius: 12px;
+  padding: 2.5rem;
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto;
+}
+.guarantee-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+.guarantee-box h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--navy); margin-bottom: 0.75rem; }
+.guarantee-box p { font-size: 0.9rem; color: var(--muted); line-height: 1.75; }
+
+/* ── CTA STRIP ── */
+.cta-strip {
+  background: var(--gold);
+  padding: 80px 5vw;
+  text-align: center;
+}
+.cta-strip h2 { color: var(--navy); margin-bottom: 0.75rem; }
+.cta-strip p { color: rgba(26,43,74,0.7); max-width: 460px; margin: 0 auto 2rem; font-size: 0.97rem; line-height: 1.7; }
+
+.btn-navy {
+  background: var(--navy); color: var(--white);
+  padding: 0.9rem 2.2rem; border-radius: 25px;
+  font-weight: 800; font-size: 0.92rem;
+  text-decoration: none; display: inline-block;
+  transition: background 0.2s;
+}
+.btn-navy:hover { background: var(--navy2); }
+
+.contact-row {
+  display: flex; gap: 1.5rem; justify-content: center;
+  flex-wrap: wrap; margin-top: 1.5rem;
+}
+.contact-item {
+  display: flex; align-items: center; gap: 0.5rem;
+  font-size: 0.88rem; color: rgba(26,43,74,0.75);
+  font-weight: 600;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--navy);
+  padding: 40px 5vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer-brand { display: flex; align-items: center; gap: 10px; }
+.footer-brand-text { font-weight: 800; font-size: 0.88rem; color: var(--white); line-height: 1.3; }
+.footer-brand-text span { color: var(--gold); font-weight: 300; font-size: 0.7rem; letter-spacing: 0.06em; display: block; }
+.footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.35); }
+.footer-contact { font-size: 0.8rem; color: rgba(255,255,255,0.5); text-align: right; line-height: 1.7; }
+.footer-contact a { color: var(--gold); text-decoration: none; }
+
+/* ── FAQ ── */
+.faq-list { margin-top: 2.5rem; max-width: 700px; }
+.faq-item { border-bottom: 1px solid var(--stone); }
+.faq-btn {
+  width: 100%; background: none; border: none;
+  text-align: left; padding: 1.1rem 0;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 0.93rem; font-weight: 700;
+  color: var(--navy); cursor: pointer;
+  display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+}
+.faq-btn:hover { color: var(--gold); }
+.faq-chevron { width: 16px; height: 16px; flex-shrink: 0; color: var(--gold); transition: transform 0.25s; }
+.faq-item.open .faq-chevron { transform: rotate(180deg); }
+.faq-body { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+.faq-item.open .faq-body { max-height: 200px; }
+.faq-body p { font-size: 0.88rem; color: var(--muted); line-height: 1.75; padding-bottom: 1.1rem; }
+
+/* ── MOBILE ── */
+@media (max-width: 768px) {
+  nav { padding: 0 4vw; }
+  .nav-links li:not(:last-child) { display: none; }
+  .hero { padding: 100px 5vw 64px; min-height: auto; }
+  .hero-layout { flex-direction: column; }
+  .hero h1 { font-size: 2.2rem; }
+  .hero-stats { gap: 1.5rem; }
+  .insider-grid { flex-direction: column; }
+  .includes-grid { grid-template-columns: 1fr; }
+  .lesson-layout { flex-direction: column; }
+  .how-steps { grid-template-columns: 1fr 1fr; }
+  .how-step { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .how-step:nth-child(even) { border-right: none; }
+  .reviews-grid { grid-template-columns: 1fr; }
+  .workshop-banner { flex-direction: column; text-align: center; }
+  footer { flex-direction: column; text-align: center; }
+  .footer-contact { text-align: center; }
+}
+
+@media (max-width: 480px) {
+  .how-steps { grid-template-columns: 1fr; }
+  .hero-actions { flex-direction: column; }
+  .btn-gold, .btn-outline { text-align: center; }
+}
+
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a href="#" class="nav-brand">
+    <!-- Book SVG logo matching brand -->
+    <svg class="nav-logo-svg" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="18" width="28" height="36" rx="3" stroke="#F5A623" stroke-width="3" fill="none"/>
+      <rect x="42" y="18" width="28" height="36" rx="3" stroke="#F5A623" stroke-width="3" fill="none"/>
+      <line x1="40" y1="18" x2="40" y2="54" stroke="#F5A623" stroke-width="2.5"/>
+      <line x1="16" y1="26" x2="32" y2="26" stroke="#F5A623" stroke-width="2"/>
+      <line x1="16" y1="31" x2="32" y2="31" stroke="#F5A623" stroke-width="2"/>
+      <line x1="16" y1="36" x2="32" y2="36" stroke="#F5A623" stroke-width="2"/>
+      <line x1="48" y1="26" x2="64" y2="26" stroke="#F5A623" stroke-width="2"/>
+      <line x1="48" y1="31" x2="64" y2="31" stroke="#F5A623" stroke-width="2"/>
+      <line x1="48" y1="36" x2="64" y2="36" stroke="#F5A623" stroke-width="2"/>
+      <path d="M6 56 Q40 62 74 56" stroke="#F5A623" stroke-width="3" fill="none"/>
+    </svg>
+    <div class="nav-brand-text">
+      UCAT COMPLETE GUIDANCE
+      <span>by Sarthak Mehta</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#programme">Programme</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contact" class="nav-btn">Free Consultation</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">UCAT Complete Guidance Course &nbsp;·&nbsp; Sarthak Mehta</div>
+    <div class="hero-layout">
+      <div class="hero-left">
+        <h1>Strategy-first UCAT preparation, built from the inside out.</h1>
+        <p class="hero-sub">A structured UCAT programme built on 5 years of dedicated teaching and an in-depth personal study of every major preparation system — so you go into the exam with one locked-in strategy per question type, not a drawer full of conflicting approaches.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn-gold">Book your free diagnostic consultation</a>
+          <a href="#programme" class="btn-outline">See what's included</a>
+
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hero-stat-num">180+</div>
+            <div class="hero-stat-label">students prepared across Australia</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">5 yrs</div>
+            <div class="hero-stat-label">dedicated UCAT teaching experience</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">20</div>
+            <div class="hero-stat-label">question types covered in full</div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT / INSIDER ── -->
+<section class="section" id="about">
+  <div class="wrap">
+    <span class="section-tag">Why this course is different</span>
+    <h2>Insider knowledge, not just more questions.</h2>
+    <p class="section-intro">Most students preparing for the UCAT make the same mistake — drilling more questions without a consistent strategy. Here's what five years of student feedback, and sitting the exam process myself, actually shows about how to prepare effectively.</p>
+
+    <div class="insider-grid">
+      <div class="insider-credentials">
+        <div class="cred-item">
+          <div class="cred-dot"></div>
+          <div>
+            <div class="cred-title">99.95 ATAR · 12 medical school offers</div>
+            <div class="cred-desc">Offers from universities across Australia including UNSW and University of Queensland. Chancellor's Award of Excellence, 2022.</div>
+          </div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-dot"></div>
+          <div>
+            <div class="cred-title">Final-year medical student</div>
+            <div class="cred-desc">5 years of dedicated UCAT tutoring, 36+ hours of structured content, students prepared nationwide.</div>
+          </div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-dot"></div>
+          <div>
+            <div class="cred-title">9 UCAT courses completed personally</div>
+            <div class="cred-desc">Deep comparative knowledge of every major strategy system — so I can tell you which approaches actually work and which create hesitation under pressure.</div>
+          </div>
+        </div>
+
+        <div class="cred-item">
+          <div class="cred-dot"></div>
+          <div>
+            <div class="cred-title">Real-time student feedback on this year's exam</div>
+            <div class="cred-desc">I collect structured feedback from students who have just sat — so preparation strategy stays current, not based on outdated question banks.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="insider-tips">
+        <div class="tip-box">
+          <div class="tip-box-title">What students who sat this year's UCAT reported</div>
+          <div class="tip-item">
+            <span class="tip-tag">VR</span>
+            <span class="tip-text">Most passages were 3–4 paragraphs with author/conclusion-type questions. Some question banks use longer passages that don't reflect real exam structure — don't over-prepare for those.</span>
+          </div>
+          <div class="tip-item">
+            <span class="tip-tag">DM</span>
+            <span class="tip-text">Logical puzzles were less straightforward than official banks. Syllogisms required strong pattern recognition across All/Some/None combinations — vague statements, not clean-cut ones.</span>
+          </div>
+          <div class="tip-item">
+            <span class="tip-tag">QR</span>
+            <span class="tip-text">Higher frequency of mean/median/mode and percentage questions. Efficient skipping on calculation-heavy questions was the key differentiator — don't burn time on QR outliers.</span>
+          </div>
+          <div class="tip-item">
+            <span class="tip-tag">SJT</span>
+            <span class="tip-text">Notably manageable for students with a clear grasp of primary and secondary ethical values. Framework understanding beat memorisation every time.</span>
+          </div>
+          <div class="tip-item">
+            <span class="tip-tag">KEY</span>
+            <span class="tip-text">The biggest mistake: treating more questions as better preparation. Without a locked-in, consistent strategy, scores fluctuate wildly. Strategy first, volume second.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHAT'S INCLUDED ── -->
+<section class="section section-alt" id="programme">
+  <div class="wrap">
+    <span class="section-tag">The programme</span>
+    <h2>Everything included in the course.</h2>
+    <p class="section-intro">A comprehensive, structured preparation system — not a collection of resources. Every element is designed to build accuracy first, then speed.</p>
+
+    <div class="includes-grid">
+      <div class="include-item">
+        <div class="include-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="2"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+        </div>
+        <div>
+          <div class="include-title">All 20 question types covered</div>
+          <div class="include-desc">Complete dissection of every UCAT question type across VR, DM, QR and SJT — strategy, worked examples, and the traps most students fall into.</div>
+        </div>
+      </div>
+      <div class="include-item">
+        <div class="include-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div>
+          <div class="include-title">1.5 hours of live teaching per week</div>
+          <div class="include-desc">Each session split into strategy dissection and personalised practice — not passive lecture, but active strategy-building tailored to your patterns.</div>
+        </div>
+      </div>
+      <div class="include-item">
+        <div class="include-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        </div>
+        <div>
+          <div class="include-title">Guided practice + strategy personalisation</div>
+          <div class="include-desc">1 hour of structured homework per week. Not just drilling questions — guided practice with strategy modification based on your individual weak points.</div>
+        </div>
+      </div>
+      <div class="include-item">
+        <div class="include-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="2"><path d="M4 6h16M4 10h16M4 14h8M4 18h8"/></svg>
+        </div>
+        <div>
+          <div class="include-title">Access to 4,000+ practice questions</div>
+          <div class="include-desc">A bank of over 4,000 questions to build fluency and test strategy under realistic conditions across all four subtests.</div>
+        </div>
+      </div>
+      <div class="include-item">
+        <div class="include-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <div>
+          <div class="include-title">3 full mock tests</div>
+          <div class="include-desc">Three timed, full-length mock exams to simulate real UCAT conditions, track your score progression, and identify remaining gaps before exam day.</div>
+        </div>
+      </div>
+      <div class="include-item">
+        <div class="include-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+        </div>
+        <div>
+          <div class="include-title">All lesson recordings provided</div>
+          <div class="include-desc">Every session is recorded and made available so you can revisit any strategy, re-watch worked examples, and review at your own pace between sessions.</div>
+        </div>
+      </div>
+      <div class="include-item">
+        <div class="include-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <div>
+          <div class="include-title">Consistent review sessions post-course</div>
+          <div class="include-desc">Free review sessions continue after the course concludes — ongoing progress monitoring and strategy refinement right up to your exam date.</div>
+        </div>
+      </div>
+      <div class="include-item">
+        <div class="include-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="2"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/><path d="M9 12h6M9 16h4"/></svg>
+        </div>
+        <div>
+          <div class="include-title">Progress tests at Week 10 & Week 16</div>
+          <div class="include-desc">Structured mid-course and late-course progress tests to assess strategy retention, identify remaining gaps, and recalibrate preparation before mock test phases.</div>
+        </div>
+      </div>
+      <div class="include-item">
+        <div class="include-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div>
+          <div class="include-title">Pre-lesson progress test</div>
+          <div class="include-desc">A short test before each lesson ensures every session starts from where you actually are — not where the syllabus assumes you should be.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── LESSON STRUCTURE ── -->
+<section class="section" id="structure">
+  <div class="wrap">
+    <span class="section-tag">How each lesson works</span>
+    <h2>Structure that builds real competence.</h2>
+    <p class="section-intro">Every lesson follows a two-part format designed to take you from understanding a strategy to executing it under exam conditions.</p>
+
+    <div class="lesson-layout">
+      <div class="lesson-meta">
+        <div class="lesson-badge">Weekly commitment</div>
+        <div class="lesson-time">2.5 hrs</div>
+        <div class="lesson-time-label">per week total — 1.5hr lesson + 1hr homework</div>
+        <ul class="lesson-breakdown">
+          <li>1.5-hour live session weekly</li>
+          <li>1 hour of structured homework</li>
+          <li>Pre-lesson progress test each week</li>
+          <li>All 20 question types, in sequence</li>
+          <li>Personalised strategy adjustment each week</li>
+          <li>Structured progress tests at Week 10 & Week 16</li>
+          <li>Lesson recording provided after each session</li>
+        </ul>
+      </div>
+
+      <div class="lesson-parts">
+        <div class="lesson-part">
+          <div class="lesson-part-label">First half of every lesson</div>
+          <h3>Strategy Dissection</h3>
+          <p>Deep breakdown of the strategy and key information for each question type. Not tips — a complete, reproducible approach you can lock in and execute consistently under time pressure. Live examples worked through in real time.</p>
+        </div>
+        <div class="lesson-part">
+          <div class="lesson-part-label">Second half of every lesson</div>
+          <h3>Personalised Practice</h3>
+          <p>Guided practice using the strategy just covered, with real-time observation and feedback. Where your approach diverges from the optimal path, we modify it to suit your individual reasoning style — not a one-size-fits-all template.</p>
+        </div>
+        <div class="lesson-part">
+          <div class="lesson-part-label">Before you commit</div>
+          <h3>Free Diagnostic Consultation</h3>
+          <p>The diagnostic consultation is free for both students and parents. A live strategy example is worked through in real time — then students attempt the same question type themselves. Parents and students both see the accuracy and speed difference immediately, before deciding anything.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── HOW IT WORKS ── -->
+<section class="section section-navy">
+  <div class="wrap">
+    <span class="section-tag">The journey</span>
+    <h2 style="color:var(--white)">From diagnostic to exam day.</h2>
+    <p class="section-intro">A structured pathway — not an open-ended subscription you're left to navigate alone.</p>
+    <div class="how-steps">
+      <div class="how-step">
+        <div class="how-step-num"></div>
+        <h3>Free diagnostic consultation</h3>
+        <p>A live strategy demonstration where students and parents see a real question type worked through — then attempt it themselves to experience the accuracy and speed difference firsthand. No commitment needed.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-step-num"></div>
+        <h3>Structured preparation</h3>
+        <p>Weekly 1.5-hour sessions covering all 20 question types with pre-lesson tests, guided homework, and personalised strategy modification throughout.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-step-num"></div>
+        <h3>Mock tests + refinement</h3>
+        <p>Three full-length timed mocks to track score progression and sharpen strategy under real exam conditions. Recordings available to review any session.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-step-num"></div>
+        <h3>Post-course review</h3>
+        <p>Consistent review sessions continue after the course ends — monitoring progress and refining strategy right through to your exam date. Progress tests at Week 10 and Week 16 track where you stand throughout.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── REVIEWS ── -->
+<section class="section section-alt" id="reviews">
+  <div class="wrap">
+    <span class="section-tag">Student outcomes</span>
+    <h2>What past students say.</h2>
+    <p class="section-intro">Students from high schools and university senior colleges across Australia — and their parents.</p>
+
+    <div class="reviews-grid">
+      <div class="review-card review-highlight">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"With the strategies I was able to boost my UCAT from 64th percentile last year to 94th and secure my admission to UNSW Medicine. Sarthak goes beyond the lessons to help with the full application."</p>
+        <div class="review-author">Tanvi</div>
+        <div class="review-detail">64th → 94th percentile · UNSW Medicine offer</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"I obtained a UCAT score of 2430 (96th percentile) that I can't be more happy with. Sarthak provided lots of tips and strategies that made me much more confident tackling each question type with high efficiency."</p>
+        <div class="review-author">Josh</div>
+        <div class="review-detail">2430 · 96th percentile</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"I was able to achieve 99th percentile. Sarthak is incredibly flexible in tailoring strategies to individual needs, and very reliable in answering questions or concerns throughout the studying period."</p>
+        <div class="review-author">Madeleine</div>
+        <div class="review-detail">99th percentile UCAT</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Sarthak helped me achieve a 2400 score. His VR, DM, and QR techniques are very helpful — he has broken each section down in such detail that they become far easier to learn and master."</p>
+        <div class="review-author">Abhi</div>
+        <div class="review-detail">2400 · University Senior College</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"He tailored the lessons to check the student's weaknesses, gaps in concepts and understanding, and taught specific strategies to ensure they get questions right. His pro-activeness and guidance is exceptional."</p>
+        <div class="review-author">Patricia (Parent)</div>
+        <div class="review-detail">Glenunga International High School</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Sarthak explains things very clearly while providing tips and strategies that most other tutors don't offer. An extremely patient, knowledgeable, and understanding person — I strongly recommend him."</p>
+        <div class="review-author">Marcus (Parent)</div>
+        <div class="review-detail">Pembroke School</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Has a vast knowledge about each section of the exam and provided clear strategies making a real impact on my learning and skills, making me feel much more confident."</p>
+        <div class="review-author">James</div>
+        <div class="review-detail">Norwood Morialta High School</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"I highly recommend Sarthak as a UCAT tutor for anyone looking to perform well. His structured approach made all the difference — the strategies are genuinely what separate this from other courses."</p>
+        <div class="review-author">Student</div>
+        <div class="review-detail">Year 12 · Norwood Morialta</div>
+      </div>
+    </div>
+
+    <!-- Workshop Banners -->
+    <div class="workshop-banner" style="margin-top:3rem;">
+      <div>
+        <div class="workshop-label">Recent Workshop — June 2026</div>
+        <div class="workshop-title">UCAT Strategy Workshop — Adelaide</div>
+        <div class="workshop-detail"><strong>Prospect Library, 128 Prospect Road SA 5082</strong> &nbsp;·&nbsp; Free Entry &nbsp;·&nbsp; 40 spots</div>
+      </div>
+      <div style="background:rgba(245,166,35,0.12); border:1px solid rgba(245,166,35,0.3); padding:0.6rem 1.1rem; border-radius:6px; font-size:0.82rem; font-weight:700; color:var(--gold); flex-shrink:0;">Completed</div>
+    </div>
+
+    <div class="workshop-banner" style="margin-top:1.25rem;">
+      <div>
+        <div class="workshop-label">Upcoming Workshop — November 2026</div>
+        <div class="workshop-title">UCAT Strategy Workshop — Adelaide</div>
+        <div class="workshop-detail"><strong>Prospect Library, 128 Prospect Road SA 5082</strong> &nbsp;·&nbsp; Free Entry &nbsp;·&nbsp; Limited spots</div>
+      </div>
+      <a href="#contact" class="btn-gold">Register your spot</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── GUARANTEE ── -->
+<section class="section">
+  <div class="wrap" style="text-align:center;">
+    <span class="section-tag" style="display:block; text-align:center;">Our commitment</span>
+    <h2 style="text-align:center; margin-bottom:2rem;">Start with a free diagnostic consultation.</h2>
+    <div class="guarantee-box">
+      <div class="guarantee-icon">📖</div>
+      <h3>See the difference before you decide.</h3>
+      <p>The diagnostic consultation is completely free for both students and parents. A live strategy example is demonstrated in real time — then the student attempts the same question type themselves. You'll see the accuracy and speed difference firsthand. No obligation, no pressure. If it isn't the right fit, you still leave with genuinely useful strategies.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section class="section section-alt" id="faq">
+  <div class="wrap">
+    <span class="section-tag">Common questions</span>
+    <h2>Frequently asked.</h2>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFaq(this)">
+          Who is this course suitable for?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-body"><p>Any student planning to sit the UCAT — whether you're in Year 11, Year 12, or a university student applying to graduate medicine. The programme starts from the foundations and scales to advanced strategy. Students at all starting levels have benefited, from complete beginners to those who have already attempted practice questions.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFaq(this)">
+          Do I need to have started UCAT preparation already?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-body"><p>No. The course is built to take you from zero — covering all 20 question types systematically, beginning with accuracy before building to speed. That said, if you have already started, the pre-lesson test and personalised strategy modification ensure the programme adapts to where you actually are.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFaq(this)">
+          How are sessions delivered?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-body"><p>Sessions run online, which means students from anywhere in Australia can participate. Lesson recordings are provided after every session so you can revisit any strategy or worked example at any time.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFaq(this)">
+          How long does the course run?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-body"><p>The structured programme covers all 20 question types with weekly sessions, followed by mock test phases and then free post-course review sessions that continue until your exam date. The total timeline is aligned to when you're sitting the UCAT — we plan backwards from your exam window.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFaq(this)">
+          What makes this different from a large UCAT course or question bank?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-body"><p>More questions without a consistent strategy produces fluctuating scores — 60% one mock, 40% the next — because you're approaching the same question type differently each time. This course builds one locked-in approach per question type, personalised to how you specifically reason, so performance becomes consistent rather than variable.</p></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section class="cta-strip" id="contact">
+  <h2>Book your free diagnostic consultation.</h2>
+  <p>A live strategy demonstration for students and parents — see real-time accuracy and speed improvement before committing to anything.</p>
+  <a href="mailto:sarthak.ucat@gmail.com" class="btn-navy">Email to book — sarthak.ucat@gmail.com</a>
+  <div class="contact-row">
+    <div class="contact-item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.69 12 19.79 19.79 0 011.64 3.5 2 2 0 013.6 1.32h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.91 9a16 16 0 006.09 6.09l1.75-1.75a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 15.92z"/></svg>
+      0468 423 459
+    </div>
+    <div class="contact-item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      sarthak.ucat@gmail.com
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-brand">
+    <svg width="28" height="28" viewBox="0 0 80 80" fill="none">
+      <rect x="10" y="18" width="28" height="36" rx="3" stroke="#F5A623" stroke-width="3" fill="none"/>
+      <rect x="42" y="18" width="28" height="36" rx="3" stroke="#F5A623" stroke-width="3" fill="none"/>
+      <line x1="40" y1="18" x2="40" y2="54" stroke="#F5A623" stroke-width="2.5"/>
+      <line x1="16" y1="28" x2="32" y2="28" stroke="#F5A623" stroke-width="1.8"/>
+      <line x1="16" y1="34" x2="32" y2="34" stroke="#F5A623" stroke-width="1.8"/>
+      <line x1="48" y1="28" x2="64" y2="28" stroke="#F5A623" stroke-width="1.8"/>
+      <line x1="48" y1="34" x2="64" y2="34" stroke="#F5A623" stroke-width="1.8"/>
+      <path d="M6 56 Q40 62 74 56" stroke="#F5A623" stroke-width="3" fill="none"/>
+    </svg>
+    <div class="footer-brand-text">
+      UCAT COMPLETE GUIDANCE
+      <span>by Sarthak Mehta</span>
+    </div>
+  </div>
+  <p class="footer-copy">© 2026 UCAT Complete Guidance · Sarthak Mehta</p>
+  <div class="footer-contact">
+    <a href="tel:0468423459">0468 423 459</a><br>
+    <a href="mailto:sarthak.ucat@gmail.com">sarthak.ucat@gmail.com</a>
+  </div>
+</footer>
+
+<script>
+function toggleFaq(btn) {
+  const item = btn.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+</script>
+
+</body>
+</html>
