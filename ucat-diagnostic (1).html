@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UCAT Diagnostic Test — UCAT Complete Guidance</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#1A2B4A;--navy2:#243660;--gold:#F5A623;--gold2:#FBBF4A;
+  --white:#fff;--off:#F7F8FC;--stone:#E8EAF0;--muted:#5A6478;
+  --red:#E05252;--green:#2E9E6B;--blue:#3A7BD5;--purple:#7C5CBF;
+  --vr:#3A7BD5;--dm:#2E9E6B;--qr:#7C5CBF;--sjt:#E07B3A;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito Sans',sans-serif;background:var(--off);color:var(--navy);-webkit-font-smoothing:antialiased}
+
+/* PROGRESS BAR */
+.prog-bar{position:fixed;top:0;left:0;right:0;z-index:300;height:4px;background:var(--stone)}
+.prog-fill{height:100%;background:var(--gold);transition:width 0.4s ease;width:0%}
+
+/* NAV */
+nav{position:fixed;top:4px;left:0;right:0;z-index:200;background:rgba(26,43,74,0.97);backdrop-filter:blur(6px);height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 4vw}
+.nav-logo{font-family:'Nunito Sans',sans-serif;font-weight:800;font-size:0.9rem;color:var(--white)}
+.nav-logo span{color:var(--gold)}
+.nav-section-tag{font-size:0.75rem;font-weight:700;padding:0.25rem 0.8rem;border-radius:12px;color:var(--white)}
+.slide-counter{font-size:0.8rem;color:rgba(255,255,255,0.5);font-weight:600}
+
+/* SLIDE WRAPPER */
+.slides{padding-top:60px;min-height:100vh}
+
+/* EACH SLIDE */
+.slide{display:none;min-height:calc(100vh - 60px);flex-direction:column;justify-content:flex-start;padding:2rem 5vw 6rem}
+.slide.active{display:flex}
+.slide-inner{max-width:860px;margin:0 auto;width:100%}
+
+/* SLIDE TYPE LABELS */
+.slide-type{display:inline-flex;align-items:center;gap:6px;font-size:0.72rem;font-weight:800;letter-spacing:0.06em;padding:0.3rem 0.75rem;border-radius:12px;margin-bottom:1rem}
+.type-vr{background:rgba(58,123,213,0.12);color:var(--vr)}
+.type-dm{background:rgba(46,158,107,0.12);color:var(--dm)}
+.type-qr{background:rgba(124,92,191,0.12);color:var(--qr)}
+.type-sjt{background:rgba(224,123,58,0.12);color:var(--sjt)}
+.type-explain{background:rgba(245,166,35,0.15);color:var(--gold)}
+.type-result{background:rgba(26,43,74,0.1);color:var(--navy)}
+
+/* SLIDE TITLES */
+.slide h2{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,3vw,2.1rem);color:var(--navy);line-height:1.2;margin-bottom:0.5rem}
+.slide-sub{font-size:0.88rem;color:var(--muted);margin-bottom:1.5rem;line-height:1.6}
+
+/* PASSAGE BOX */
+.passage{background:var(--white);border-left:4px solid var(--stone);padding:1.25rem 1.5rem;font-size:0.88rem;line-height:1.8;color:var(--navy);margin-bottom:1.25rem;border-radius:0 8px 8px 0}
+.passage.vr-border{border-left-color:var(--vr)}
+.passage.dm-border{border-left-color:var(--dm)}
+.passage.qr-border{border-left-color:var(--qr)}
+.passage.sjt-border{border-left-color:var(--sjt)}
+.passage b{font-weight:700}
+.passage em{font-style:italic;color:var(--muted)}
+
+/* QUESTION */
+.q-label{font-size:0.72rem;font-weight:800;color:var(--muted);letter-spacing:0.05em;margin-bottom:0.5rem}
+.q-text{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:1.1rem;line-height:1.5}
+
+/* OPTIONS */
+.options{display:flex;flex-direction:column;gap:0.6rem;margin-bottom:1.5rem}
+.opt{display:flex;align-items:flex-start;gap:0.75rem;background:var(--white);border:2px solid var(--stone);border-radius:8px;padding:0.85rem 1rem;cursor:pointer;transition:border-color 0.2s,background 0.2s;font-size:0.88rem;color:var(--navy);text-align:left;width:100%;font-family:'Nunito Sans',sans-serif;font-weight:600;line-height:1.5}
+.opt:hover{border-color:var(--gold);background:rgba(245,166,35,0.05)}
+.opt.selected{border-color:var(--gold);background:rgba(245,166,35,0.08)}
+.opt.correct{border-color:var(--green);background:rgba(46,158,107,0.08);color:var(--green)}
+.opt.wrong{border-color:var(--red);background:rgba(224,82,82,0.08);color:var(--red)}
+.opt-letter{width:22px;height:22px;border-radius:50%;background:var(--stone);display:flex;align-items:center;justify-content:center;font-size:0.72rem;font-weight:800;flex-shrink:0;margin-top:1px}
+.opt.correct .opt-letter{background:var(--green);color:var(--white)}
+.opt.wrong .opt-letter{background:var(--red);color:var(--white)}
+.opt.selected .opt-letter{background:var(--gold);color:var(--white)}
+
+/* CHECK BUTTON */
+.check-btn{background:var(--navy);color:var(--white);border:none;padding:0.75rem 2rem;border-radius:25px;font-family:'Nunito Sans',sans-serif;font-size:0.9rem;font-weight:800;cursor:pointer;transition:background 0.2s;display:none}
+.check-btn.visible{display:inline-block}
+.check-btn:hover{background:var(--navy2)}
+
+/* FEEDBACK */
+.feedback{display:none;margin-top:1.25rem;padding:1rem 1.25rem;border-radius:8px;font-size:0.875rem;line-height:1.7}
+.feedback.correct-fb{background:rgba(46,158,107,0.1);border:1px solid rgba(46,158,107,0.3);color:#1a6644}
+.feedback.wrong-fb{background:rgba(224,82,82,0.08);border:1px solid rgba(224,82,82,0.25);color:#8B1A1A}
+.feedback.show{display:block}
+.feedback strong{font-weight:800}
+
+/* EXPLANATION SLIDE */
+.explain-box{background:var(--navy);border-radius:12px;padding:2rem;margin-bottom:1.25rem}
+.explain-title{font-size:0.72rem;font-weight:800;color:var(--gold);letter-spacing:0.06em;margin-bottom:0.75rem}
+.explain-text{font-size:0.9rem;color:rgba(255,255,255,0.85);line-height:1.75}
+.explain-text b{color:var(--gold)}
+
+.trap-box{background:rgba(224,82,82,0.08);border:1.5px solid rgba(224,82,82,0.25);border-radius:8px;padding:1.1rem 1.25rem;margin-bottom:1rem}
+.trap-label{font-size:0.7rem;font-weight:800;color:var(--red);letter-spacing:0.06em;margin-bottom:0.4rem}
+.trap-text{font-size:0.875rem;color:var(--navy);line-height:1.65}
+
+.strategy-box{background:rgba(46,158,107,0.08);border:1.5px solid rgba(46,158,107,0.3);border-radius:8px;padding:1.1rem 1.25rem;margin-bottom:1rem}
+.strategy-label{font-size:0.7rem;font-weight:800;color:var(--green);letter-spacing:0.06em;margin-bottom:0.4rem}
+.strategy-text{font-size:0.875rem;color:var(--navy);line-height:1.65}
+
+.example-box{background:var(--white);border:2px solid var(--gold);border-radius:8px;padding:1.1rem 1.25rem;margin-bottom:1rem}
+.example-label{font-size:0.7rem;font-weight:800;color:var(--gold);letter-spacing:0.06em;margin-bottom:0.4rem}
+.example-text{font-size:0.875rem;color:var(--navy);line-height:1.65}
+
+/* SECOND Q BANNER */
+.second-q-banner{background:rgba(245,166,35,0.12);border:1.5px solid rgba(245,166,35,0.35);border-radius:8px;padding:0.75rem 1rem;margin-bottom:1.25rem;font-size:0.83rem;color:var(--navy);font-weight:700}
+.second-q-banner span{color:var(--gold)}
+
+/* SCORE TRACKING */
+.score-chip{display:inline-flex;align-items:center;gap:6px;background:rgba(245,166,35,0.1);border:1px solid rgba(245,166,35,0.3);border-radius:20px;padding:0.3rem 0.75rem;font-size:0.78rem;font-weight:700;color:var(--navy);margin-bottom:1rem}
+
+/* RESULT SLIDE */
+.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:2rem}
+.result-card{background:var(--white);border:2px solid var(--stone);border-radius:12px;padding:1.5rem}
+.result-card-section{font-size:0.7rem;font-weight:800;letter-spacing:0.06em;margin-bottom:0.5rem}
+.result-card-score{font-family:'Playfair Display',serif;font-size:2.2rem;line-height:1;margin-bottom:0.25rem}
+.result-card-label{font-size:0.78rem;color:var(--muted);margin-bottom:0.75rem}
+.result-card-diag{font-size:0.82rem;color:var(--navy);line-height:1.65}
+.rc-vr .result-card-section{color:var(--vr)} .rc-vr .result-card-score{color:var(--vr)}
+.rc-dm .result-card-section{color:var(--dm)} .rc-dm .result-card-score{color:var(--dm)}
+.rc-qr .result-card-section{color:var(--qr)} .rc-qr .result-card-score{color:var(--qr)}
+.rc-sjt .result-card-section{color:var(--sjt)} .rc-sjt .result-card-score{color:var(--sjt)}
+
+.percentile-box{background:var(--navy);border-radius:12px;padding:2rem;text-align:center;margin-bottom:2rem}
+.percentile-label{font-size:0.78rem;font-weight:700;color:rgba(255,255,255,0.5);letter-spacing:0.05em;margin-bottom:0.5rem}
+.percentile-num{font-family:'Playfair Display',serif;font-size:3.5rem;color:var(--gold);line-height:1;margin-bottom:0.25rem}
+.percentile-desc{font-size:0.85rem;color:rgba(255,255,255,0.65);line-height:1.6;max-width:480px;margin:0 auto}
+
+.cta-result{background:var(--gold);border-radius:12px;padding:2rem;text-align:center}
+.cta-result h3{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--navy);margin-bottom:0.5rem}
+.cta-result p{font-size:0.875rem;color:rgba(26,43,74,0.75);line-height:1.65;margin-bottom:1.25rem;max-width:480px;margin-left:auto;margin-right:auto}
+.cta-result .contact-row{display:flex;gap:1.25rem;justify-content:center;flex-wrap:wrap;margin-top:1rem}
+.cta-result .contact-item{font-size:0.85rem;font-weight:700;color:var(--navy)}
+.btn-navy-sm{background:var(--navy);color:var(--white);border:none;padding:0.8rem 2rem;border-radius:25px;font-family:'Nunito Sans',sans-serif;font-size:0.9rem;font-weight:800;cursor:pointer;text-decoration:none;display:inline-block}
+
+/* NAV BUTTONS */
+.nav-btns{position:fixed;bottom:0;left:0;right:0;z-index:200;background:var(--white);border-top:1px solid var(--stone);padding:0.9rem 5vw;display:flex;justify-content:space-between;align-items:center}
+.btn-prev,.btn-next{border:none;padding:0.65rem 1.5rem;border-radius:25px;font-family:'Nunito Sans',sans-serif;font-size:0.88rem;font-weight:800;cursor:pointer;transition:all 0.2s}
+.btn-prev{background:var(--stone);color:var(--navy)}
+.btn-prev:hover{background:#d4d8e4}
+.btn-next{background:var(--gold);color:var(--navy)}
+.btn-next:hover{background:var(--gold2)}
+.btn-next:disabled{background:var(--stone);color:var(--muted);cursor:not-allowed}
+.nav-dots{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;max-width:300px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--stone);cursor:pointer;transition:background 0.2s}
+.dot.active{background:var(--gold)}
+.dot.done{background:var(--navy)}
+
+/* INTRO SLIDE */
+.intro-sections{display:grid;grid-template-columns:repeat(4,1fr);gap:0.75rem;margin:1.5rem 0}
+.intro-sec{background:var(--white);border-radius:8px;padding:1rem;text-align:center;border-top:3px solid var(--stone)}
+.intro-sec.vr{border-top-color:var(--vr)}.intro-sec.dm{border-top-color:var(--dm)}.intro-sec.qr{border-top-color:var(--qr)}.intro-sec.sjt{border-top-color:var(--sjt)}
+.intro-sec-name{font-size:0.7rem;font-weight:800;letter-spacing:0.05em;margin-bottom:0.25rem}
+.intro-sec.vr .intro-sec-name{color:var(--vr)}.intro-sec.dm .intro-sec-name{color:var(--dm)}.intro-sec.qr .intro-sec-name{color:var(--qr)}.intro-sec.sjt .intro-sec-name{color:var(--sjt)}
+.intro-sec-desc{font-size:0.75rem;color:var(--muted);line-height:1.5}
+.start-btn{background:var(--gold);color:var(--navy);border:none;padding:0.9rem 2.5rem;border-radius:25px;font-family:'Nunito Sans',sans-serif;font-size:1rem;font-weight:800;cursor:pointer;margin-top:1.5rem}
+.start-btn:hover{background:var(--gold2)}
+
+/* MOBILE */
+@media(max-width:600px){
+  .result-grid{grid-template-columns:1fr}
+  .intro-sections{grid-template-columns:1fr 1fr}
+  .nav-dots{display:none}
+  .slide{padding:1.5rem 4vw 6rem}
+}
+</style>
+</head>
+<body>
+
+<div class="prog-bar"><div class="prog-fill" id="progFill"></div></div>
+
+<nav>
+  <div class="nav-logo">UCAT <span>Complete Guidance</span></div>
+  <div style="display:flex;align-items:center;gap:1rem">
+    <span class="nav-section-tag" id="navTag"></span>
+    <span class="slide-counter" id="slideCounter"></span>
+  </div>
+</nav>
+
+<div class="slides" id="slidesWrap">
+
+<!-- ══════════════════════════════════════════
+     SLIDE 0 — INTRO
+══════════════════════════════════════════ -->
+<div class="slide active" data-slide="0" data-section="intro">
+  <div class="slide-inner">
+    <div class="slide-type type-explain">Diagnostic Test</div>
+    <h2>UCAT Strategy Diagnostic</h2>
+    <p class="slide-sub">This test is designed to reveal the traps that cost most students marks — and show you exactly how strategy changes your score. You'll attempt a question, learn the trick, then immediately apply it.</p>
+    <div class="intro-sections">
+      <div class="intro-sec vr"><div class="intro-sec-name">VR</div><div class="intro-sec-desc">Verbal Reasoning<br>3 traps covered</div></div>
+      <div class="intro-sec dm"><div class="intro-sec-name">DM</div><div class="intro-sec-desc">Decision Making<br>3 traps covered</div></div>
+      <div class="intro-sec qr"><div class="intro-sec-name">QR</div><div class="intro-sec-desc">Quantitative Reasoning<br>3 traps covered</div></div>
+      <div class="intro-sec sjt"><div class="intro-sec-name">SJT</div><div class="intro-sec-desc">Situational Judgement<br>3 traps covered</div></div>
+    </div>
+    <p style="font-size:0.83rem;color:var(--muted);line-height:1.7;max-width:560px">12 trap/strategy sequences. Each sequence: attempt a question → learn the strategy → attempt a second question using the strategy. At the end you receive a section-by-section diagnostic and estimated percentile.</p>
+    <br><button class="start-btn" onclick="goTo(1)">Begin Diagnostic →</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     VR TRAP 1 — Q1 (Author vs Fact)
+══════════════════════════════════════════ -->
+<div class="slide" data-slide="1" data-section="VR" data-q="vr1a">
+  <div class="slide-inner">
+    <div class="slide-type type-vr">VR · Trap 1 of 3 · First Attempt</div>
+    <h2>Verbal Reasoning</h2>
+    <p class="slide-sub">Read the passage and answer the question. Go with your instinct.</p>
+    <div class="passage vr-border">
+      The push towards renewable energy has accelerated in recent years. Solar installations have increased by 40% across regional Australia, and wind capacity has doubled since 2018. Proponents of renewable energy argue that fossil fuel subsidies distort the market and make clean energy appear less competitive than it actually is. The government, however, has stated that fossil fuel subsidies remain essential to stabilise energy prices for households in the short term.
+    </div>
+    <div class="q-label">QUESTION</div>
+    <div class="q-text">Fossil fuel subsidies distort the energy market and make clean energy appear less competitive.</div>
+    <div class="options" id="opts-vr1a">
+      <button class="opt" onclick="selectOpt(this,'vr1a','A')"><span class="opt-letter">A</span>True</button>
+      <button class="opt" onclick="selectOpt(this,'vr1a','B')"><span class="opt-letter">B</span>False</button>
+      <button class="opt" onclick="selectOpt(this,'vr1a','C')"><span class="opt-letter">C</span>Can't Tell</button>
+    </div>
+    <button class="check-btn" id="check-vr1a" onclick="checkAnswer('vr1a','C')">Check Answer</button>
+    <div class="feedback" id="fb-vr1a"></div>
+  </div>
+</div>
+
+<!-- VR TRAP 1 — EXPLANATION -->
+<div class="slide" data-slide="2" data-section="VR" data-type="explain">
+  <div class="slide-inner">
+    <div class="slide-type type-explain">VR · Strategy Reveal</div>
+    <h2>The Author's View Trap</h2>
+    <div class="trap-box">
+      <div class="trap-label">⚠ THE TRAP</div>
+      <div class="trap-text">The passage says <em>"proponents argue that fossil fuel subsidies distort the market."</em> Most students read this and answer True — because it sounds factual and they agree with it. But the passage does not state this as fact. It attributes it to <b>proponents</b>. The author never confirms it.</div>
+    </div>
+    <div class="strategy-box">
+      <div class="strategy-label">✓ THE STRATEGY</div>
+      <div class="strategy-text"><b>Before answering, ask: who said this?</b> If the statement in the question is attributed to a group, expert, or one side of a debate in the passage — and the author doesn't independently confirm it — the answer is <b>Can't Tell</b>. You are not asked if you believe it. You are asked if the passage confirms it as fact.</div>
+    </div>
+    <div class="example-box">
+      <div class="example-label">SIMPLE EXAMPLE</div>
+      <div class="example-text">Passage: <em>"Critics claim the new policy will increase unemployment."</em><br><br>Q: The new policy will increase unemployment. → <b>Can't Tell.</b> The critics claim it — the passage doesn't confirm it is true.</div>
+    </div>
+    <p style="font-size:0.83rem;color:var(--muted);margin-top:0.5rem">Now apply this strategy to the next question — the same trap appears, but now you know to look for who is speaking.</p>
+  </div>
+</div>
+
+<!-- VR TRAP 1 — Q2 -->
+<div class="slide" data-slide="3" data-section="VR" data-q="vr1b">
+  <div class="slide-inner">
+    <div class="second-q-banner"><span>Apply the strategy →</span> Watch for who is making the claim in the passage.</div>
+    <div class="slide-type type-vr">VR · Trap 1 of 3 · Apply the Strategy</div>
+    <h2>Now you try — same trap</h2>
+    <div class="passage vr-border">
+      Hospital waiting times have been a persistent issue in public health systems globally. Health economists contend that introducing co-payments for GP visits would reduce unnecessary demand and shorten hospital waiting lists. The Health Minister has maintained that co-payments are not under consideration and that funding increases remain the preferred solution.
+    </div>
+    <div class="q-label">QUESTION</div>
+    <div class="q-text">Introducing co-payments for GP visits would reduce unnecessary demand and shorten hospital waiting lists.</div>
+    <div class="options" id="opts-vr1b">
+      <button class="opt" onclick="selectOpt(this,'vr1b','A')"><span class="opt-letter">A</span>True</button>
+      <button class="opt" onclick="selectOpt(this,'vr1b','B')"><span class="opt-letter">B</span>False</button>
+      <button class="opt" onclick="selectOpt(this,'vr1b','C')"><span class="opt-letter">C</span>Can't Tell</button>
+    </div>
+    <button class="check-btn" id="check-vr1b" onclick="checkAnswer('vr1b','C')">Check Answer</button>
+    <div class="feedback" id="fb-vr1b"></div>
+  </div>
+</div>
+
+<!-- VR TRAP 2 — Q1 (Cannot Say) -->
+<div class="slide" data-slide="4" data-section="VR" data-q="vr2a">
+  <div class="slide-inner">
+    <div class="slide-type type-vr">VR · Trap 2 of 3 · First Attempt</div>
+    <h2>Verbal Reasoning</h2>
+    <div class="passage vr-border">
+      Urban green spaces have been shown to improve mental wellbeing in residents who use them regularly. A recent study found that people living within 500 metres of a park reported lower stress levels than those living further away. The study did not examine whether the proximity of parks caused residents to use them more frequently, or whether other neighbourhood factors contributed to the observed differences.
+    </div>
+    <div class="q-label">QUESTION</div>
+    <div class="q-text">Living close to a park causes lower stress levels in urban residents.</div>
+    <div class="options" id="opts-vr2a">
+      <button class="opt" onclick="selectOpt(this,'vr2a','A')"><span class="opt-letter">A</span>True</button>
+      <button class="opt" onclick="selectOpt(this,'vr2a','B')"><span class="opt-letter">B</span>False</button>
+      <button class="opt" onclick="selectOpt(this,'vr2a','C')"><span class="opt-letter">C</span>Can't Tell</button>
+    </div>
+    <button class="check-btn" id="check-vr2a" onclick="checkAnswer('vr2a','C')">Check Answer</button>
+    <div class="feedback" id="fb-vr2a"></div>
+  </div>
+</div>
+
+<!-- VR TRAP 2 — EXPLANATION -->
+<div class="slide" data-slide="5" data-section="VR" data-type="explain">
+  <div class="slide-inner">
+    <div class="slide-type type-explain">VR · Strategy Reveal</div>
+    <h2>The Correlation vs Causation Trap</h2>
+    <div class="trap-box">
+      <div class="trap-label">⚠ THE TRAP</div>
+      <div class="trap-text">The passage says people near parks report lower stress — and it explicitly says the study did NOT examine whether proximity <b>caused</b> more park use or whether other factors explained it. But the question uses the word <b>"causes."</b> Most students mark True because the association sounds right. Correlation ≠ causation, and the passage says so directly.</div>
+    </div>
+    <div class="strategy-box">
+      <div class="strategy-label">✓ THE STRATEGY</div>
+      <div class="strategy-text"><b>Scan for causal language in the question.</b> Words like "causes," "leads to," "results in," "due to" require the passage to confirm a causal relationship — not just an association. If the passage only shows correlation or hedges with "did not examine causation," the answer is <b>Can't Tell</b>.</div>
+    </div>
+    <div class="example-box">
+      <div class="example-label">SIMPLE EXAMPLE</div>
+      <div class="example-text">Passage: <em>"Students who eat breakfast perform better on tests."</em><br><br>Q: Eating breakfast causes better test performance. → <b>Can't Tell.</b> The passage shows association, not causation.</div>
+    </div>
+  </div>
+</div>
+
+<!-- VR TRAP 2 — Q2 -->
+<div class="slide" data-slide="6" data-section="VR" data-q="vr2b">
+  <div class="slide-inner">
+    <div class="second-q-banner"><span>Apply the strategy →</span> Look for causal language in the question, and check if the passage actually confirms cause.</div>
+    <div class="slide-type type-vr">VR · Trap 2 of 3 · Apply the Strategy</div>
+    <h2>Now you try — same trap</h2>
+    <div class="passage vr-border">
+      A longitudinal study followed 2,000 adults over ten years and found that regular exercise was associated with a lower incidence of depression. Participants who exercised three or more times per week were 35% less likely to report depressive symptoms than those who did not exercise. The researchers noted that reverse causation — whereby people who are not depressed are more likely to exercise — could not be excluded from the findings.
+    </div>
+    <div class="q-label">QUESTION</div>
+    <div class="q-text">Regular exercise reduces the likelihood of developing depression.</div>
+    <div class="options" id="opts-vr2b">
+      <button class="opt" onclick="selectOpt(this,'vr2b','A')"><span class="opt-letter">A</span>True</button>
+      <button class="opt" onclick="selectOpt(this,'vr2b','B')"><span class="opt-letter">B</span>False</button>
+      <button class="opt" onclick="selectOpt(this,'vr2b','C')"><span class="opt-letter">C</span>Can't Tell</button>
+    </div>
+    <button class="check-btn" id="check-vr2b" onclick="checkAnswer('vr2b','C')">Check Answer</button>
+    <div class="feedback" id="fb-vr2b"></div>
+  </div>
+</div>
+
+<!-- VR TRAP 3 — Q1 (Negation) -->
+<div class="slide" data-slide="7" data-section="VR" data-q="vr3a">
+  <div class="slide-inner">
+    <div class="slide-type type-vr">VR · Trap 3 of 3 · First Attempt</div>
+    <h2>Verbal Reasoning</h2>
+    <div class="passage vr-border">
+      Not all medical interventions that are deemed effective by regulatory bodies are without significant side effects. Many approved treatments carry risks that, while acknowledged in clinical literature, are not consistently communicated to patients during consultations. Patient advocacy groups have called for mandatory disclosure frameworks, arguing that informed consent cannot be meaningful without complete risk communication.
+    </div>
+    <div class="q-label">QUESTION</div>
+    <div class="q-text">All medical interventions approved by regulatory bodies are free of significant side effects.</div>
+    <div class="options" id="opts-vr3a">
+      <button class="opt" onclick="selectOpt(this,'vr3a','A')"><span class="opt-letter">A</span>True</button>
+      <button class="opt" onclick="selectOpt(this,'vr3a','B')"><span class="opt-letter">B</span>False</button>
+      <button class="opt" onclick="selectOpt(this,'vr3a','C')"><span class="opt-letter">C</span>Can't Tell</button>
+    </div>
+    <button class="check-btn" id="check-vr3a" onclick="checkAnswer('vr3a','B')">Check Answer</button>
+    <div class="feedback" id="fb-vr3a"></div>
+  </div>
+</div>
+
+<!-- VR TRAP 3 — EXPLANATION -->
+<div class="slide" data-slide="8" data-section="VR" data-type="explain">
+  <div class="slide-inner">
+    <div class="slide-type type-explain">VR · Strategy Reveal</div>
+    <h2>The "All / Not All" Negation Trap</h2>
+    <div class="trap-box">
+      <div class="trap-label">⚠ THE TRAP</div>
+      <div class="trap-text">The passage opens: <em>"Not all medical interventions that are deemed effective are without significant side effects."</em> Unpacking that double negative is cognitively difficult under time pressure. Students either get confused and mark Can't Tell, or skim past "not" and think it says interventions are safe. The question then says "all... are free of side effects" — which is directly contradicted.</div>
+    </div>
+    <div class="strategy-box">
+      <div class="strategy-label">✓ THE STRATEGY</div>
+      <div class="strategy-text"><b>Rewrite double negatives in plain language before reading the question.</b> "Not all X are without Y" = "Some X have Y." Write it simply: <em>"Some approved treatments have side effects."</em> Now the question ("All approved treatments are free of side effects") is clearly False. One second to rewrite saves the question.</div>
+    </div>
+    <div class="example-box">
+      <div class="example-label">SIMPLE EXAMPLE</div>
+      <div class="example-text">Passage: <em>"Not all students who fail are unprepared."</em> → Rewrite: "Some students who fail are prepared."<br><br>Q: All students who fail are unprepared. → <b>False.</b> The passage directly contradicts this.</div>
+    </div>
+  </div>
+</div>
+
+<!-- VR TRAP 3 — Q2 -->
+<div class="slide" data-slide="9" data-section="VR" data-q="vr3b">
+  <div class="slide-inner">
+    <div class="second-q-banner"><span>Apply the strategy →</span> Rewrite any double negative in the passage into plain language before reading the question.</div>
+    <div class="slide-type type-vr">VR · Trap 3 of 3 · Apply the Strategy</div>
+    <h2>Now you try — same trap</h2>
+    <div class="passage vr-border">
+      It is not uncommon for patients to not disclose their use of complementary medicines to their general practitioners. This non-disclosure is not without consequence, as interactions between herbal preparations and prescribed medications are not well understood and can produce unpredictable outcomes. Healthcare providers are encouraged to ask patients directly rather than waiting for voluntary disclosure.
+    </div>
+    <div class="q-label">QUESTION</div>
+    <div class="q-text">Patients commonly disclose their use of complementary medicines to their general practitioners.</div>
+    <div class="options" id="opts-vr3b">
+      <button class="opt" onclick="selectOpt(this,'vr3b','A')"><span class="opt-letter">A</span>True</button>
+      <button class="opt" onclick="selectOpt(this,'vr3b','B')"><span class="opt-letter">B</span>False</button>
+      <button class="opt" onclick="selectOpt(this,'vr3b','C')"><span class="opt-letter">C</span>Can't Tell</button>
+    </div>
+    <button class="check-btn" id="check-vr3b" onclick="checkAnswer('vr3b','B')">Check Answer</button>
+    <div class="feedback" id="fb-vr3b"></div>
+  </div>
+</div>
+
+<!-- DM TRAP 1 — Q1 (Some vs All syllogism) -->
+<div class="slide" data-slide="10" data-section="DM" data-q="dm1a">
+  <div class="slide-inner">
+    <div class="slide-type type-dm">DM · Trap 1 of 3 · First Attempt</div>
+    <h2>Decision Making — Syllogisms</h2>
+    <p class="slide-sub">Read the statements carefully. Assume they are true.</p>
+    <div class="passage dm-border">
+      <b>Statement 1:</b> Some doctors are researchers.<br>
+      <b>Statement 2:</b> All researchers attend academic conferences.
+    </div>
+    <div class="q-label">QUESTION</div>
+    <div class="q-text">Which conclusion follows?</div>
+    <div class="options" id="opts-dm1a">
+      <button class="opt" onclick="selectOpt(this,'dm1a','A')"><span class="opt-letter">A</span>All doctors attend academic conferences.</button>
+      <button class="opt" onclick="selectOpt(this,'dm1a','B')"><span class="opt-letter">B</span>Some doctors attend academic conferences.</button>
+      <button class="opt" onclick="selectOpt(this,'dm1a','C')"><span class="opt-letter">C</span>No doctors attend academic conferences.</button>
+      <button class="opt" onclick="selectOpt(this,'dm1a','D')"><span class="opt-letter">D</span>All researchers are doctors.</button>
+    </div>
+    <button class="check-btn" id="check-dm1a" onclick="checkAnswer('dm1a','B')">Check Answer</button>
+    <div class="feedback" id="fb-dm1a"></div>
+  </div>
+</div>
+
+<!-- DM TRAP 1 — EXPLANATION -->
+<div class="slide" data-slide="11" data-section="DM" data-type="explain">
+  <div class="slide-inner">
+    <div class="slide-type type-explain">DM · Strategy Reveal</div>
+    <h2>The "Some" vs "All" Trap</h2>
+    <div class="trap-box">
+      <div class="trap-label">⚠ THE TRAP</div>
+      <div class="trap-text">Most students jump to answer A — "All doctors attend conferences." Their reasoning: some doctors are researchers, and all researchers attend conferences, so doctors attend conferences. <b>But "some doctors are researchers" does not mean all doctors are.</b> Only the doctors who are also researchers definitely attend conferences.</div>
+    </div>
+    <div class="strategy-box">
+      <div class="strategy-label">✓ THE STRATEGY — Draw a Venn Diagram mentally</div>
+      <div class="strategy-text"><b>"Some" means overlap — not total inclusion.</b> Draw a quick circle for Doctors and a circle for Researchers with partial overlap. Only the overlapping section definitely attends conferences. So: <b>Some doctors</b> (those who are researchers) attend conferences. "All doctors" is never justified from "some."</div>
+    </div>
+    <div class="example-box">
+      <div class="example-label">VENN RULE TO MEMORISE</div>
+      <div class="example-text">Some A are B + All B are C → <b>Some A are C.</b> Never "All A are C."<br><br>Some A are B + Some B are C → <b>No definite conclusion about A and C.</b><br><br>All A are B + All B are C → <b>All A are C.</b> ✓</div>
+    </div>
+  </div>
+</div>
+
+<!-- DM TRAP 1 — Q2 -->
+<div class="slide" data-slide="12" data-section="DM" data-q="dm1b">
+  <div class="slide-inner">
+    <div class="second-q-banner"><span>Apply the strategy →</span> Identify the "some" vs "all" language before concluding. Draw a quick mental Venn.</div>
+    <div class="slide-type type-dm">DM · Trap 1 of 3 · Apply the Strategy</div>
+    <h2>Now you try — same trap</h2>
+    <div class="passage dm-border">
+      <b>Statement 1:</b> Some nurses are trained in emergency triage.<br>
+      <b>Statement 2:</b> All staff trained in emergency triage can make independent treatment decisions.
+    </div>
+    <div class="q-label">QUESTION — Which conclusion definitely follows?</div>
+    <div class="q-text"></div>
+    <div class="options" id="opts-dm1b">
+      <button class="opt" onclick="selectOpt(this,'dm1b','A')"><span class="opt-letter">A</span>All nurses can make independent treatment decisions.</button>
+      <button class="opt" onclick="selectOpt(this,'dm1b','B')"><span class="opt-letter">B</span>Some nurses can make independent treatment decisions.</button>
+      <button class="opt" onclick="selectOpt(this,'dm1b','C')"><span class="opt-letter">C</span>No nurses can make independent treatment decisions.</button>
+      <button class="opt" onclick="selectOpt(this,'dm1b','D')"><span class="opt-letter">D</span>All staff who make independent decisions are nurses.</button>
+    </div>
+    <button class="check-btn" id="check-dm1b" onclick="checkAnswer('dm1b','B')">Check Answer</button>
+    <div class="feedback" id="fb-dm1b"></div>
+  </div>
+</div>
+
+<!-- DM TRAP 2 — Q1 (True/False puzzle — what cannot be true) -->
+<div class="slide" data-slide="13" data-section="DM" data-q="dm2a">
+  <div class="slide-inner">
+    <div class="slide-type type-dm">DM · Trap 2 of 3 · First Attempt</div>
+    <h2>Decision Making — Logical Puzzles</h2>
+    <div class="passage dm-border">
+      Four students — Alex, Ben, Cara, and Dana — each received either a Distinction or a Pass in their exam. Exactly two students received a Distinction. Alex and Ben did not both receive the same grade. Cara received a Distinction.
+    </div>
+    <div class="q-label">QUESTION</div>
+    <div class="q-text">Which of the following cannot be true?</div>
+    <div class="options" id="opts-dm2a">
+      <button class="opt" onclick="selectOpt(this,'dm2a','A')"><span class="opt-letter">A</span>Alex received a Distinction.</button>
+      <button class="opt" onclick="selectOpt(this,'dm2a','B')"><span class="opt-letter">B</span>Dana received a Pass.</button>
+      <button class="opt" onclick="selectOpt(this,'dm2a','C')"><span class="opt-letter">C</span>Ben received a Distinction.</button>
+      <button class="opt" onclick="selectOpt(this,'dm2a','D')"><span class="opt-letter">D</span>Both Ben and Alex received a Distinction.</button>
+    </div>
+    <button class="check-btn" id="check-dm2a" onclick="checkAnswer('dm2a','D')">Check Answer</button>
+    <div class="feedback" id="fb-dm2a"></div>
+  </div>
+</div>
+
+<!-- DM TRAP 2 — EXPLANATION -->
+<div class="slide" data-slide="14" data-section="DM" data-type="explain">
+  <div class="slide-inner">
+    <div class="slide-type type-explain">DM · Strategy Reveal</div>
+    <h2>The "Cannot Be True" Trap</h2>
+    <div class="trap-box">
+      <div class="trap-label">⚠ THE TRAP</div>
+      <div class="trap-text">Students get confused between "must be true," "could be true," and "cannot be true." On "cannot be true" questions, they often select answers that <em>could</em> be false — not ones that are <em>impossible</em>. Here: Alex and Ben cannot both have Distinction because the clue explicitly states they did not get the same grade. That makes D impossible, not just unlikely.</div>
+    </div>
+    <div class="strategy-box">
+      <div class="strategy-label">✓ THE STRATEGY — Test each answer</div>
+      <div class="strategy-text"><b>For "cannot be true" questions: try to make each answer work.</b> If you can construct a valid scenario where the answer is true, it's not the answer. The correct answer is the one where <em>no valid scenario exists.</em><br><br>Work from constraints outward: what is fixed? Cara = Distinction. Exactly 2 Distinctions total. Alex ≠ Ben grade. → Only one of Alex/Ben can have Distinction. So both having it is impossible.</div>
+    </div>
+    <div class="example-box">
+      <div class="example-label">THE 3-QUESTION METHOD</div>
+      <div class="example-text">For each answer option ask:<br>1. What is locked in by the constraints?<br>2. Can I build a valid scenario where this is true?<br>3. If yes → eliminate. If no scenario works → that's the answer.</div>
+    </div>
+  </div>
+</div>
+
+<!-- DM TRAP 2 — Q2 -->
+<div class="slide" data-slide="15" data-section="DM" data-q="dm2b">
+  <div class="slide-inner">
+    <div class="second-q-banner"><span>Apply the strategy →</span> Lock in the constraints first, then test each option by asking: can I build a valid scenario where this is true?</div>
+    <div class="slide-type type-dm">DM · Trap 2 of 3 · Apply the Strategy</div>
+    <h2>Now you try — same trap</h2>
+    <div class="passage dm-border">
+      Five patients — P, Q, R, S, T — are scheduled across morning and afternoon sessions. Exactly three are in the morning. P and Q are not in the same session. R is in the morning session. S and T are in the same session.
+    </div>
+    <div class="q-label">QUESTION — Which of the following cannot be true?</div>
+    <div class="q-text"></div>
+    <div class="options" id="opts-dm2b">
+      <button class="opt" onclick="selectOpt(this,'dm2b','A')"><span class="opt-letter">A</span>P is in the morning session.</button>
+      <button class="opt" onclick="selectOpt(this,'dm2b','B')"><span class="opt-letter">B</span>S is in the afternoon session.</button>
+      <button class="opt" onclick="selectOpt(this,'dm2b','C')"><span class="opt-letter">C</span>Both P and Q are in the morning session.</button>
+      <button class="opt" onclick="selectOpt(this,'dm2b','D')"><span class="opt-letter">D</span>T is in the morning session.</button>
+    </div>
+    <button class="check-btn" id="check-dm2b" onclick="checkAnswer('dm2b','C')">Check Answer</button>
+    <div class="feedback" id="fb-dm2b"></div>
+  </div>
+</div>
+
+<!-- DM TRAP 3 — Q1 (Venn — Some/No overlap) -->
+<div class="slide" data-slide="16" data-section="DM" data-q="dm3a">
+  <div class="slide-inner">
+    <div class="slide-type type-dm">DM · Trap 3 of 3 · First Attempt</div>
+    <h2>Decision Making — Venn Diagrams</h2>
+    <div class="passage dm-border">
+      <b>Statement 1:</b> No surgeons are general practitioners.<br>
+      <b>Statement 2:</b> Some general practitioners are rural doctors.<br>
+      <b>Statement 3:</b> All rural doctors work long hours.
+    </div>
+    <div class="q-label">QUESTION — Which conclusion definitely follows?</div>
+    <div class="q-text"></div>
+    <div class="options" id="opts-dm3a">
+      <button class="opt" onclick="selectOpt(this,'dm3a','A')"><span class="opt-letter">A</span>Some surgeons work long hours.</button>
+      <button class="opt" onclick="selectOpt(this,'dm3a','B')"><span class="opt-letter">B</span>No surgeons work long hours.</button>
+      <button class="opt" onclick="selectOpt(this,'dm3a','C')"><span class="opt-letter">C</span>Some general practitioners work long hours.</button>
+      <button class="opt" onclick="selectOpt(this,'dm3a','D')"><span class="opt-letter">D</span>All general practitioners work long hours.</button>
+    </div>
+    <button class="check-btn" id="check-dm3a" onclick="checkAnswer('dm3a','C')">Check Answer</button>
+    <div class="feedback" id="fb-dm3a"></div>
+  </div>
+</div>
+
+<!-- DM TRAP 3 — EXPLANATION -->
+<div class="slide" data-slide="17" data-section="DM" data-type="explain">
+  <div class="slide-inner">
+    <div class="slide-type type-explain">DM · Strategy Reveal</div>
+    <h2>The Chain + "No" Statement Trap</h2>
+    <div class="trap-box">
+      <div class="trap-label">⚠ THE TRAP</div>
+      <div class="trap-text">Students see "No surgeons are GPs" and "All rural doctors work long hours" and try to connect surgeons to long hours. But the chain only runs through GPs → rural doctors → long hours. Surgeons are completely excluded from GPs, so no conclusion about surgeons and long hours is possible. Others mark D ("All GPs work long hours") ignoring that only <em>some</em> GPs are rural doctors.</div>
+    </div>
+    <div class="strategy-box">
+      <div class="strategy-label">✓ THE STRATEGY — Follow the chain strictly</div>
+      <div class="strategy-text">Write the chain: <b>Some GPs → rural doctors → long hours.</b> "Some" at any link in the chain means the conclusion is "some," never "all." A "No" statement breaks any chain — if no A are B, then A cannot reach any conclusion through B. Trace the chain and stop where it breaks.</div>
+    </div>
+    <div class="example-box">
+      <div class="example-label">CHAIN RULE</div>
+      <div class="example-text">No A → B (blocked)<br>Some B → C (some overlap)<br>All C → D (full inclusion)<br><br>Conclusion: <b>Some B are D.</b> A is completely excluded. Never draw A into any conclusion that runs through B.</div>
+    </div>
+  </div>
+</div>
+
+<!-- DM TRAP 3 — Q2 -->
+<div class="slide" data-slide="18" data-section="DM" data-q="dm3b">
+  <div class="slide-inner">
+    <div class="second-q-banner"><span>Apply the strategy →</span> Trace the chain step by step. Stop where a "No" blocks the connection. "Some" anywhere in the chain caps your conclusion at "some."</div>
+    <div class="slide-type type-dm">DM · Trap 3 of 3 · Apply the Strategy</div>
+    <h2>Now you try — same trap</h2>
+    <div class="passage dm-border">
+      <b>Statement 1:</b> No cardiologists are paediatricians.<br>
+      <b>Statement 2:</b> Some paediatricians work in regional hospitals.<br>
+      <b>Statement 3:</b> All doctors who work in regional hospitals receive rural incentive payments.
+    </div>
+    <div class="q-label">QUESTION — Which conclusion definitely follows?</div>
+    <div class="q-text"></div>
+    <div class="options" id="opts-dm3b">
+      <button class="opt" onclick="selectOpt(this,'dm3b','A')"><span class="opt-letter">A</span>Some cardiologists receive rural incentive payments.</button>
+      <button class="opt" onclick="selectOpt(this,'dm3b','B')"><span class="opt-letter">B</span>All paediatricians receive rural incentive payments.</button>
+      <button class="opt" onclick="selectOpt(this,'dm3b','C')"><span class="opt-letter">C</span>Some paediatricians receive rural incentive payments.</button>
+      <button class="opt" onclick="selectOpt(this,'dm3b','D')"><span class="opt-letter">D</span>No cardiologists work in regional hospitals.</button>
+    </div>
+    <button class="check-btn" id="check-dm3b" onclick="checkAnswer('dm3b','C')">Check Answer</button>
+    <div class="feedback" id="fb-dm3b"></div>
+  </div>
+</div>
+
+<!-- QR TRAP 1 — Q1 (% of %) -->
+<div class="slide" data-slide="19" data-section="QR" data-q="qr1a">
+  <div class="slide-inner">
+    <div class="slide-type type-qr">QR · Trap 1 of 3 · First Attempt</div>
+    <h2>Quantitative Reasoning</h2>
+    <div class="passage qr-border">
+      A hospital employs 400 staff. 60% of staff are clinical. Of the clinical staff, 25% are specialists.
+    </div>
+    <div class="q-label">QUESTION</div>
+    <div class="q-text">What percentage of the total hospital staff are specialists?</div>
+    <div class="options" id="opts-qr1a">
+      <button class="opt" onclick="selectOpt(this,'qr1a','A')"><span class="opt-letter">A</span>25%</button>
+      <button class="opt" onclick="selectOpt(this,'qr1a','B')"><span class="opt-letter">B</span>15%</button>
+      <button class="opt" onclick="selectOpt(this,'qr1a','C')"><span class="opt-letter">C</span>85%</button>
+      <button class="opt" onclick="selectOpt(this,'qr1a','D')"><span class="opt-letter">D</span>40%</button>
+    </div>
+    <button class="check-btn" id="check-qr1a" onclick="checkAnswer('qr1a','B')">Check Answer</button>
+    <div class="feedback" id="fb-qr1a"></div>
+  </div>
+</div>
+
+<!-- QR TRAP 1 — EXPLANATION -->
+<div class="slide" data-slide="20" data-section="QR" data-type="explain">
+  <div class="slide-inner">
+    <div class="slide-type type-explain">QR · Strategy Reveal</div>
+    <h2>The Percentage of a Percentage Trap</h2>
+    <div class="trap-box">
+      <div class="trap-label">⚠ THE TRAP</div>
+      <div class="trap-text">Most students answer 25% — they take the last percentage mentioned and apply it directly to the total. But 25% is of the <em>clinical</em> staff, not of all staff. The question asks for specialists as a percentage of <em>everyone.</em> You must multiply the percentages: 60% × 25% = 15%. This trap appears in almost every UCAT exam.</div>
+    </div>
+    <div class="strategy-box">
+      <div class="strategy-label">✓ THE STRATEGY</div>
+      <div class="strategy-text"><b>Whenever you see a percentage of a subgroup, always check what the final question is asking the percentage of.</b> If the question asks for a % of the <em>whole</em>, multiply the chain of percentages together.<br><br>60% × 25% = 0.6 × 0.25 = <b>0.15 = 15%</b><br><br>Or use actual numbers: 400 × 60% = 240 clinical. 240 × 25% = 60 specialists. 60/400 = 15%.</div>
+    </div>
+    <div class="example-box">
+      <div class="example-label">QUICK CHECK METHOD</div>
+      <div class="example-text">Step 1: Convert to actual numbers using the total.<br>Step 2: Apply each percentage in sequence.<br>Step 3: Express the final number as a % of the original total.<br><br>This takes 15 seconds and eliminates the trap entirely.</div>
+    </div>
+  </div>
+</div>
+
+<!-- QR TRAP 1 — Q2 -->
+<div class="slide" data-slide="21" data-section="QR" data-q="qr1b">
+  <div class="slide-inner">
+    <div class="second-q-banner"><span>Apply the strategy →</span> Convert to actual numbers first. Apply each % in sequence. Express the final answer as % of the original total.</div>
+    <div class="slide-type type-qr">QR · Trap 1 of 3 · Apply the Strategy</div>
+    <h2>Now you try — same trap</h2>
+    <div class="passage qr-border">
+      A university has 2,000 students. 80% are domestic students. Of the domestic students, 30% receive a scholarship. Of scholarship recipients, 50% are enrolled in science degrees.
+    </div>
+    <div class="q-label">QUESTION</div>
+    <div class="q-text">What percentage of all university students are domestic scholarship recipients in science degrees?</div>
+    <div class="options" id="opts-qr1b">
+      <button class="opt" onclick="selectOpt(this,'qr1b','A')"><span class="opt-letter">A</span>50%</button>
+      <button class="opt" onclick="selectOpt(this,'qr1b','B')"><span class="opt-letter">B</span>30%</button>
+      <button class="opt" onclick="selectOpt(this,'qr1b','C')"><span class="opt-letter">C</span>12%</button>
+      <button class="opt" onclick="selectOpt(this,'qr1b','D')"><span class="opt-letter">D</span>24%</button>
+    </div>
+    <button class="check-btn" id="check-qr1b" onclick="checkAnswer('qr1b','C')">Check Answer</button>
+    <div class="feedback" id="fb-qr1b"></div>
+  </div>
+</div>
+
+<!-- QR TRAP 2 — Q1 (Mean vs Median with outlier) -->
+<div class="slide" data-slide="22" data-section="QR" data-q="qr2a">
+  <div class="slide-inner">
+    <div class="slide-type type-qr">QR · Trap 2 of 3 · First Attempt</div>
+    <h2>Quantitative Reasoning</h2>
+    <div class="passage qr-border">
+      Seven patients waited the following times (in minutes) to be seen in an emergency department:<br><br>
+      <b>8, 12, 10, 9, 11, 14, 95</b>
+    </div>
+    <div class="q-label">QUESTION</div>
+    <div class="q-text">A hospital report states that the "average" waiting time best represents typical patient experience. Which measure should they use, and what is its value?</div>
+    <div class="options" id="opts-qr2a">
+      <button class="opt" onclick="selectOpt(this,'qr2a','A')"><span class="opt-letter">A</span>Mean — approximately 22.7 minutes</button>
+      <button class="opt" onclick="selectOpt(this,'qr2a','B')"><span class="opt-letter">B</span>Median — 11 minutes</button>
+      <button class="opt" onclick="selectOpt(this,'qr2a','C')"><span class="opt-letter">C</span>Mean — 11 minutes</button>
+      <button class="opt" onclick="selectOpt(this,'qr2a','D')"><span class="opt-letter">D</span>Median — approximately 22.7 minutes</button>
+    </div>
+    <button class="check-btn" id="check-qr2a" onclick="checkAnswer('qr2a','B')">Check Answer</button>
+    <div class="feedback" id="fb-qr2a"></div>
+  </div>
+</div>
+
+<!-- QR TRAP 2 — EXPLANATION -->
+<div class="slide" data-slide="23" data-section="QR" data-type="explain">
+  <div class="slide-inner">
+    <div class="slide-type type-explain">QR · Strategy Reveal</div>
+    <h2>The Mean vs Median Outlier Trap</h2>
+    <div class="trap-box">
+      <div class="trap-label">⚠ THE TRAP</div>
+      <div class="trap-text">Students default to calculating the mean because "average" = mean in everyday language. But the mean here is pulled to ~22.7 by the outlier (95 min) — far above every other data point. This does not represent "typical" experience. The question is actually testing whether you recognise when the mean is misleading.</div>
+    </div>
+    <div class="strategy-box">
+      <div class="strategy-label">✓ THE STRATEGY</div>
+      <div class="strategy-text"><b>When you see a dataset, scan for outliers before calculating.</b> If one value is dramatically higher or lower than the rest, the median is almost always the better measure of typical experience. Sorted: 8, 9, 10, <b>11</b>, 12, 14, 95. The middle value (4th of 7) = 11. This accurately represents the typical patient.<br><br>In UCAT QR, if a question asks which measure "best represents" or is "most appropriate" for a skewed dataset — median wins whenever an outlier is visible.</div>
+    </div>
+    <div class="example-box">
+      <div class="example-label">QUICK SCAN RULE</div>
+      <div class="example-text">Before calculating mean: look at the spread. If one number is 3× or more the others → outlier present → median is the better central tendency → sort and find the middle value.</div>
+    </div>
+  </div>
+</div>
+
+<!-- QR TRAP 2 — Q2 -->
+<div class="slide" data-slide="24" data-section="QR" data-q="qr2b">
+  <div class="slide-inner">
+    <div class="second-q-banner"><span>Apply the strategy →</span> Scan for outliers before calculating. If an outlier exists, use median — sort and find the middle value.</div>
+    <div class="slide-type type-qr">QR · Trap 2 of 3 · Apply the Strategy</div>
+    <h2>Now you try — same trap</h2>
+    <div class="passage qr-border">
+      A clinic recorded the number of patients seen per day over one week:<br><br>
+      <b>22, 19, 24, 21, 20, 23, 118</b><br><br>
+      The clinic manager wants to report the figure that best represents a <em>typical</em> daily patient load.
+    </div>
+    <div class="q-label">QUESTION</div>
+    <div class="q-text">What is the most appropriate measure and its value?</div>
+    <div class="options" id="opts-qr2b">
+      <button class="opt" onclick="selectOpt(this,'qr2b','A')"><span class="opt-letter">A</span>Mean — approximately 35.3 patients</button>
+      <button class="opt" onclick="selectOpt(this,'qr2b','B')"><span class="opt-letter">B</span>Median — 22 patients</button>
+      <button class="opt" onclick="selectOpt(this,'qr2b','C')"><span class="opt-letter">C</span>Mean — 22 patients</button>
+      <button class="opt" onclick="selectOpt(this,'qr2b','D')"><span class="opt-letter">D</span>Median — approximately 35.3 patients</button>
+    </div>
+    <button class="check-btn" id="check-qr2b" onclick="checkAnswer('qr2b','B')">Check Answer</button>
+    <div class="feedback" id="fb-qr2b"></div>
+  </div>
+</div>
+
+<!-- QR TRAP 3 — Q1 (Wrong column/unit) -->
+<div class="slide" data-slide="25" data-section="QR" data-q="qr3a">
+  <div class="slide-inner">
+    <div class="slide-type type-qr">QR · Trap 3 of 3 · First Attempt</div>
+    <h2>Quantitative Reasoning — Data Table</h2>
+    <div class="passage qr-border" style="overflow-x:auto">
+      <table style="width:100%;border-collapse:collapse;font-size:0.85rem">
+        <tr style="background:var(--off)"><th style="padding:0.5rem;border:1px solid var(--stone);text-align:left">Region</th><th style="padding:0.5rem;border:1px solid var(--stone)">Clinics (n)</th><th style="padding:0.5rem;border:1px solid var(--stone)">Patients/month (hundreds)</th><th style="padding:0.5rem;border:1px solid var(--stone)">Avg consult (min)</th></tr>
+        <tr><td style="padding:0.5rem;border:1px solid var(--stone)">North</td><td style="padding:0.5rem;border:1px solid var(--stone);text-align:center">8</td><td style="padding:0.5rem;border:1px solid var(--stone);text-align:center">12</td><td style="padding:0.5rem;border:1px solid var(--stone);text-align:center">15</td></tr>
+        <tr style="background:var(--off)"><td style="padding:0.5rem;border:1px solid var(--stone)">South</td><td style="padding:0.5rem;border:1px solid var(--stone);text-align:center">5</td><td style="padding:0.5rem;border:1px solid var(--stone);text-align:center">9</td><td style="padding:0.5rem;border:1px solid var(--stone);text-align:center">18</td></tr>
+        <tr><td style="padding:0.5rem;border:1px solid var(--stone)">East</td><td style="padding:0.5rem;border:1px solid var(--stone);text-align:center">11</td><td style="padding:0.5rem;border:1px solid var(--stone);text-align:center">20</td><td style="padding:0.5rem;border:1px solid var(--stone);text-align:center">12</td></tr>
+        <tr style="background:var(--off)"><td style="padding:0.5rem;border:1px solid var(--stone)">West</td><td style="padding:0.5rem;border:1px solid var(--stone);text-align:center">6</td><td style="padding:0.5rem;border:1px solid var(--stone);text-align:center">7</td><td style="padding:0.5rem;border:1px solid var(--stone);text-align:center">20</td></tr>
+      </table>
+    </div>
+    <div class="q-label">QUESTION</div>
+    <div class="q-text">How many patients does the North region see per month?</div>
+    <div class="options" id="opts-qr3a">
+      <button class="opt" onclick="selectOpt(this,'qr3a','A')"><span class="opt-letter">A</span>12 patients</button>
+      <button class="opt" onclick="selectOpt(this,'qr3a','B')"><span class="opt-letter">B</span>1,200 patients</button>
+      <button class="opt" onclick="selectOpt(this,'qr3a','C')"><span class="opt-letter">C</span>120 patients</button>
+      <button class="opt" onclick="selectOpt(this,'qr3a','D')"><span class="opt-letter">D</span>12,000 patients</button>
+    </div>
+    <button class="check-btn" id="check-qr3a" onclick="checkAnswer('qr3a','B')">Check Answer</button>
+    <div class="feedback" id="fb-qr3a"></div>
+  </div>
+</div>
+
+<!-- QR TRAP 3 — EXPLANATION -->
+<div class="slide" data-slide="26" data-section="QR" data-type="explain">
+  <div class="slide-inner">
+    <div class="slide-type type-explain">QR · Strategy Reveal</div>
+    <h2>The Unit / Column Header Trap</h2>
+    <div class="trap-box">
+      <div class="trap-label">⚠ THE TRAP</div>
+      <div class="trap-text">The column says <em>"Patients/month (hundreds)"</em> — meaning each number must be multiplied by 100. Students read 12 from the table and answer 12, or sometimes 120 (multiplying by 10 instead of 100). Under time pressure, column headers are skimmed or misread. This is one of the most common QR errors in real UCAT exams.</div>
+    </div>
+    <div class="strategy-box">
+      <div class="strategy-label">✓ THE STRATEGY</div>
+      <div class="strategy-text"><b>Before reading any number from a table, read every column header completely — including the unit in brackets.</b> Underline or mentally flag unit modifiers: "(hundreds)", "(thousands)", "($000s)", "(per 1000 population)". Apply the multiplier before doing any arithmetic.<br><br>12 hundreds = 12 × 100 = <b>1,200 patients.</b></div>
+    </div>
+    <div class="example-box">
+      <div class="example-label">30-SECOND TABLE RULE</div>
+      <div class="example-text">When a table appears: spend 10 seconds reading ALL column headers before touching the numbers. Identify any unit multipliers. Only then extract values. This prevents the single most common QR error.</div>
+    </div>
+  </div>
+</div>
+
+<!-- QR TRAP 3 — Q2 -->
+<div class="slide" data-slide="27" data-section="QR" data-q="qr3b">
+  <div class="slide-inner">
+    <div class="second-q-banner"><span>Apply the strategy →</span> Read every column header before reading numbers. Apply the unit multiplier before calculating.</div>
+    <div class="slide-type type-qr">QR · Trap 3 of 3 · Apply the Strategy</div>
+    <h2>Now you try — same trap</h2>
+    <div class="passage qr-border" style="overflow-x:auto">
+      <table style="width:100%;border-collapse:collapse;font-size:0.85rem">
+        <tr style="background:var(--off)"><th style="padding:0.5rem;border:1px solid var(--stone);text-align:left">Hospital</th><th style="padding:0.5rem;border:1px solid var(--stone)">Beds (n)</th><th style="padding:0.5rem;border:1px solid var(--stone)">Annual budget ($millions)</th><th style="padding:0.5rem;border:1px solid var(--stone)">Staff (thousands)</th></tr>
+        <tr><td style="padding:0.5rem;border:1px solid var(--stone)">Riverside</td><td style="padding:0.5rem;border:1px solid var(--stone);text-align:center">320</td><td style="padding:0.5rem;border:1px solid var(--stone);text-align:center">45</td><td style="padding:0.5rem;border:1px solid var(--stone);text-align:center">2.4</td></tr>
+        <tr style="background:var(--off)"><td style="padding:0.5rem;border:1px solid var(--stone)">Hillcrest</td><td style="padding:0.5rem;border:1px solid var(--stone);text-align:center">180</td><td style="padding:0.5rem;border:1px solid var(--stone);text-align:center">28</td><td style="padding:0.5rem;border:1px solid var(--stone);text-align:center">1.6</td></tr>
+        <tr><td style="padding:0.5rem;border:1px solid var(--stone)">Metro Central</td><td style="padding:0.5rem;border:1px solid var(--stone);text-align:center">510</td><td style="padding:0.5rem;border:1px solid var(--stone);text-align:center">72</td><td style="padding:0.5rem;border:1px solid var(--stone);text-align:center">3.8</td></tr>
+      </table>
+    </div>
+    <div class="q-label">QUESTION</div>
+    <div class="q-text">What is the total number of staff employed across all three hospitals?</div>
+    <div class="options" id="opts-qr3b">
+      <button class="opt" onclick="selectOpt(this,'qr3b','A')"><span class="opt-letter">A</span>7.8 staff</button>
+      <button class="opt" onclick="selectOpt(this,'qr3b','B')"><span class="opt-letter">B</span>780 staff</button>
+      <button class="opt" onclick="selectOpt(this,'qr3b','C')"><span class="opt-letter">C</span>7,800 staff</button>
+      <button class="opt" onclick="selectOpt(this,'qr3b','D')"><span class="opt-letter">D</span>78 staff</button>
+    </div>
+    <button class="check-btn" id="check-qr3b" onclick="checkAnswer('qr3b','C')">Check Answer</button>
+    <div class="feedback" id="fb-qr3b"></div>
+  </div>
+</div>
+
+<!-- SJT TRAP 1 — Q1 (Appropriate vs Most Appropriate) -->
+<div class="slide" data-slide="28" data-section="SJT" data-q="sjt1a">
+  <div class="slide-inner">
+    <div class="slide-type type-sjt">SJT · Trap 1 of 3 · First Attempt</div>
+    <h2>Situational Judgement</h2>
+    <p class="slide-sub">Rank all four options from most (1) to least (4) appropriate. Click in order of your preference.</p>
+    <div class="passage sjt-border">
+      You are a medical student on a hospital placement. You notice that a senior nurse has prepared the wrong dose of a medication for a patient. The nurse is about to administer it. You are not sure if your observation is correct.
+    </div>
+    <div class="q-label">RANK from Most Appropriate (1) to Least Appropriate (4)</div>
+    <div class="q-text"></div>
+    <div class="options" id="opts-sjt1a" style="gap:0.5rem">
+      <button class="opt" onclick="selectRank(this,'sjt1a','A')"><span class="opt-letter" id="rank-sjt1a-A">A</span>Say nothing — the nurse is senior and likely correct.</button>
+      <button class="opt" onclick="selectRank(this,'sjt1a','B')"><span class="opt-letter" id="rank-sjt1a-B">B</span>Politely raise your concern with the nurse immediately before they administer.</button>
+      <button class="opt" onclick="selectRank(this,'sjt1a','C')"><span class="opt-letter" id="rank-sjt1a-C">C</span>Immediately inform the ward doctor without speaking to the nurse first.</button>
+      <button class="opt" onclick="selectRank(this,'sjt1a','D')"><span class="opt-letter" id="rank-sjt1a-D">D</span>Ask a fellow medical student what to do before taking any action.</button>
+    </div>
+    <button class="check-btn" id="check-sjt1a" onclick="checkRanking('sjt1a',['B','C','D','A'])">Check Ranking</button>
+    <div class="feedback" id="fb-sjt1a"></div>
+  </div>
+</div>
+
+<!-- SJT TRAP 1 — EXPLANATION -->
+<div class="slide" data-slide="29" data-section="SJT" data-type="explain">
+  <div class="slide-inner">
+    <div class="slide-type type-explain">SJT · Strategy Reveal</div>
+    <h2>The Hierarchy vs Patient Safety Trap</h2>
+    <div class="trap-box">
+      <div class="trap-label">⚠ THE TRAP</div>
+      <div class="trap-text">Many students rank C (go straight to the doctor) as most appropriate because it sounds safe and decisive. Others rank A (say nothing) to avoid conflict with a senior. Both are wrong. <b>Patient safety always overrides hierarchy</b> — but the first escalation step is always the most direct and immediate one: speak to the person administering <em>before</em> escalating past them.</div>
+    </div>
+    <div class="strategy-box">
+      <div class="strategy-label">✓ THE STRATEGY — The Escalation Ladder</div>
+      <div class="strategy-text"><b>Step 1: Address directly at the source first</b> — politely raise concern with the nurse immediately. <b>Step 2: Escalate if step 1 fails or is impossible.</b> Skipping step 1 and going straight to the doctor is premature escalation — appropriate only if the person is unavailable or unresponsive.<br><br>Doing nothing (A) is always ranked last when patient safety is at stake. Asking a peer (D) delays appropriate action.</div>
+    </div>
+    <div class="example-box">
+      <div class="example-label">THE SJT ESCALATION RULE</div>
+      <div class="example-text">1. Raise concern directly with the person involved<br>2. Escalate to the next level if unresolved<br>3. Document and report through formal channels<br>4. Do NOT do nothing when patient safety is at immediate risk</div>
+    </div>
+  </div>
+</div>
+
+<!-- SJT TRAP 1 — Q2 -->
+<div class="slide" data-slide="30" data-section="SJT" data-q="sjt1b">
+  <div class="slide-inner">
+    <div class="second-q-banner"><span>Apply the strategy →</span> Patient safety first. Address directly at source before escalating past the person involved.</div>
+    <div class="slide-type type-sjt">SJT · Trap 1 of 3 · Apply the Strategy</div>
+    <h2>Now you try — same trap</h2>
+    <div class="passage sjt-border">
+      You are a medical student. A junior doctor has written a prescription that you believe contains an error in the route of administration. The doctor is still on the ward and available. The prescription has not yet been dispensed.
+    </div>
+    <div class="q-label">RANK from Most Appropriate (1) to Least Appropriate (4)</div>
+    <div class="options" id="opts-sjt1b">
+      <button class="opt" onclick="selectRank(this,'sjt1b','A')"><span class="opt-letter" id="rank-sjt1b-A">A</span>Quietly mention your concern to the junior doctor directly.</button>
+      <button class="opt" onclick="selectRank(this,'sjt1b','B')"><span class="opt-letter" id="rank-sjt1b-B">B</span>Say nothing — you are only a student and may be wrong.</button>
+      <button class="opt" onclick="selectRank(this,'sjt1b','C')"><span class="opt-letter" id="rank-sjt1b-C">C</span>Go directly to the consultant without speaking to the junior doctor.</button>
+      <button class="opt" onclick="selectRank(this,'sjt1b','D')"><span class="opt-letter" id="rank-sjt1b-D">D</span>Alert the pharmacist to check the prescription when it arrives.</button>
+    </div>
+    <button class="check-btn" id="check-sjt1b" onclick="checkRanking('sjt1b',['A','D','C','B'])">Check Ranking</button>
+    <div class="feedback" id="fb-sjt1b"></div>
+  </div>
+</div>
+
+<!-- SJT TRAP 2 — Q1 (Patient Autonomy) -->
+<div class="slide" data-slide="31" data-section="SJT" data-q="sjt2a">
+  <div class="slide-inner">
+    <div class="slide-type type-sjt">SJT · Trap 2 of 3 · First Attempt</div>
+    <h2>Situational Judgement</h2>
+    <div class="passage sjt-border">
+      A 45-year-old patient with capacity has been informed of all risks and benefits of a recommended surgical procedure. They have decided to decline the surgery, preferring to manage their condition conservatively, despite their surgeon's strong recommendation to proceed. The patient is not in immediate danger.
+    </div>
+    <div class="q-label">RANK from Most Appropriate (1) to Least Appropriate (4)</div>
+    <div class="options" id="opts-sjt2a">
+      <button class="opt" onclick="selectRank(this,'sjt2a','A')"><span class="opt-letter" id="rank-sjt2a-A">A</span>Respect the patient's decision and document it clearly in the notes.</button>
+      <button class="opt" onclick="selectRank(this,'sjt2a','B')"><span class="opt-letter" id="rank-sjt2a-B">B</span>Continue to strongly encourage the patient to reconsider until they agree.</button>
+      <button class="opt" onclick="selectRank(this,'sjt2a','C')"><span class="opt-letter" id="rank-sjt2a-C">C</span>Seek a second opinion from another surgeon to present additional reasons to proceed.</button>
+      <button class="opt" onclick="selectRank(this,'sjt2a','D')"><span class="opt-letter" id="rank-sjt2a-D">D</span>Discuss alternative conservative management options the patient may wish to consider.</button>
+    </div>
+    <button class="check-btn" id="check-sjt2a" onclick="checkRanking('sjt2a',['A','D','C','B'])">Check Ranking</button>
+    <div class="feedback" id="fb-sjt2a"></div>
+  </div>
+</div>
+
+<!-- SJT TRAP 2 — EXPLANATION -->
+<div class="slide" data-slide="32" data-section="SJT" data-type="explain">
+  <div class="slide-inner">
+    <div class="slide-type type-explain">SJT · Strategy Reveal</div>
+    <h2>The Patient Autonomy Trap</h2>
+    <div class="trap-box">
+      <div class="trap-label">⚠ THE TRAP</div>
+      <div class="trap-text">Students who think "the doctor knows best" rank B or C highly — continuing to push the patient, or getting another surgeon to reinforce the pressure. But a patient with capacity has an absolute right to decline treatment, even if the decision seems unwise clinically. Persisting after an informed refusal is a violation of autonomy, not good practice.</div>
+    </div>
+    <div class="strategy-box">
+      <div class="strategy-label">✓ THE STRATEGY — The Capacity Rule</div>
+      <div class="strategy-text"><b>If the patient has capacity + has been fully informed → their decision must be respected.</b> Full stop. The appropriate response is:<br>1. Respect and document the decision (A)<br>2. Offer alternative management within their chosen framework (D)<br>3. Getting a second surgeon to pressure them (C) is inappropriate<br>4. Continued pressure after an informed decision (B) is always ranked last</div>
+    </div>
+    <div class="example-box">
+      <div class="example-label">CAPACITY CHECKLIST</div>
+      <div class="example-text">Before ranking — ask: Does the patient have capacity? Have they been fully informed? If YES to both: their choice is final. The appropriate actions are respecting, documenting, and offering alternatives within their chosen path.</div>
+    </div>
+  </div>
+</div>
+
+<!-- SJT TRAP 2 — Q2 -->
+<div class="slide" data-slide="33" data-section="SJT" data-q="sjt2b">
+  <div class="slide-inner">
+    <div class="second-q-banner"><span>Apply the strategy →</span> Capacity + fully informed = patient's decision is final. Respect it, document it, offer alternatives within their framework.</div>
+    <div class="slide-type type-sjt">SJT · Trap 2 of 3 · Apply the Strategy</div>
+    <h2>Now you try — same trap</h2>
+    <div class="passage sjt-border">
+      A competent 60-year-old patient has declined a blood transfusion on religious grounds, even after being informed that without it their recovery will be significantly slower and carries additional risk. They are stable, not in immediate danger, and have signed a formal refusal form.
+    </div>
+    <div class="q-label">RANK from Most Appropriate (1) to Least Appropriate (4)</div>
+    <div class="options" id="opts-sjt2b">
+      <button class="opt" onclick="selectRank(this,'sjt2b','A')"><span class="opt-letter" id="rank-sjt2b-A">A</span>Administer the transfusion anyway — the clinical risk is too high to ignore.</button>
+      <button class="opt" onclick="selectRank(this,'sjt2b','B')"><span class="opt-letter" id="rank-sjt2b-B">B</span>Document the refusal and proceed with the best available treatment within their wishes.</button>
+      <button class="opt" onclick="selectRank(this,'sjt2b','C')"><span class="opt-letter" id="rank-sjt2b-C">C</span>Ask a chaplain or family member to persuade the patient to change their mind.</button>
+      <button class="opt" onclick="selectRank(this,'sjt2b','D')"><span class="opt-letter" id="rank-sjt2b-D">D</span>Explore alternatives such as iron infusion or other blood conservation strategies.</button>
+    </div>
+    <button class="check-btn" id="check-sjt2b" onclick="checkRanking('sjt2b',['B','D','C','A'])">Check Ranking</button>
+    <div class="feedback" id="fb-sjt2b"></div>
+  </div>
+</div>
+
+<!-- SJT TRAP 3 — Q1 (Confidentiality vs Third-party risk) -->
+<div class="slide" data-slide="34" data-section="SJT" data-q="sjt3a">
+  <div class="slide-inner">
+    <div class="slide-type type-sjt">SJT · Trap 3 of 3 · First Attempt</div>
+    <h2>Situational Judgement</h2>
+    <div class="passage sjt-border">
+      A patient tells you in confidence that they have been experiencing blackouts but continue to drive. They refuse to stop driving or to inform the DVLA. You are a medical student and there is no supervising doctor immediately available.
+    </div>
+    <div class="q-label">RANK from Most Appropriate (1) to Least Appropriate (4)</div>
+    <div class="options" id="opts-sjt3a">
+      <button class="opt" onclick="selectRank(this,'sjt3a','A')"><span class="opt-letter" id="rank-sjt3a-A">A</span>Respect patient confidentiality — do nothing as they have not consented to disclosure.</button>
+      <button class="opt" onclick="selectRank(this,'sjt3a','B')"><span class="opt-letter" id="rank-sjt3a-B">B</span>Document the conversation and inform your supervising doctor as soon as they are available.</button>
+      <button class="opt" onclick="selectRank(this,'sjt3a','C')"><span class="opt-letter" id="rank-sjt3a-C">C</span>Explain to the patient clearly that this may need to be disclosed due to risk to others, and encourage voluntary reporting.</button>
+      <button class="opt" onclick="selectRank(this,'sjt3a','D')"><span class="opt-letter" id="rank-sjt3a-D">D</span>Immediately call the DVLA yourself to report the patient without telling them.</button>
+    </div>
+    <button class="check-btn" id="check-sjt3a" onclick="checkRanking('sjt3a',['C','B','D','A'])">Check Ranking</button>
+    <div class="feedback" id="fb-sjt3a"></div>
+  </div>
+</div>
+
+<!-- SJT TRAP 3 — EXPLANATION -->
+<div class="slide" data-slide="35" data-section="SJT" data-type="explain">
+  <div class="slide-inner">
+    <div class="slide-type type-explain">SJT · Strategy Reveal</div>
+    <h2>The Confidentiality vs Public Safety Trap</h2>
+    <div class="trap-box">
+      <div class="trap-label">⚠ THE TRAP</div>
+      <div class="trap-text">Many students rank A first — confidentiality feels like the "safe" professional answer. Others jump to D (call the DVLA immediately) because public safety sounds urgent. Both extremes miss the nuance: <b>confidentiality can be broken when there is serious risk to third parties</b>, but the <em>first step</em> is always to inform the patient and encourage voluntary disclosure — not to act unilaterally or do nothing.</div>
+    </div>
+    <div class="strategy-box">
+      <div class="strategy-label">✓ THE STRATEGY — The Confidentiality Override Rule</div>
+      <div class="strategy-text">Confidentiality is not absolute. When a patient poses serious risk to identifiable others (driving with blackouts, infectious disease, violence):<br><br>1. <b>Tell the patient</b> what may need to happen and encourage them to disclose voluntarily (C)<br>2. <b>Escalate to supervisor</b> — as a student you must not act alone on disclosure (B)<br>3. Formal disclosure to authorities follows through proper channels<br>4. Doing nothing (A) when serious third-party risk exists is always inappropriate</div>
+    </div>
+    <div class="example-box">
+      <div class="example-label">CONFIDENTIALITY EXCEPTION RULE</div>
+      <div class="example-text">Confidentiality CAN be broken: serious risk to identifiable third parties, patient lacks capacity, court order.<br>First step: always inform the patient and encourage voluntary disclosure before any external reporting.</div>
+    </div>
+  </div>
+</div>
+
+<!-- SJT TRAP 3 — Q2 -->
+<div class="slide" data-slide="36" data-section="SJT" data-q="sjt3b">
+  <div class="slide-inner">
+    <div class="second-q-banner"><span>Apply the strategy →</span> Serious risk to third parties overrides confidentiality. First: inform patient and encourage voluntary disclosure. Then escalate through proper channels.</div>
+    <div class="slide-type type-sjt">SJT · Trap 3 of 3 · Apply the Strategy</div>
+    <h2>Now you try — same trap</h2>
+    <div class="passage sjt-border">
+      During a consultation, a patient discloses that they have been diagnosed with a highly infectious respiratory illness but intend to continue working in a childcare centre. They ask you not to tell anyone. Your supervising doctor is available in the next room.
+    </div>
+    <div class="q-label">RANK from Most Appropriate (1) to Least Appropriate (4)</div>
+    <div class="options" id="opts-sjt3b">
+      <button class="opt" onclick="selectRank(this,'sjt3b','A')"><span class="opt-letter" id="rank-sjt3b-A">A</span>Keep the information confidential as the patient has requested.</button>
+      <button class="opt" onclick="selectRank(this,'sjt3b','B')"><span class="opt-letter" id="rank-sjt3b-B">B</span>Immediately inform your supervising doctor of the situation.</button>
+      <button class="opt" onclick="selectRank(this,'sjt3b','C')"><span class="opt-letter" id="rank-sjt3b-C">C</span>Explain to the patient the risk to children and strongly encourage them to stay home voluntarily.</button>
+      <button class="opt" onclick="selectRank(this,'sjt3b','D')"><span class="opt-letter" id="rank-sjt3b-D">D</span>Contact the childcare centre directly without telling the patient or your supervisor.</button>
+    </div>
+    <button class="check-btn" id="check-sjt3b" onclick="checkRanking('sjt3b',['C','B','D','A'])">Check Ranking</button>
+    <div class="feedback" id="fb-sjt3b"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     RESULT SLIDE
+══════════════════════════════════════════ -->
+<div class="slide" data-slide="37" data-section="Results" data-type="result">
+  <div class="slide-inner">
+    <div class="slide-type type-result">Your Diagnostic Results</div>
+    <h2>Section-by-Section Breakdown</h2>
+    <p class="slide-sub">Based on your first-attempt answers (before seeing the strategy), here is your diagnostic profile.</p>
+
+    <div class="result-grid" id="resultGrid">
+      <!-- filled by JS -->
+    </div>
+
+    <div class="percentile-box" id="percentileBox">
+      <div class="percentile-label">ESTIMATED PERCENTILE RANGE</div>
+      <div class="percentile-num" id="percentileNum">—</div>
+      <div class="percentile-desc" id="percentileDesc">Calculating...</div>
+    </div>
+
+    <div class="cta-result">
+      <h3>Book a Comprehensive Diagnostic Consultation</h3>
+      <p>This test revealed your trap patterns across all four sections. A full diagnostic consultation with Sarthak goes deeper — breaking down every question type individually, identifying your specific strategy gaps across all 20 question types, and building a personalised preparation plan from session one.</p>
+      <a href="mailto:sarthak.ucat@gmail.com" class="btn-navy-sm">Email to book — sarthak.ucat@gmail.com</a>
+      <div class="contact-row">
+        <span class="contact-item">📞 0468 423 459</span>
+        <span class="contact-item">✉ sarthak.ucat@gmail.com</span>
+      </div>
+      <p style="font-size:0.78rem;color:rgba(26,43,74,0.6);margin-top:1rem">First consultation is completely free. Experience a live strategy example and see the approach before committing to anything.</p>
+    </div>
+  </div>
+</div>
+
+</div><!-- /slides -->
+
+<!-- BOTTOM NAV -->
+<div class="nav-btns">
+  <button class="btn-prev" onclick="goTo(currentSlide-1)" id="btnPrev">← Back</button>
+  <div class="nav-dots" id="navDots"></div>
+  <button class="btn-next" onclick="goTo(currentSlide+1)" id="btnNext">Next →</button>
+</div>
+
+<script>
+const TOTAL = 38;
+let currentSlide = 0;
+
+// Score tracking: track first-attempt scores per section
+const scores = {vr:{first:0,second:0,total:3},dm:{first:0,second:0,total:3},qr:{first:0,second:0,total:3},sjt:{first:0,second:0,total:3}};
+const answered = {};
+const rankSelections = {};
+
+// Section colours for nav tag
+const sectionColors = {intro:'#8A94A8',VR:'#3A7BD5',DM:'#2E9E6B',QR:'#7C5CBF',SJT:'#E07B3A',Results:'#1A2B4A'};
+
+function getSlideData(idx){
+  const el = document.querySelector(`.slide[data-slide="${idx}"]`);
+  return el ? {section:el.dataset.section||'',q:el.dataset.q||'',type:el.dataset.type||''} : {};
+}
+
+function goTo(idx){
+  if(idx<0||idx>=TOTAL) return;
+  document.querySelector('.slide.active').classList.remove('active');
+  document.querySelector(`.slide[data-slide="${idx}"]`).classList.add('active');
+  currentSlide = idx;
+  updateUI();
+  if(idx===TOTAL-1) buildResults();
+  window.scrollTo(0,0);
+}
+
+function updateUI(){
+  const pct = (currentSlide/(TOTAL-1))*100;
+  document.getElementById('progFill').style.width = pct+'%';
+  document.getElementById('slideCounter').textContent = currentSlide===0?'':`${currentSlide} / ${TOTAL-2}`;
+  const {section} = getSlideData(currentSlide);
+  const tag = document.getElementById('navTag');
+  tag.textContent = section||'';
+  tag.style.background = (sectionColors[section]||'#8A94A8')+'22';
+  tag.style.color = sectionColors[section]||'#8A94A8';
+  document.getElementById('btnPrev').style.display = currentSlide===0?'none':'block';
+  const nextBtn = document.getElementById('btnNext');
+  nextBtn.textContent = currentSlide===0?'Start →': currentSlide===TOTAL-2?'See Results →':'Next →';
+  // Build dots
+  const dotsEl = document.getElementById('navDots');
+  dotsEl.innerHTML='';
+  for(let i=0;i<TOTAL;i++){
+    const d=document.createElement('div');
+    d.className='dot'+(i===currentSlide?' active':i<currentSlide?' done':'');
+    d.onclick=(()=>{const t=i;return()=>goTo(t);})();
+    dotsEl.appendChild(d);
+  }
+}
+
+// MULTIPLE CHOICE
+function selectOpt(btn, qid, letter){
+  if(answered[qid]) return;
+  document.querySelectorAll(`#opts-${qid} .opt`).forEach(o=>o.classList.remove('selected'));
+  btn.classList.add('selected');
+  btn.dataset.chosen = letter;
+  const checkBtn = document.getElementById(`check-${qid}`);
+  if(checkBtn) checkBtn.classList.add('visible');
+}
+
+function checkAnswer(qid, correct){
+  if(answered[qid]) return;
+  answered[qid]=true;
+  const opts = document.querySelectorAll(`#opts-${qid} .opt`);
+  let chosen='';
+  opts.forEach(o=>{if(o.classList.contains('selected')) chosen=o.dataset.chosen;});
+  opts.forEach(o=>{
+    const l=o.dataset.chosen;
+    if(l===correct) o.classList.add('correct');
+    else if(l===chosen && chosen!==correct) o.classList.add('wrong');
+    o.style.pointerEvents='none';
+  });
+  const fb = document.getElementById(`fb-${qid}`);
+  const isCorrect = chosen===correct;
+  // Update scores
+  updateScore(qid, isCorrect);
+  const messages = {
+    'vr1a':{c:"Correct — Can't Tell. The passage attributes this to proponents, not to the author as fact. You spotted the attribution.",w:"The passage says proponents argue this — it's attributed to one side, not stated as fact by the author. The answer is Can't Tell."},
+    'vr1b':{c:"Correct — Can't Tell. Health economists contend this — the passage does not confirm it as an established fact.",w:"Health economists contend this — it's their argument, not a confirmed fact in the passage. Always ask: who is making the claim?"},
+    'vr2a':{c:"Correct — Can't Tell. The study explicitly states it did not examine causation. Association ≠ causation.",w:"The passage explicitly says causation was not examined. 'Causes' in the question requires causal confirmation — not just an association."},
+    'vr2b':{c:"Correct — Can't Tell. The researchers acknowledged reverse causation cannot be excluded. No causal conclusion is justified.",w:"Reverse causation cannot be excluded per the researchers. The passage only shows association — 'reduces' implies causation, which isn't confirmed."},
+    'vr3a':{c:"Correct — False. Rewritten: 'Some approved treatments have significant side effects.' The question says 'all are free of side effects' — directly contradicted.",w:"Rewrite the double negative: 'Not all treatments are without side effects' = 'Some treatments have side effects.' The question claims all are safe — that's directly False."},
+    'vr3b':{c:"Correct — False. Rewritten: 'It is not uncommon' = 'It is common' that patients do NOT disclose. So 'patients commonly disclose' is False.",w:"Rewrite: 'not uncommon to not disclose' = patients commonly do NOT disclose. The question says they commonly DO disclose — that's False."},
+    'dm1a':{c:"Correct — B. Some doctors are researchers, and all researchers attend conferences → Some doctors attend conferences. 'All doctors' is never justified from 'some.'",w:"'Some doctors are researchers' — not all. Only that overlapping group definitely attends conferences. The answer is 'Some doctors' — never 'All doctors' from a 'some' premise."},
+    'dm1b':{c:"Correct — B. Some nurses are triage-trained → all triage-trained can decide independently → Some nurses can decide independently.",w:"Only some nurses are triage-trained. That subgroup can make independent decisions. Never conclude 'all nurses' from 'some nurses.'"},
+    'dm2a':{c:"Correct — D. Alex and Ben cannot have the same grade. Both having Distinction is impossible — it violates the constraint directly.",w:"The constraint says Alex and Ben did NOT get the same grade. Both having Distinction is directly impossible — no valid scenario exists."},
+    'dm2b':{c:"Correct — C. P and Q cannot be in the same session. Both in morning directly violates the constraint.",w:"P and Q cannot be in the same session. If both were in morning, that constraint is violated. No valid scenario exists for C."},
+    'dm3a':{c:"Correct — C. Some GPs are rural doctors + All rural doctors work long hours → Some GPs work long hours. Surgeons are excluded via Statement 1.",w:"Trace the chain: Some GPs → rural doctors → long hours = Some GPs work long hours. Surgeons cannot reach 'long hours' because no surgeons are GPs."},
+    'dm3b':{c:"Correct — C. Some paediatricians work in regional hospitals + All regional hospital doctors get rural payments → Some paediatricians get rural payments.",w:"Chain: Some paediatricians → regional hospitals → rural payments = Some paediatricians get rural payments. Cardiologists are blocked by Statement 1."},
+    'qr1a':{c:"Correct — 15%. 60% × 25% = 15%. The 25% applies to clinical staff only, not total staff.",w:"25% is of the clinical staff (60% of total), not of everyone. You must multiply: 0.6 × 0.25 = 0.15 = 15% of total staff."},
+    'qr1b':{c:"Correct — 12%. 2000 × 80% = 1600 domestic. × 30% = 480 scholarship. × 50% = 240 science. 240/2000 = 12%.",w:"Multiply the chain: 80% × 30% × 50% = 12%. Or: 2000 → 1600 → 480 → 240. 240/2000 = 12%."},
+    'qr2a':{c:"Correct — Median, 11 minutes. The outlier (95) distorts the mean to ~22.7. Sorted: 8,9,10,11,12,14,95 → middle value = 11.",w:"The outlier (95 min) pulls the mean to ~22.7 — far above typical experience. Sorted median = 11, which accurately represents the typical patient."},
+    'qr2b':{c:"Correct — Median, 22 patients. Sorted: 19,20,21,22,23,24,118 → middle value = 22. The outlier (118) distorts the mean to ~35.",w:"118 is an outlier. Sorted: 19,20,21,22,23,24,118. Middle (4th) value = 22. The mean (~35) is distorted and unrepresentative."},
+    'qr3a':{c:"Correct — 1,200 patients. The column header says 'hundreds' — 12 × 100 = 1,200. Always read units before reading values.",w:"The column says 'Patients/month (hundreds)' — you must multiply by 100. 12 hundreds = 1,200 patients, not 12."},
+    'qr3b':{c:"Correct — 7,800 staff. Staff column is in thousands: 2.4 + 1.6 + 3.8 = 7.8 thousands = 7,800.",w:"Staff column is in thousands. 2.4 + 1.6 + 3.8 = 7.8 thousands = 7,800. Always apply the unit multiplier from the column header."},
+  };
+  const msg = messages[qid];
+  if(msg){
+    fb.className = 'feedback show '+(isCorrect?'correct-fb':'wrong-fb');
+    fb.innerHTML = '<strong>'+(isCorrect?'✓ Correct':'✗ Not quite')+'</strong> — '+(isCorrect?msg.c:msg.w);
+  }
+  document.getElementById(`check-${qid}`).style.display='none';
+}
+
+function updateScore(qid, correct){
+  const isFirst = !qid.endsWith('b');
+  const sec = qid.substring(0,qid.indexOf(qid.match(/\d/)[0]));
+  if(isFirst && correct) scores[sec].first++;
+  if(!isFirst && correct) scores[sec].second++;
+}
+
+// SJT RANKING
+function selectRank(btn, qid, letter){
+  if(answered[qid]) return;
+  if(!rankSelections[qid]) rankSelections[qid]=[];
+  // Toggle
+  const idx = rankSelections[qid].indexOf(letter);
+  if(idx>-1){
+    rankSelections[qid].splice(idx,1);
+  } else if(rankSelections[qid].length<4){
+    rankSelections[qid].push(letter);
+  }
+  // Update letter display
+  const opts = document.querySelectorAll(`#opts-${qid} .opt`);
+  opts.forEach(o=>{
+    const l=o.dataset.chosen||o.querySelector('.opt-letter').id.split('-').pop();
+    const rankEl = document.getElementById(`rank-${qid}-${o.querySelector('.opt-letter').textContent.trim()||l}`);
+  });
+  // Re-render ranks on buttons
+  document.querySelectorAll(`#opts-${qid} .opt`).forEach(o=>{
+    const letter_id = o.onclick.toString().match(/'([A-D])'\)$/)?.[1] || '';
+  });
+  // Simpler: find letter from opt-letter text
+  document.querySelectorAll(`#opts-${qid} .opt`).forEach(o=>{
+    const letEl = o.querySelector('.opt-letter');
+    const l = letEl.dataset.l || letEl.textContent.trim();
+    letEl.dataset.l = l;
+    const rank = rankSelections[qid].indexOf(l)+1;
+    letEl.textContent = rank>0?rank:l;
+    o.classList.toggle('selected', rank>0);
+  });
+  const checkBtn = document.getElementById(`check-${qid}`);
+  if(rankSelections[qid].length===4) checkBtn.classList.add('visible');
+  else checkBtn.classList.remove('visible');
+}
+
+function checkRanking(qid, correctOrder){
+  if(answered[qid]) return;
+  answered[qid]=true;
+  const userOrder = rankSelections[qid]||[];
+  let matches=0;
+  userOrder.forEach((l,i)=>{if(l===correctOrder[i])matches++;});
+  const isGood = matches>=2;
+  const fb = document.getElementById(`fb-${qid}`);
+  const sjtMessages = {
+    'sjt1a':{c:'B→C→D→A. Raise concern directly with the nurse first (B). Escalate to the doctor if unresolved (C). Asking a peer delays action (D). Doing nothing when patient safety is at risk is always last (A).',},
+    'sjt1b':{c:'A→D→C→B. Raise concern with the junior doctor directly (A). Alert pharmacist as a safety net (D). Going to consultant without speaking to the doctor first is premature escalation (C). Saying nothing when you have a concern about patient safety is always last (B).',},
+    'sjt2a':{c:'A→D→C→B. The patient has capacity and is fully informed — their decision must be respected (A). Offering alternatives within their chosen framework is appropriate (D). Seeking a second opinion to apply more pressure is inappropriate (C). Continued pressure after an informed refusal is always last (B).',},
+    'sjt2b':{c:'B→D→C→A. Document and treat within their wishes (B). Explore alternatives (D). Using a third party to pressure them is inappropriate (C). Administering against explicit refusal of a capacitous patient is never acceptable (A).',},
+    'sjt3a':{c:'C→B→D→A. Inform the patient and encourage voluntary disclosure first (C). Escalate to your supervisor as a student (B). Formal reporting follows through proper channels (D). Doing nothing when there is serious third-party risk is always last (A).',},
+    'sjt3b':{c:'C→B→D→A. Explain the risk and encourage voluntary action first (C). Inform your supervising doctor immediately as they are available (B). Contacting the childcare centre directly without informing anyone bypasses proper channels (D). Keeping information confidential when there is serious risk to vulnerable third parties is always last (A).',},
+  };
+  const msg = sjtMessages[qid];
+  fb.className='feedback show '+(isGood?'correct-fb':'wrong-fb');
+  fb.innerHTML = '<strong>'+(isGood?'✓ Good ranking':'✗ Not quite')+'</strong> — Correct order: <b>'+correctOrder.join('→')+'</b>. '+(msg?msg.c:'');
+  // Update SJT score
+  const isFirst = !qid.endsWith('b');
+  if(isFirst && isGood) scores.sjt.first++;
+  if(!isFirst && isGood) scores.sjt.second++;
+  document.getElementById(`check-${qid}`).style.display='none';
+  document.querySelectorAll(`#opts-${qid} .opt`).forEach(o=>o.style.pointerEvents='none');
+}
+
+function buildResults(){
+  const grid = document.getElementById('resultGrid');
+  const secs = [
+    {key:'vr',name:'Verbal Reasoning',color:'var(--vr)',cls:'rc-vr',
+     diag:{0:'Strategy-based approach needed across all VR question types. Focus on who is speaking in the passage before answering.',1:'Developing — you identified some traps but attribution and causal language still require attention.',2:'Good awareness. With consistent strategy application your VR accuracy will be strong.',3:'Excellent first-attempt VR. You have strong instinctive reading comprehension.'}},
+    {key:'dm',name:'Decision Making',color:'var(--dm)',cls:'rc-dm',
+     diag:{0:'Logical reasoning framework needed. Syllogism rules and constraint-based logic require structured practice.',1:'Emerging — some logic is solid but "some vs all" and chain reasoning still trip you up.',2:'Good logical instinct. Formalising your Venn and chain rules will lock in consistent DM accuracy.',3:'Strong logical reasoning. Your DM instinct is reliable with minor refinement needed.'}},
+    {key:'qr',name:'Quantitative Reasoning',color:'var(--qr)',cls:'rc-qr',
+     diag:{0:'Number traps are affecting your QR score. Unit reading and compound percentages need systematic attention.',1:'Some QR accuracy present but unit multipliers and % chains still cause errors.',2:'Good numeracy. Consistent unit checking and outlier scanning will elevate your QR further.',3:'Strong QR accuracy. You spotted the numerical traps effectively.'}},
+    {key:'sjt',name:'Situational Judgement',color:'var(--sjt)',cls:'rc-sjt',
+     diag:{0:'Ethical framework understanding needs development. The hierarchy-safety and autonomy rules require focused attention.',1:'Developing ethical reasoning. Some values are clear but escalation order and autonomy still need work.',2:'Good ethical instinct. Formalising your escalation ladder and confidentiality rules will sharpen SJT ranking.',3:'Strong SJT framework. Your ethical values are well-calibrated across all three trap types.'}},
+  ];
+  grid.innerHTML='';
+  let totalFirst=0, totalSecond=0;
+  secs.forEach(s=>{
+    const f=scores[s.key].first; const sec=scores[s.key].second; totalFirst+=f; totalSecond+=sec;
+    const diagText = s.diag[f]||s.diag[0];
+    grid.innerHTML+=`<div class="result-card ${s.cls}">
+      <div class="result-card-section">${s.name}</div>
+      <div class="result-card-score">${f}/3</div>
+      <div class="result-card-label">First attempt &nbsp;→&nbsp; After strategy: ${sec}/3</div>
+      <div class="result-card-diag">${diagText}</div>
+    </div>`;
+  });
+  // Percentile estimate
+  const pctBox = document.getElementById('percentileBox');
+  const pNum = document.getElementById('percentileNum');
+  const pDesc = document.getElementById('percentileDesc');
+  const pct = Math.round((totalFirst/12)*100);
+  let pRange, pText;
+  if(pct>=83){pRange='70th–85th';pText='Your instinctive approach is already strong. With strategy refinement across the remaining gaps, top-quartile performance is very achievable.';}
+  else if(pct>=58){pRange='50th–70th';pText='You have a solid foundation. Targeted strategy work on your identified trap patterns will produce meaningful score improvement.';}
+  else if(pct>=33){pRange='35th–55th';pText='Common traps are affecting your score across multiple sections. Structured strategy preparation — rather than more question practice — is the priority.';}
+  else{pRange='Below 35th';pText='Your score is significantly impacted by strategic gaps rather than knowledge gaps. The right strategy framework will produce rapid and substantial improvement.';}
+  pNum.textContent = pRange;
+  pDesc.textContent = `Based on ${totalFirst}/12 correct on first attempts across all four sections. ${pText}`;
+}
+
+// Init
+document.querySelectorAll('.opt').forEach(o=>{
+  // Assign data-chosen from letter shown
+  const letter = o.querySelector('.opt-letter');
+  if(letter && !o.dataset.chosen) o.dataset.chosen = letter.textContent.trim();
+});
+updateUI();
+goTo(0);
+</script>
+</body>
+</html>
