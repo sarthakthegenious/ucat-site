@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UCAT Diagnostic — UCAT Complete Guidance</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#0D0D0D;--ink2:#2C2C2C;
+  --amber:#E8940A;--amber2:#F5A83A;
+  --white:#fff;--off:#FAFAF8;--stone:#E8E5DF;--muted:#706C62;
+  --red:#B53A2F;--green:#27735A;
+  --vr:#0D0D0D;--dm:#0D0D0D;--qr:#0D0D0D;--sjt:#0D0D0D;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;background:var(--off);color:var(--ink);-webkit-font-smoothing:antialiased}
+.prog-bar{position:fixed;top:0;left:0;right:0;z-index:300;height:3px;background:var(--stone)}
+.prog-fill{height:100%;background:var(--amber);transition:width 0.4s ease;width:0%}
+nav{position:fixed;top:3px;left:0;right:0;z-index:200;background:rgba(13,13,13,0.97);backdrop-filter:blur(6px);height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 4vw}
+.nav-logo{font-family:'Outfit',sans-serif;font-weight:700;font-size:0.88rem;color:var(--white);line-height:1.2}
+.nav-logo span{color:var(--amber)}
+.nav-section-tag{font-size:0.73rem;font-weight:600;padding:0.22rem 0.75rem;border-radius:4px;color:var(--white);background:rgba(232,148,10,0.25);letter-spacing:0.04em}
+.slide-counter{font-size:0.78rem;color:rgba(255,255,255,0.4);font-weight:500}
+.slides{padding-top:60px;min-height:100vh}
+.slide{display:none;min-height:calc(100vh - 60px);flex-direction:column;justify-content:flex-start;padding:2rem 5vw 6rem}
+.slide.active{display:flex}
+.slide-inner{max-width:860px;margin:0 auto;width:100%}
+.slide-type{display:inline-flex;align-items:center;gap:6px;font-size:0.72rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;padding:0.28rem 0.75rem;border-radius:4px;margin-bottom:0.9rem}
+.type-vr{background:rgba(13,13,13,0.07);color:var(--ink)}
+.type-dm{background:rgba(13,13,13,0.07);color:var(--ink)}
+.type-qr{background:rgba(13,13,13,0.07);color:var(--ink)}
+.type-sjt{background:rgba(13,13,13,0.07);color:var(--ink)}
+.type-explain{background:rgba(232,148,10,0.12);color:var(--amber)}
+.type-result{background:rgba(13,13,13,0.07);color:var(--ink)}
+.slide h2{font-family:'Lora',serif;font-size:clamp(1.4rem,3vw,2rem);color:var(--ink);line-height:1.2;margin-bottom:0.45rem}
+.slide-sub{font-size:0.87rem;color:var(--muted);margin-bottom:1.4rem;line-height:1.65;font-family:'Outfit',sans-serif}
+.passage{background:var(--white);border-left:3px solid var(--stone);padding:1.1rem 1.4rem;font-size:0.875rem;line-height:1.85;color:var(--ink);margin-bottom:1.1rem;border-radius:0 6px 6px 0}
+.passage.vr-border{border-left-color:var(--amber)}.passage.dm-border{border-left-color:var(--amber)}.passage.qr-border{border-left-color:var(--amber)}.passage.sjt-border{border-left-color:var(--amber)}
+.passage b{font-weight:600}
+.q-label{font-size:0.68rem;font-weight:700;color:var(--muted);letter-spacing:0.07em;text-transform:uppercase;margin-bottom:0.45rem}
+.q-text{font-family:'Lora',serif;font-size:0.96rem;font-weight:600;color:var(--ink);margin-bottom:1rem;line-height:1.6}
+.options{display:flex;flex-direction:column;gap:0.55rem;margin-bottom:1.4rem}
+.opt{display:flex;align-items:flex-start;gap:0.7rem;background:var(--white);border:1.5px solid var(--stone);border-radius:6px;padding:0.8rem 1rem;cursor:pointer;transition:border-color 0.2s,background 0.2s;font-size:0.875rem;color:var(--ink);text-align:left;width:100%;font-family:'Outfit',sans-serif;font-weight:500;line-height:1.55}
+.opt:hover{border-color:var(--amber);background:rgba(232,148,10,0.04)}
+.opt.selected{border-color:var(--amber);background:rgba(232,148,10,0.07)}
+.opt.correct{border-color:var(--green);background:rgba(39,115,90,0.07);color:var(--green)}
+.opt.wrong{border-color:var(--red);background:rgba(181,58,47,0.07);color:var(--red)}
+.opt-letter{width:22px;height:22px;min-width:22px;border-radius:4px;background:var(--stone);display:flex;align-items:center;justify-content:center;font-size:0.68rem;font-weight:700;flex-shrink:0;margin-top:1px;letter-spacing:0}
+.opt.correct .opt-letter{background:var(--green);color:var(--white)}
+.opt.wrong .opt-letter{background:var(--red);color:var(--white)}
+.opt.selected .opt-letter{background:var(--amber);color:var(--white)}
+.check-btn{background:var(--ink);color:var(--white);border:none;padding:0.7rem 1.8rem;border-radius:5px;font-family:'Outfit',sans-serif;font-size:0.88rem;font-weight:700;cursor:pointer;transition:background 0.2s,opacity 0.2s;display:none;letter-spacing:0.02em}
+.check-btn.visible{display:inline-block}
+.check-btn:hover{background:var(--ink2)}
+.feedback{display:none;margin-top:1.1rem;padding:0.9rem 1.1rem;border-radius:6px;font-size:0.855rem;line-height:1.75}
+.feedback.correct-fb{background:rgba(39,115,90,0.08);border:1px solid rgba(39,115,90,0.25);color:#1a5c3f}
+.feedback.wrong-fb{background:rgba(181,58,47,0.07);border:1px solid rgba(181,58,47,0.22);color:#7a2020}
+.feedback.show{display:block}
+.feedback strong{font-weight:700}
+.explain-box{background:var(--ink);border-radius:8px;padding:1.75rem;margin-bottom:1.1rem}
+.explain-title{font-size:0.68rem;font-weight:700;color:var(--amber);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.7rem}
+.explain-text{font-size:0.875rem;color:rgba(250,250,248,0.82);line-height:1.8}
+.explain-text b{color:var(--amber);font-weight:600}
+.trap-box{background:rgba(181,58,47,0.06);border:1px solid rgba(181,58,47,0.2);border-radius:6px;padding:1rem 1.2rem;margin-bottom:0.9rem}
+.trap-label{font-size:0.66rem;font-weight:700;color:var(--red);letter-spacing:0.07em;text-transform:uppercase;margin-bottom:0.35rem}
+.trap-text{font-size:0.855rem;color:var(--ink);line-height:1.65}
+.strategy-box{background:rgba(39,115,90,0.06);border:1px solid rgba(39,115,90,0.22);border-radius:6px;padding:1rem 1.2rem;margin-bottom:0.9rem}
+.strategy-label{font-size:0.66rem;font-weight:700;color:var(--green);letter-spacing:0.07em;text-transform:uppercase;margin-bottom:0.35rem}
+.strategy-text{font-size:0.855rem;color:var(--ink);line-height:1.65}
+.example-box{background:var(--white);border:1.5px solid var(--amber);border-radius:6px;padding:1rem 1.2rem;margin-bottom:0.9rem}
+.example-label{font-size:0.66rem;font-weight:700;color:var(--amber);letter-spacing:0.07em;text-transform:uppercase;margin-bottom:0.35rem}
+.example-text{font-size:0.855rem;color:var(--ink);line-height:1.65}
+.second-q-banner{background:rgba(232,148,10,0.09);border:1px solid rgba(232,148,10,0.3);border-radius:6px;padding:0.7rem 1rem;margin-bottom:1.1rem;font-size:0.82rem;color:var(--ink);font-weight:600}
+.second-q-banner span{color:var(--amber)}
+/* VENN / VISUAL */
+.venn-wrap{background:var(--white);border:1.5px solid var(--stone);border-radius:8px;padding:1rem 1rem 0.6rem;margin:1rem 0}
+/* CIRCLE VISUAL (QR) */
+.circle-wrap{display:flex;align-items:center;gap:2rem;margin:0.75rem 0 1rem;flex-wrap:wrap}
+.circle-svg{flex-shrink:0}
+.circle-key{font-size:0.82rem;color:var(--ink);line-height:1.9}
+.circle-key b{color:var(--amber);font-weight:700}
+/* QR DOC TABLE */
+.qr-doc{background:var(--white);border:1.5px solid var(--stone);border-radius:6px;overflow:hidden;margin:0.75rem 0}
+.qr-doc-header{background:var(--ink);padding:0.6rem 1rem}
+.qr-doc-header .sec-title{color:var(--amber);font-size:0.8rem;font-weight:700}
+.qr-doc-header .sub{color:rgba(250,250,248,0.45);font-size:0.65rem;margin-top:0.1rem}
+.qr-doc-body{padding:0.75rem 0.9rem}
+.qr-sub-heading{font-size:0.75rem;font-weight:700;color:var(--ink);margin:0.6rem 0 0.4rem}
+.qr-sub-heading:first-child{margin-top:0}
+.qr-tbl{width:100%;border-collapse:collapse;font-size:0.73rem;margin-bottom:0.5rem}
+.qr-tbl th{background:var(--stone);padding:0.35rem 0.55rem;text-align:left;font-weight:700;color:var(--ink);border:1px solid #d8d5ce}
+.qr-tbl td{padding:0.35rem 0.55rem;border:1px solid var(--stone);color:var(--ink)}
+.qr-tbl tr:nth-child(even) td{background:var(--off)}
+.qr-key-rule{background:var(--off);border:1px solid var(--stone);border-radius:4px;padding:0.55rem 0.7rem;font-size:0.71rem;color:var(--muted);line-height:1.6;margin-top:0.4rem}
+.qr-key-rule b{color:var(--ink)}
+/* FRACTION TABLE */
+.frac-table{width:100%;border-collapse:collapse;font-size:0.82rem;margin:0.75rem 0}
+.frac-table th{background:var(--ink);color:var(--white);padding:0.45rem 0.75rem;text-align:center;font-weight:700;font-size:0.75rem}
+.frac-table td{padding:0.4rem 0.75rem;border:1px solid var(--stone);text-align:center}
+.frac-table tr:nth-child(even){background:var(--off)}
+.frac-table .highlight{background:rgba(232,148,10,0.1);font-weight:700;color:var(--amber)}
+/* RESULT */
+.result-row{display:flex;gap:0.75rem;margin-bottom:1.25rem;flex-wrap:wrap}
+.result-card{background:var(--white);border:1.5px solid var(--stone);border-radius:8px;padding:1rem 1.1rem;flex:1;min-width:170px}
+.result-card-section{font-size:0.63rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.3rem}
+.result-card-score{font-family:'Lora',serif;font-size:1.8rem;line-height:1;margin-bottom:0.15rem}
+.result-card-label{font-size:0.72rem;color:var(--muted);margin-bottom:0.5rem}
+.result-card-diag{font-size:0.78rem;color:var(--ink);line-height:1.6}
+.rc-vr .result-card-section{color:var(--ink)}.rc-vr .result-card-score{color:var(--ink)}
+.rc-dm .result-card-section{color:var(--ink)}.rc-dm .result-card-score{color:var(--ink)}
+.rc-qr .result-card-section{color:var(--ink)}.rc-qr .result-card-score{color:var(--ink)}
+.rc-sjt .result-card-section{color:var(--ink)}.rc-sjt .result-card-score{color:var(--ink)}
+.student-scores-box{background:rgba(232,148,10,0.08);border:1.5px solid rgba(232,148,10,0.35);border-radius:8px;padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+.student-scores-box p{font-size:0.87rem;color:var(--ink);line-height:1.7}
+.student-scores-box b{font-weight:700}
+.percentile-box{background:var(--ink);border-radius:10px;padding:1.75rem;text-align:center;margin-bottom:1.25rem}
+.percentile-label{font-size:0.72rem;font-weight:600;color:rgba(250,250,248,0.45);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:0.4rem}
+.percentile-num{font-family:'Lora',serif;font-size:3rem;color:var(--amber);line-height:1;margin-bottom:0.25rem}
+.percentile-desc{font-size:0.83rem;color:rgba(250,250,248,0.6);line-height:1.65;max-width:520px;margin:0 auto}
+.cta-result{background:var(--amber);border-radius:10px;padding:1.75rem;text-align:center}
+.cta-result h3{font-family:'Lora',serif;font-size:1.4rem;color:var(--ink);margin-bottom:0.5rem}
+.cta-result p{font-size:0.855rem;color:rgba(13,13,13,0.75);line-height:1.65;margin-bottom:1rem;max-width:500px;margin-left:auto;margin-right:auto}
+.intro-sections{display:grid;grid-template-columns:repeat(4,1fr);gap:0.7rem;margin:1.25rem 0}
+.intro-sec{background:var(--white);border-radius:6px;padding:0.9rem;text-align:center;border-top:2px solid var(--stone)}
+.intro-sec.vr{border-top-color:var(--ink)}.intro-sec.dm{border-top-color:var(--ink)}.intro-sec.qr{border-top-color:var(--ink)}.intro-sec.sjt{border-top-color:var(--ink)}
+.intro-sec-name{font-size:0.68rem;font-weight:800;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:0.2rem}
+.intro-sec.vr .intro-sec-name{color:var(--ink)}.intro-sec.dm .intro-sec-name{color:var(--ink)}.intro-sec.qr .intro-sec-name{color:var(--ink)}.intro-sec.sjt .intro-sec-name{color:var(--ink)}
+.intro-sec-desc{font-size:0.72rem;color:var(--muted);line-height:1.5}
+.start-btn{background:var(--amber);color:var(--ink);border:none;padding:0.85rem 2.2rem;border-radius:5px;font-family:'Outfit',sans-serif;font-size:0.95rem;font-weight:700;cursor:pointer;margin-top:1.25rem;letter-spacing:0.02em}
+.start-btn:hover{background:var(--amber2)}
+/* GATE */
+.red-ast{color:var(--red);font-size:0.75em;font-weight:800;vertical-align:super}
+.gate-form-wrap{background:var(--white);border:1.5px solid var(--stone);border-radius:10px;padding:1.75rem 2rem;max-width:600px;margin:0 auto}
+.gate-form-row{display:grid;grid-template-columns:1fr 1fr;gap:0.9rem;margin-bottom:0.9rem}
+.gate-form-row-full{margin-bottom:1.1rem}
+.gate-form-group{display:flex;flex-direction:column;gap:0.3rem}
+.gate-form-group label{font-size:0.72rem;font-weight:600;color:var(--ink);letter-spacing:0.03em}
+.gate-form-group input{font-family:'Outfit',sans-serif;font-size:0.88rem;padding:0.6rem 0.8rem;border:1.5px solid var(--stone);border-radius:6px;outline:none;color:var(--ink);background:var(--off);transition:border-color 0.2s}
+.gate-form-group input:focus{border-color:var(--ink)}
+.gate-submit-btn{width:100%;background:var(--amber);color:var(--ink);font-family:'Outfit',sans-serif;font-size:0.95rem;font-weight:700;padding:0.85rem;border:none;border-radius:6px;cursor:pointer;transition:background 0.2s;letter-spacing:0.02em}
+.gate-submit-btn:hover{background:var(--amber2)}
+.gate-privacy{font-size:0.7rem;color:var(--muted);text-align:center;margin-top:0.75rem}
+/* NAV */
+.nav-btns{position:fixed;bottom:0;left:0;right:0;z-index:200;background:var(--white);border-top:1px solid var(--stone);padding:0.85rem 5vw;display:flex;justify-content:space-between;align-items:center}
+.btn-prev,.btn-next{border:none;padding:0.6rem 1.4rem;border-radius:5px;font-family:'Outfit',sans-serif;font-size:0.86rem;font-weight:600;cursor:pointer;transition:all 0.2s;letter-spacing:0.02em}
+.btn-prev{background:var(--stone);color:var(--ink)}.btn-prev:hover{background:#d8d5ce}
+.btn-next{background:var(--amber);color:var(--ink)}.btn-next:hover{background:var(--amber2)}
+.nav-dots{display:flex;gap:5px;flex-wrap:wrap;justify-content:center;max-width:280px}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--stone);cursor:pointer;transition:background 0.2s}
+.dot.active{background:var(--amber)}.dot.done{background:var(--ink)}
+.dot-locked{cursor:not-allowed!important;opacity:0.3!important}
+@media(max-width:600px){
+  .result-row{flex-direction:column}
+  .intro-sections{grid-template-columns:1fr 1fr}
+  .nav-dots{display:none}
+  .slide{padding:1.4rem 4vw 6rem}
+  .gate-form-row{grid-template-columns:1fr}
+  .gate-form-group input[type="tel"]{max-width:100%!important}
+  .gate-form-wrap{padding:1.25rem}
+}
+</style>
+</head>
+<body>
+<div class="prog-bar"><div class="prog-fill" id="progFill"></div></div>
+<nav>
+  <div class="nav-logo" style="display:flex;align-items:center;gap:0.5rem"><img src="data:image/png;base64,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" style="height:22px;width:auto;display:block;flex-shrink:0" alt=""><div style="display:flex;flex-direction:column;line-height:1.2"><span style="color:#fff;font-weight:700;font-size:0.88rem;letter-spacing:0.01em">UCAT Complete Guidance</span><span style="color:var(--amber);font-size:0.7rem;font-weight:500;letter-spacing:0.02em">by Sarthak Mehta</span></div></div>
+  <div style="display:flex;align-items:center;gap:0.9rem">
+    <span class="nav-section-tag" id="navTag" style="display:none"></span>
+    <span class="slide-counter" id="slideCounter"></span>
+  </div>
+</nav>
+
+<div class="slides" id="slidesWrap">
+
+<!-- ═══════════════════════════════════
+     SLIDE 0 — INTRO
+═══════════════════════════════════ -->
+<div class="slide active" data-slide="0" data-section="intro">
+  <div class="slide-inner">
+    <p style="font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:0.85rem">Free diagnostic — ~10 minutes</p>
+    <h2>UCAT Strategy Diagnostic</h2>
+    <p style="font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:1.5rem;line-height:1.55;max-width:540px">See a 120+ point improvement in your score by the time you finish this diagnostic.</p>
+    <div class="intro-sections">
+      <div class="intro-sec vr"><div class="intro-sec-name">VR</div><div class="intro-sec-desc">Verbal Reasoning</div></div>
+      <div class="intro-sec dm"><div class="intro-sec-name">DM</div><div class="intro-sec-desc">Decision Making</div></div>
+      <div class="intro-sec qr"><div class="intro-sec-name">QR</div><div class="intro-sec-desc">Quantitative Reasoning</div></div>
+      <div class="intro-sec sjt"><div class="intro-sec-name">SJT</div><div class="intro-sec-desc">Situational Judgement</div></div>
+    </div>
+    <button class="start-btn" onclick="goTo(1)">Begin Diagnostic →</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════
+     SLIDE 1 — GATE (locked)
+═══════════════════════════════════ -->
+<div class="slide" data-slide="1" data-section="intro">
+  <div class="slide-inner" style="max-width:660px">
+    <div style="text-align:center;margin-bottom:1.75rem">
+      <p style="font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:0.85rem">Free · Personalised to you</p>
+      <h2 style="font-size:clamp(1.6rem,3.5vw,2.4rem);margin-bottom:0.9rem">You're one step away.</h2>
+      <p style="font-size:0.95rem;color:#2a3a58;line-height:1.75;max-width:520px;margin:0 auto 0.6rem">Leave your details and we'll send you your personalised results — including your section-by-section breakdown, estimated percentile, and a free follow-up with Sarthak, our specialist UCAT tutor.</p>
+    </div>
+    <div class="gate-form-wrap">
+      <form onsubmit="handleGateSubmit(event)">
+        <div class="gate-form-row">
+          <div class="gate-form-group">
+            <label for="g-name">First name <sup class="red-ast">*</sup></label>
+            <input type="text" id="g-name" placeholder="Your name" required>
+          </div>
+          <div class="gate-form-group">
+            <label for="g-email">Email address <sup class="red-ast">*</sup></label>
+            <input type="email" id="g-email" placeholder="your@email.com" required>
+          </div>
+        </div>
+        <div class="gate-form-row-full">
+          <div class="gate-form-group">
+            <label for="g-phone">Phone number <sup class="red-ast">*</sup></label>
+            <input type="tel" id="g-phone" placeholder="04XX XXX XXX" required style="max-width:260px">
+          </div>
+        </div>
+        <button type="submit" class="gate-submit-btn" id="gateSubmitBtn">Start my diagnostic →</button>
+        <p class="gate-privacy">We will reach out personally within 24 hours to discuss your results and next steps.</p>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════
+     VR TRAP 1 — Q1 (Author vs Fact)
+═══════════════════════════════════ -->
+<div class="slide" data-slide="2" data-section="VR" data-q="vr1a">
+  <div class="slide-inner">
+    <div class="slide-type type-vr">VR · Trap 1 of 2 · First Attempt</div>
+    <h2>Verbal Reasoning</h2>
+    <p class="slide-sub">Read the passage and answer the question. Go with your instinct.</p>
+    <div class="passage vr-border">
+      The push towards renewable energy has accelerated in recent years. Solar installations have increased by 40% across regional Australia, and wind capacity has doubled since 2018. Proponents of renewable energy argue that fossil fuel subsidies distort the market and make clean energy appear less competitive than it actually is. The government, however, has stated that fossil fuel subsidies remain essential to stabilise energy prices for households in the short term.
+    </div>
+    <div class="q-label">QUESTION</div>
+    <div class="q-text">Fossil fuel subsidies distort the energy market and make clean energy appear less competitive.</div>
+    <div class="options" id="opts-vr1a">
+      <button class="opt" data-chosen="A" onclick="selectOpt(this,'vr1a')"><span class="opt-letter">A</span>True</button>
+      <button class="opt" data-chosen="B" onclick="selectOpt(this,'vr1a')"><span class="opt-letter">B</span>False</button>
+      <button class="opt" data-chosen="C" onclick="selectOpt(this,'vr1a')"><span class="opt-letter">C</span>Can't Tell</button>
+    </div>
+    <button class="check-btn" id="check-vr1a" onclick="checkAnswer('vr1a','C')">Check Answer</button>
+    <div class="feedback" id="fb-vr1a"></div>
+  </div>
+</div>
+
+<!-- VR TRAP 1 — EXPLANATION -->
+<div class="slide" data-slide="3" data-section="VR" data-type="explain">
+  <div class="slide-inner">
+    <div class="slide-type type-explain">VR · Strategy Reveal</div>
+    <h2>The Author's View Trap</h2>
+    <div class="trap-box">
+      <div class="trap-label">⚠ THE TRAP</div>
+      <div class="trap-text">The passage says <em>"proponents argue that fossil fuel subsidies distort the market."</em> Most students read this and answer True — because it sounds factual and they agree with it. But the passage attributes it to <b>proponents</b>, not to the author as an established fact. The statement in the question is therefore unconfirmed by the passage itself.</div>
+    </div>
+    <div class="strategy-box">
+      <div class="strategy-label">✓ THE RULE</div>
+      <div class="strategy-text"><b>Before answering, ask: who said this?</b> If the statement is attributed to a group, expert, or one side of a debate — and the author never independently confirms it — the answer is <b>Can't Tell.</b> You are not asked whether you believe it. You are asked whether the passage confirms it as fact.<br><br><b>Key attribution words to flag:</b> "argues," "claims," "suggests," "believes," "according to," "critics say," "proponents contend," "opponents warn."</div>
+    </div>
+    <div class="example-box">
+      <div class="example-label">SIMPLE EXAMPLE</div>
+      <div class="example-text">Passage: <em>"Critics claim the new policy will increase unemployment."</em><br><br>Q: The new policy will increase unemployment. → <b>Can't Tell.</b> Critics claim it — the passage doesn't confirm it is true as fact.</div>
+    </div>
+    <div class="explain-box">
+      <div class="explain-title">THERE IS MORE TO VR STRATEGY</div>
+      <div class="explain-text">VR strategy spans across <b>5 stages</b> and covers <b>12 different traps</b> that most students end up getting wrong, including temporal language traps, absolute language detection and double negative wording. Each of the stages are covered in-depth across the VR module as part of our preparation, so please reach out to us if you are struggling with VR and we can discuss these traps with you in detail!</div>
+    </div>
+  </div>
+</div>
+
+<!-- VR TRAP 1 — Q2 -->
+<div class="slide" data-slide="4" data-section="VR" data-q="vr1b">
+  <div class="slide-inner">
+    <div class="second-q-banner"><span>Apply the rule →</span> Watch for who is making the claim in the passage before answering.</div>
+    <div class="slide-type type-vr">VR · Trap 1 of 2 · Apply the Rule</div>
+    <h2>Now you try — same trap</h2>
+    <div class="passage vr-border">
+      Hospital waiting times have been a persistent issue in public health systems globally. Health economists contend that introducing co-payments for GP visits would reduce unnecessary demand and shorten hospital waiting lists. The Health Minister has maintained that co-payments are not under consideration and that funding increases remain the preferred solution.
+    </div>
+    <div class="q-label">QUESTION</div>
+    <div class="q-text">Introducing co-payments for GP visits would reduce unnecessary demand and shorten hospital waiting lists.</div>
+    <div class="options" id="opts-vr1b">
+      <button class="opt" data-chosen="A" onclick="selectOpt(this,'vr1b')"><span class="opt-letter">A</span>True</button>
+      <button class="opt" data-chosen="B" onclick="selectOpt(this,'vr1b')"><span class="opt-letter">B</span>False</button>
+      <button class="opt" data-chosen="C" onclick="selectOpt(this,'vr1b')"><span class="opt-letter">C</span>Can't Tell</button>
+    </div>
+    <button class="check-btn" id="check-vr1b" onclick="checkAnswer('vr1b','C')">Check Answer</button>
+    <div class="feedback" id="fb-vr1b"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════
+     VR TRAP 2 — Q1 (Double Negative)
+═══════════════════════════════════ -->
+<div class="slide" data-slide="5" data-section="VR" data-q="vr2a">
+  <div class="slide-inner">
+    <div class="slide-type type-vr">VR · Trap 2 of 2 · First Attempt</div>
+    <h2>Verbal Reasoning</h2>
+    <div class="passage vr-border">
+      Not all medical interventions that are deemed effective by regulatory bodies are without significant side effects. Many approved treatments carry risks that, while acknowledged in clinical literature, are not consistently communicated to patients during consultations. Patient advocacy groups have called for mandatory disclosure frameworks, arguing that informed consent cannot be meaningful without complete risk communication.
+    </div>
+    <div class="q-label">QUESTION</div>
+    <div class="q-text">All medical interventions approved by regulatory bodies are free of significant side effects.</div>
+    <div class="options" id="opts-vr2a">
+      <button class="opt" data-chosen="A" onclick="selectOpt(this,'vr2a')"><span class="opt-letter">A</span>True</button>
+      <button class="opt" data-chosen="B" onclick="selectOpt(this,'vr2a')"><span class="opt-letter">B</span>False</button>
+      <button class="opt" data-chosen="C" onclick="selectOpt(this,'vr2a')"><span class="opt-letter">C</span>Can't Tell</button>
+    </div>
+    <button class="check-btn" id="check-vr2a" onclick="checkAnswer('vr2a','B')">Check Answer</button>
+    <div class="feedback" id="fb-vr2a"></div>
+  </div>
+</div>
+
+<!-- VR TRAP 2 — EXPLANATION -->
+<div class="slide" data-slide="6" data-section="VR" data-type="explain">
+  <div class="slide-inner">
+    <div class="slide-type type-explain">VR · Strategy Reveal</div>
+    <h2>The Double Negative Trap</h2>
+    <div class="trap-box">
+      <div class="trap-label">⚠ THE TRAP</div>
+      <div class="trap-text">The passage opens: <em>"Not all medical interventions that are deemed effective are without significant side effects."</em> Unpacking that double negative is cognitively difficult under time pressure. Students either get confused and mark Can't Tell, or skim past "not" and think it says interventions are safe. The question then says "all are free of side effects" — which is directly contradicted.</div>
+    </div>
+    <div class="strategy-box">
+      <div class="strategy-label">✓ THE RULE — Double Negative = Positive</div>
+      <div class="strategy-text"><b>Any double negative always simplifies to a positive statement.</b> Apply the rule instantly in your head:<br><br>
+      <b>"not all X are without Y"</b> → <b>some X have Y</b><br>
+      <b>"not uncommon"</b> → <b>common</b><br>
+      <b>"not unlike"</b> → <b>similar</b><br>
+      <b>"not without risk"</b> → <b>has risk</b><br>
+      <b>"not impossible"</b> → <b>possible</b><br><br>
+      <b>Double negative trigger words to watch for:</b> "without," "unlike," "uncommon," "impossible," "unnecessary," "uncertain," "unaware" — any of these paired with a preceding "not" or "no" creates a double negative.<br><br>
+      Once simplified: "Not all treatments are without side effects" → <b>"Some treatments have side effects."</b> The question claims all are side-effect free → directly <b>False.</b></div>
+    </div>
+    <div class="example-box">
+      <div class="example-label">QUICK EXAMPLES</div>
+      <div class="example-text">"Not uncommon to not disclose" → patients <b>commonly do not disclose</b><br>"Not without consequence" → <b>has consequences</b><br>"Not unlike previous models" → <b>similar to previous models</b></div>
+    </div>
+  </div>
+</div>
+
+<!-- VR TRAP 2 — Q2 -->
+<div class="slide" data-slide="7" data-section="VR" data-q="vr2b">
+  <div class="slide-inner">
+    <div class="second-q-banner"><span>Apply the rule →</span> Spot the double negative trigger words and simplify before reading the question.</div>
+    <div class="slide-type type-vr">VR · Trap 2 of 2 · Apply the Rule</div>
+    <h2>Now you try — same trap</h2>
+    <div class="passage vr-border">
+      It is not uncommon for patients to not disclose their use of complementary medicines to their general practitioners. This non-disclosure is not without consequence, as interactions between herbal preparations and prescribed medications are not well understood and can produce unpredictable outcomes. Healthcare providers are encouraged to ask patients directly rather than waiting for voluntary disclosure.
+    </div>
+    <div class="q-label">QUESTION</div>
+    <div class="q-text">Patients commonly disclose their use of complementary medicines to their general practitioners.</div>
+    <div class="options" id="opts-vr2b">
+      <button class="opt" data-chosen="A" onclick="selectOpt(this,'vr2b')"><span class="opt-letter">A</span>True</button>
+      <button class="opt" data-chosen="B" onclick="selectOpt(this,'vr2b')"><span class="opt-letter">B</span>False</button>
+      <button class="opt" data-chosen="C" onclick="selectOpt(this,'vr2b')"><span class="opt-letter">C</span>Can't Tell</button>
+    </div>
+    <button class="check-btn" id="check-vr2b" onclick="checkAnswer('vr2b','B')">Check Answer</button>
+    <div class="feedback" id="fb-vr2b"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════
+     DM TRAP 1 — Q1 (Some vs All)
+═══════════════════════════════════ -->
+<div class="slide" data-slide="8" data-section="DM" data-q="dm1a">
+  <div class="slide-inner">
+    <div class="slide-type type-dm">DM · Syllogisms · First Attempt</div>
+    <h2>Decision Making — Syllogisms</h2>
+    <p class="slide-sub">Read the statements. Assume they are completely true. Choose the conclusion that must follow.</p>
+    <div class="passage dm-border">
+      <b>Statement 1:</b> Some doctors are researchers.<br>
+      <b>Statement 2:</b> All researchers attend academic conferences.
+    </div>
+    <div class="q-label">QUESTION — Which conclusion follows?</div>
+    <div class="options" id="opts-dm1a">
+      <button class="opt" data-chosen="A" onclick="selectOpt(this,'dm1a')"><span class="opt-letter">A</span>All doctors attend academic conferences.</button>
+      <button class="opt" data-chosen="B" onclick="selectOpt(this,'dm1a')"><span class="opt-letter">B</span>Some doctors attend academic conferences.</button>
+      <button class="opt" data-chosen="C" onclick="selectOpt(this,'dm1a')"><span class="opt-letter">C</span>No doctors attend academic conferences.</button>
+      <button class="opt" data-chosen="D" onclick="selectOpt(this,'dm1a')"><span class="opt-letter">D</span>All researchers are doctors.</button>
+    </div>
+    <button class="check-btn" id="check-dm1a" onclick="checkAnswer('dm1a','B')">Check Answer</button>
+    <div class="feedback" id="fb-dm1a"></div>
+  </div>
+</div>
+
+<!-- DM TRAP 1 — EXPLANATION -->
+<div class="slide" data-slide="9" data-section="DM" data-type="explain">
+  <div class="slide-inner">
+    <div class="slide-type type-explain">DM · Rules Reveal</div>
+    <h2>The "Some" vs "All" Trap</h2>
+    <div class="trap-box">
+      <div class="trap-label">⚠ THE TRAP</div>
+      <div class="trap-text">Most students jump to answer A — "All doctors attend conferences." Their reasoning: some doctors are researchers, and all researchers attend conferences, so doctors attend conferences. <b>But "some doctors are researchers" does not mean all doctors are.</b> Only the doctors who are also researchers definitely attend. Treating "some" as if it means "all" is the single most common DM syllogism error.</div>
+    </div>
+    <div class="strategy-box">
+      <div class="strategy-label">✓ THE RULES</div>
+      <div class="strategy-text">
+      <b>Rule:</b> Some A are B + All B are C → <b>Some A are C</b> (never "All A are C")<br><br>
+      <b>Rule:</b> All A are B + All B are C → <b>All A are C</b> ✓<br><br>
+      <b>Rule:</b> Some A are B + Some B are C → <b>No definite conclusion about A and C</b><br><br>
+      <b>Rule:</b> No A are B → A is completely blocked from any categories passing through B<br><br>
+      "Some" at any point in the chain caps the conclusion at "some" — never "all."
+      </div>
+    </div>
+
+    <!-- VENN / EULER DIAGRAM -->
+    <div class="venn-wrap">
+      <p style="font-size:0.7rem;font-weight:800;color:var(--muted);letter-spacing:0.05em;margin-bottom:0.6rem">VISUALISE IT — EULER DIAGRAM</p>
+      <svg viewBox="0 0 480 205" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:480px;display:block;margin:0 auto">
+        <defs>
+          <marker id="arr" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
+            <path d="M0,0 L7,3.5 L0,7 Z" fill="#E8940A"/>
+          </marker>
+        </defs>
+        <!-- PREMISE 1 label -->
+        <text x="100" y="14" font-family="Arial,sans-serif" font-size="9.5" font-weight="bold" fill="#8A94A8" text-anchor="middle">PREMISE 1</text>
+        <!-- Doctors circle -->
+        <circle cx="75" cy="95" r="70" fill="rgba(13,13,13,0.04)" stroke="#0D0D0D" stroke-width="2"/>
+        <!-- Researchers circle — partially overlapping Doctors -->
+        <circle cx="138" cy="95" r="44" fill="rgba(232,148,10,0.12)" stroke="#E8940A" stroke-width="2"/>
+        <!-- Labels P1 -->
+        <text x="44" y="92" font-family="Arial,sans-serif" font-size="12" font-weight="bold" fill="#0D0D0D" text-anchor="middle">Doctors</text>
+        <text x="163" y="148" font-family="Arial,sans-serif" font-size="10" font-weight="bold" fill="#E8940A" text-anchor="middle">Researchers</text>
+        <!-- Overlap label -->
+        <text x="108" y="90" font-family="Arial,sans-serif" font-size="8" fill="#E8940A" text-anchor="middle">overlap</text>
+        <text x="108" y="102" font-family="Arial,sans-serif" font-size="8" fill="#5A6478" text-anchor="middle">= some</text>
+        <text x="108" y="114" font-family="Arial,sans-serif" font-size="8" fill="#5A6478" text-anchor="middle">doctors</text>
+        <!-- P1 caption -->
+        <text x="100" y="185" font-family="Arial,sans-serif" font-size="8.5" fill="#5A6478" text-anchor="middle">SOME Doctors are Researchers</text>
+
+        <!-- Plus sign connector -->
+        <text x="228" y="100" font-family="Arial,sans-serif" font-size="22" fill="#D0D6E4" text-anchor="middle">+</text>
+
+        <!-- PREMISE 2 label -->
+        <text x="365" y="14" font-family="Arial,sans-serif" font-size="9.5" font-weight="bold" fill="#8A94A8" text-anchor="middle">PREMISE 2</text>
+        <!-- Conference Attendees large circle -->
+        <circle cx="365" cy="95" r="70" fill="rgba(13,13,13,0.04)" stroke="#0D0D0D" stroke-width="2"/>
+        <!-- Researchers circle FULLY inside conferences -->
+        <circle cx="365" cy="95" r="40" fill="rgba(232,148,10,0.12)" stroke="#E8940A" stroke-width="2"/>
+        <!-- Labels P2 -->
+        <text x="365" y="93" font-family="Arial,sans-serif" font-size="11" font-weight="bold" fill="#E8940A" text-anchor="middle">Researchers</text>
+        <text x="430" y="52" font-family="Arial,sans-serif" font-size="10" font-weight="bold" fill="#0D0D0D" text-anchor="middle">Conference</text>
+        <text x="430" y="65" font-family="Arial,sans-serif" font-size="10" font-weight="bold" fill="#0D0D0D" text-anchor="middle">Attendees</text>
+        <!-- P2 caption -->
+        <text x="365" y="185" font-family="Arial,sans-serif" font-size="8.5" fill="#5A6478" text-anchor="middle">ALL Researchers attend Conferences</text>
+      </svg>
+      <p style="font-size:0.75rem;color:var(--muted);text-align:center;margin-top:0.5rem;line-height:1.55">∴ The overlap group (some Doctors) are Researchers → and all Researchers attend Conferences → <b>"Some Doctors" attend conferences.</b> Not "All Doctors."</p>
+    </div>
+
+    <div class="explain-box" style="margin-top:0.9rem">
+      <div class="explain-title">35+ SUCH RULES EXIST IN TOTAL</div>
+      <div class="explain-text">DM syllogisms involve over <b>35 distinct rules</b> across All/Some/No combinations, Venn diagram overlaps, chain logic, and negation scenarios — each producing a different valid conclusion. These rules are covered in full in the diagnostic consultation session.</div>
+    </div>
+  </div>
+</div>
+
+<!-- DM TRAP 1 — Q2 -->
+<div class="slide" data-slide="10" data-section="DM" data-q="dm1b">
+  <div class="slide-inner">
+    <div class="second-q-banner"><span>Apply the rules →</span> Identify "some" vs "all." "Some" anywhere in the chain means the conclusion is "some" — never "all."</div>
+    <div class="slide-type type-dm">DM · Syllogisms · Apply the Rules</div>
+    <h2>Now you try — same trap</h2>
+    <div class="passage dm-border">
+      <b>Statement 1:</b> Some nurses are trained in emergency triage.<br>
+      <b>Statement 2:</b> All staff trained in emergency triage can make independent treatment decisions.
+    </div>
+    <div class="q-label">QUESTION — Which conclusion definitely follows?</div>
+    <div class="options" id="opts-dm1b">
+      <button class="opt" data-chosen="A" onclick="selectOpt(this,'dm1b')"><span class="opt-letter">A</span>All nurses can make independent treatment decisions.</button>
+      <button class="opt" data-chosen="B" onclick="selectOpt(this,'dm1b')"><span class="opt-letter">B</span>Some nurses can make independent treatment decisions.</button>
+      <button class="opt" data-chosen="C" onclick="selectOpt(this,'dm1b')"><span class="opt-letter">C</span>No nurses can make independent treatment decisions.</button>
+      <button class="opt" data-chosen="D" onclick="selectOpt(this,'dm1b')"><span class="opt-letter">D</span>All staff who make independent decisions are nurses.</button>
+    </div>
+    <button class="check-btn" id="check-dm1b" onclick="checkAnswer('dm1b','B')">Check Answer</button>
+    <div class="feedback" id="fb-dm1b"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════
+     QR TRAP 1 — Q1 (% of %)
+═══════════════════════════════════ -->
+<div class="slide" data-slide="11" data-section="QR" data-q="qr1a">
+  <div class="slide-inner">
+    <div class="slide-type type-qr">QR · Trap 1 of 1 · First Attempt</div>
+    <h2>Quantitative Reasoning</h2>
+    <div class="passage qr-border">
+      A hospital employs 400 staff. 40% of staff are clinical. Of the clinical staff, 25% are specialists.
+    </div>
+    <div class="q-label">QUESTION</div>
+    <div class="q-text">What percentage of the total hospital staff are specialists?</div>
+    <div class="options" id="opts-qr1a">
+      <button class="opt" data-chosen="A" onclick="selectOpt(this,'qr1a')"><span class="opt-letter">A</span>25%</button>
+      <button class="opt" data-chosen="B" onclick="selectOpt(this,'qr1a')"><span class="opt-letter">B</span>10%</button>
+      <button class="opt" data-chosen="C" onclick="selectOpt(this,'qr1a')"><span class="opt-letter">C</span>40%</button>
+      <button class="opt" data-chosen="D" onclick="selectOpt(this,'qr1a')"><span class="opt-letter">D</span>65%</button>
+    </div>
+    <button class="check-btn" id="check-qr1a" onclick="checkAnswer('qr1a','B')">Check Answer</button>
+    <div class="feedback" id="fb-qr1a"></div>
+  </div>
+</div>
+
+<!-- QR TRAP 1 — EXPLANATION -->
+<div class="slide" data-slide="12" data-section="QR" data-type="explain">
+  <div class="slide-inner">
+    <div class="slide-type type-explain">QR · Strategy Reveal</div>
+    <h2>The Percentage of a Percentage Trap</h2>
+    <div class="trap-box">
+      <div class="trap-label">⚠ THE TRAP</div>
+      <div class="trap-text">Most students answer 25% — they take the last percentage mentioned and apply it directly to the total. But 25% applies to the <em>clinical staff only</em> (40% of all staff), not to everyone. This trap appears in almost every UCAT exam — and the key insight is that QR is less about the calculation itself and more about <b>interpreting which calculation to actually do.</b></div>
+    </div>
+    <div class="strategy-box">
+      <div class="strategy-label">✓ THE VISUAL SHORTCUT — Think in Quarters</div>
+      <div class="strategy-text">40% of staff are clinical → think of this as roughly <b>4 sections out of 10.</b> Of those, 25% are specialists — and 25% means <b>one quarter.</b><br><br>One quarter of 40% = <b>10%</b> of the total. No long multiplication needed.<br><br>Alternatively: 400 staff × 40% = 160 clinical. 160 × 25% = 160 ÷ 4 = 40 specialists. 40 ÷ 400 = <b>10%.</b></div>
+    </div>
+    <!-- VISUAL CIRCLE -->
+    <div class="circle-wrap">
+      <svg class="circle-svg" width="130" height="130" viewBox="0 0 130 130">
+        <circle cx="65" cy="65" r="60" fill="#E8EAF0"/>
+        <path d="M65,65 L65,5 A60,60 0 0,1 125,65 Z" fill="rgba(124,92,191,0.15)" stroke="rgba(124,92,191,0.3)" stroke-width="1.5"/>
+        <path d="M65,65 L125,65 A60,60 0 0,1 65,125 Z" fill="rgba(124,92,191,0.15)" stroke="rgba(124,92,191,0.3)" stroke-width="1.5"/>
+        <path d="M65,65 L65,125 A60,60 0 0,1 5,65 Z" fill="rgba(124,92,191,0.15)" stroke="rgba(124,92,191,0.3)" stroke-width="1.5"/>
+        <path d="M65,65 L5,65 A60,60 0 0,1 65,5 Z" fill="rgba(124,92,191,0.55)" stroke="rgba(124,92,191,0.8)" stroke-width="1.5"/>
+        <line x1="65" y1="5" x2="65" y2="125" stroke="white" stroke-width="2"/>
+        <line x1="5" y1="65" x2="125" y2="65" stroke="white" stroke-width="2"/>
+        <text x="35" y="42" font-size="11" font-weight="800" fill="#E8940A" text-anchor="middle">10%</text>
+        <text x="95" y="42" font-size="11" fill="#8A94A8" text-anchor="middle">10%</text>
+        <text x="95" y="92" font-size="11" fill="#8A94A8" text-anchor="middle">10%</text>
+        <text x="35" y="92" font-size="11" fill="#8A94A8" text-anchor="middle">10%</text>
+      </svg>
+      <div class="circle-key">
+        Imagine the clinical staff (40%) split into 4 equal quarters.<br>
+        25% of them = <b>one quarter = 10% of all staff.</b><br><br>
+        The highlighted quarter = the specialists.<br>
+        No complex multiplication needed — just <b>recognise the fraction.</b>
+      </div>
+    </div>
+    <div class="explain-box">
+      <div class="explain-title">QR IS ABOUT INTERPRETATION, NOT JUST CALCULATION</div>
+      <div class="explain-text">In QR, the biggest challenge is not doing the maths — it's knowing <b>which calculation to do from the wording.</b> We have built a <b>14-page QR Wording Interpretation Summary</b> that maps <b>250+ key phrases used in QR</b> to the exact operation required for the wording, covering rates, ratios, percentages, tables, fractions, and more. The next slide shows a sample from that document.</div>
+    </div>
+  </div>
+</div>
+
+<!-- QR TRAP 1 — SAMPLE DOCUMENT PAGE -->
+<div class="slide" data-slide="13" data-section="QR" data-type="explain">
+  <div class="slide-inner">
+    <div class="slide-type type-explain">QR · Wording Summary — Sample Entries</div>
+    <h2>Sample: QR Interpretation Guide</h2>
+    <p class="slide-sub">A selection from the 250+ QR wording interpretations in the full 14-page document — mapping wording to the exact operation.</p>
+
+    <div class="qr-doc">
+      <div class="qr-doc-header">
+        <div class="sec-title">4. Percentages</div>
+        <div class="sub">UCAT Complete Guidance — Wording Interpretation Summary</div>
+      </div>
+      <div class="qr-doc-body">
+        <div class="qr-sub-heading">4a. Finding a percentage of a value</div>
+        <table class="qr-tbl">
+          <thead>
+            <tr>
+              <th style="width:35%">Wording</th>
+              <th style="width:28%">What to do</th>
+              <th style="width:37%">Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>"X% of Y", "what is X% of"</td>
+              <td>(X ÷ 100) × Y</td>
+              <td>"15% of 340" → 0.15 × 340 = 51</td>
+            </tr>
+            <tr>
+              <td>"VAT added at X%", "increased by X%"</td>
+              <td>Value × (1 + X/100)</td>
+              <td>"$80 VAT 20%" → 80 × 1.20 = 96</td>
+            </tr>
+            <tr>
+              <td>"Decreased by X%", "discount", "reduced"</td>
+              <td>Value x (1 − X/100)</td>
+              <td>"$200, 15% off" → 200 x0.85 = 170</td>
+            </tr>
+            <tr>
+              <td>"After two successive % changes"</td>
+              <td>Value × multiplier1 × multiplier2</td>
+              <td>"Up 10% then down 5%" → × 1.10 × 0.95</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="qr-sub-heading">4b. Expressing as a percentage</div>
+        <table class="qr-tbl">
+          <thead>
+            <tr>
+              <th style="width:35%">Wording</th>
+              <th style="width:28%">What to do</th>
+              <th style="width:37%">Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>"X is what % of Y"</td>
+              <td>(X ÷ Y) × 100</td>
+              <td>"18 out of 60" → (18 ÷ 60) × 100 = 30%</td>
+            </tr>
+            <tr>
+              <td>"% change", "% increase/decrease"</td>
+              <td>((New − Old) ÷ Old) × 100</td>
+              <td>"250 → 200" → ((200−250)÷250)×100</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="qr-key-rule"><b>Key rule:</b> If the % is given in the question → use the multiplier method (×1.20 or x0.85). If asked to calculate what % something represents → use (number ÷ total) × 100. If a quantity is given and % is in the table → (quantity × %) — e.g. 300g burger × 20% fat = 60g fat.</div>
+      </div>
+    </div>
+
+    <p style="font-size:0.78rem;color:var(--muted);margin-top:0.5rem;line-height:1.6">These are 6 out of the 250+ QR Wording Interpretation Summary provided in the course. Each of the 14-page document covers a specific QR topic with wording → operation → example.</p>
+  </div>
+</div>
+
+<!-- QR TRAP 1 — Q2 -->
+<div class="slide" data-slide="14" data-section="QR" data-q="qr1b">
+  <div class="slide-inner">
+    <div class="second-q-banner"><span>Apply the strategy →</span> Convert to actual numbers. Apply each % as a fraction where possible. Express the final answer as % of the original total.</div>
+    <div class="slide-type type-qr">QR · Trap 1 of 1 · Apply the Strategy</div>
+    <h2>Now you try — serial % chain</h2>
+    <div class="passage qr-border">
+      A university has 2,000 students. 80% are domestic students. Of the domestic students, 25% receive a scholarship. Of scholarship recipients, 50% are enrolled in science degrees.
+    </div>
+    <div class="q-label">QUESTION</div>
+    <div class="q-text">What percentage of all university students are domestic scholarship recipients enrolled in science?</div>
+    <div class="options" id="opts-qr1b">
+      <button class="opt" data-chosen="A" onclick="selectOpt(this,'qr1b')"><span class="opt-letter">A</span>50%</button>
+      <button class="opt" data-chosen="B" onclick="selectOpt(this,'qr1b')"><span class="opt-letter">B</span>25%</button>
+      <button class="opt" data-chosen="C" onclick="selectOpt(this,'qr1b')"><span class="opt-letter">C</span>10%</button>
+      <button class="opt" data-chosen="D" onclick="selectOpt(this,'qr1b')"><span class="opt-letter">D</span>20%</button>
+    </div>
+    <button class="check-btn" id="check-qr1b" onclick="checkAnswer('qr1b','C')">Check Answer</button>
+    <div class="feedback" id="fb-qr1b"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════
+     SJT TRAP 2 — Q1 (Confidentiality)
+═══════════════════════════════════ -->
+<div class="slide" data-slide="15" data-section="SJT" data-q="sjt2a">
+  <div class="slide-inner">
+    <div class="slide-type type-sjt">SJT · Confidentiality &amp; Safety · First Attempt</div>
+    <h2>Situational Judgement</h2>
+    <p class="slide-sub">Select the <b>single most appropriate</b> response.</p>
+    <div class="passage sjt-border">
+      A patient tells you in confidence that they have been experiencing blackouts but continue to drive. They refuse to stop driving or to inform the relevant authority. You are a medical student and there is no supervising doctor immediately available.
+    </div>
+    <div class="q-label">QUESTION — Select the MOST appropriate action</div>
+    <div class="options" id="opts-sjt2a">
+      <button class="opt" data-chosen="A" onclick="selectOpt(this,'sjt2a')"><span class="opt-letter">A</span>Respect patient confidentiality — do nothing as they have not consented to disclosure.</button>
+      <button class="opt" data-chosen="B" onclick="selectOpt(this,'sjt2a')"><span class="opt-letter">B</span>Document the conversation and inform your supervising doctor as soon as they are available.</button>
+      <button class="opt" data-chosen="C" onclick="selectOpt(this,'sjt2a')"><span class="opt-letter">C</span>Explain to the patient that this may need to be disclosed due to serious risk to others, and strongly encourage them to report voluntarily, first.</button>
+      <button class="opt" data-chosen="D" onclick="selectOpt(this,'sjt2a')"><span class="opt-letter">D</span>Immediately contact the relevant authority yourself to report the patient without informing them.</button>
+    </div>
+    <button class="check-btn" id="check-sjt2a" onclick="checkAnswer('sjt2a','C')">Check Answer</button>
+    <div class="feedback" id="fb-sjt2a"></div>
+  </div>
+</div>
+
+<!-- SJT TRAP 2 — EXPLANATION -->
+<div class="slide" data-slide="16" data-section="SJT" data-type="explain">
+  <div class="slide-inner">
+    <div class="slide-type type-explain">SJT · Strategy Reveal</div>
+    <h2>The Confidentiality vs Public Safety Trap</h2>
+    <div class="trap-box">
+      <div class="trap-label">⚠ THE TRAP</div>
+      <div class="trap-text">Many students select A — confidentiality feels like the "safe" professional default. Others jump to D — immediately contacting authorities — because public safety sounds urgent. Both extremes miss the nuance. <b>Confidentiality can be overridden when serious risk to third parties exists</b> — but the first step is always to inform the patient and encourage voluntary disclosure, not to act unilaterally or do nothing.</div>
+    </div>
+    <div class="strategy-box">
+      <div class="strategy-label">✓ THE RULE — Confidentiality Override Order</div>
+      <div class="strategy-text"><b>Step 1:</b> Tell the patient what may need to happen and encourage voluntary disclosure (C) — this is always first when the patient is present.<br><br>
+      <b>Step 2:</b> Escalate to your supervisor (B) — but only after informing the patient first. As a student, never act alone on formal disclosure without involving your supervisor.<br><br>
+      <b>Step 3:</b> Formal disclosure through proper channels follows thereafter (D).<br><br>
+      <b>Why not B first?</b> Although informing your supervisor is the correct next step, doing so <em>before</em> speaking to the patient yourself skips the essential first step. The patient must be informed of the potential disclosure and given the opportunity to act voluntarily first. B is appropriate as a follow-up to C — but not as the very first action.<br><br>
+      Doing nothing (A) when serious third-party risk exists is always the least appropriate option. Unilateral immediate disclosure (D) without informing the patient first bypasses the established process.</div>
+    </div>
+    <div class="example-box">
+      <div class="example-label">WHEN CONFIDENTIALITY CAN BE BROKEN</div>
+      <div class="example-text">✓ Serious, identifiable risk to third parties (driving with blackouts, infectious disease, violence)<br>✓ Patient lacks capacity<br>✓ Court order<br><br><b>First step is always:</b> inform the patient, encourage voluntary action — never unilateral external contact without this step first.</div>
+    </div>
+  </div>
+</div>
+
+<!-- SJT TRAP 2 — Q2 -->
+<div class="slide" data-slide="17" data-section="SJT" data-q="sjt2b">
+  <div class="slide-inner">
+    <div class="second-q-banner"><span>Apply the rule →</span> Serious third-party risk overrides confidentiality. First: inform the patient and encourage voluntary disclosure. Then escalate through proper channels.</div>
+    <div class="slide-type type-sjt">SJT · Confidentiality &amp; Safety · Apply the Rule</div>
+    <h2>Now you try — same trap</h2>
+    <div class="passage sjt-border">
+      During a consultation, a patient discloses they have been diagnosed with a highly infectious respiratory illness but intend to continue working in a childcare centre. They ask you not to tell anyone. Your supervising doctor is available in the next room.
+    </div>
+    <div class="q-label">QUESTION — Select the MOST appropriate action</div>
+    <div class="options" id="opts-sjt2b">
+      <button class="opt" data-chosen="A" onclick="selectOpt(this,'sjt2b')"><span class="opt-letter">A</span>Keep the information confidential as the patient has requested.</button>
+      <button class="opt" data-chosen="B" onclick="selectOpt(this,'sjt2b')"><span class="opt-letter">B</span>Immediately inform your supervising doctor without speaking to the patient first.</button>
+      <button class="opt" data-chosen="C" onclick="selectOpt(this,'sjt2b')"><span class="opt-letter">C</span>Explain to the patient the serious risk to vulnerable children and strongly encourage them to stay home voluntarily, first.</button>
+      <button class="opt" data-chosen="D" onclick="selectOpt(this,'sjt2b')"><span class="opt-letter">D</span>Contact the childcare centre directly without telling the patient or your supervisor.</button>
+    </div>
+    <button class="check-btn" id="check-sjt2b" onclick="checkAnswer('sjt2b','C')">Check Answer</button>
+    <div class="feedback" id="fb-sjt2b"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════
+     RESULT SLIDE
+═══════════════════════════════════ -->
+<div class="slide" data-slide="18" data-section="Results" data-type="result">
+  <div class="slide-inner">
+    <div class="slide-type type-result">Your Diagnostic Results</div>
+    <h2>Section-by-Section Breakdown</h2>
+    <p class="slide-sub">Based on your first-attempt answers — before seeing any strategy — here is your diagnostic profile.</p>
+    <div class="result-row" id="resultGrid"></div>
+
+    <div class="student-scores-box">
+      <p>📈 <b>Our students have received UCAT scores ranging from 2290–2580 (87th–99th percentile) using these methods.</b> Don't fall into the trap of doing question banks or wasting hundreds of hours attempting questions without a strategy in mind — more questions without a consistent approach produces fluctuating scores, not improvement.</p>
+    </div>
+
+    <div class="percentile-box" id="percentileBox">
+      <div class="percentile-label">ESTIMATED PERCENTILE RANGE — FIRST ATTEMPT</div>
+      <div class="percentile-num" id="percentileNum">—</div>
+      <div class="percentile-desc" id="percentileDesc">Calculating...</div>
+    </div>
+
+    <div class="cta-result">
+      <h3>We Will Be In Touch</h3>
+      <p>We will be in touch with you personally regarding your diagnostic consultation — to discuss your results, your top 3 areas of improvement, and a personalised preparation plan with Sarthak, our specialist UCAT tutor.</p>
+      <p><b>Experience a live strategy example and see the approach before committing to anything.</b></p>
+    </div>
+  </div>
+</div>
+
+</div><!-- /slides -->
+
+<div class="nav-btns">
+  <button class="btn-prev" id="btnPrev" onclick="prevSlide()">← Back</button>
+  <div class="nav-dots" id="navDots"></div>
+  <button class="btn-next" id="btnNext" onclick="goTo(currentSlide+1)">Next →</button>
+</div>
+
+<script>
+const TOTAL = 19;
+let currentSlide = 0;
+let gateCompleted = false;
+
+const scores = {
+  vr: {first:0, second:0, total:2},
+  dm: {first:0, second:0, total:1},
+  qr: {first:0, second:0, total:1},
+  sjt: {first:0, second:0, total:1}
+};
+const answered = {};
+
+const sectionColors = {
+  intro:'#8A94A8', VR:'#0D0D0D', DM:'#0D0D0D',
+  QR:'#E8940A', SJT:'#E8940A', Results:'#0D0D0D'
+};
+
+// Slide 2 = vr1a (first), 4 = vr1b (second)
+// Slide 5 = vr2a (first), 7 = vr2b (second)
+// Slide 8 = dm1a (first), 10 = dm1b (second)
+// Slide 11 = qr1a (first), 14 = qr1b (second)
+// Slide 15 = sjt2a (first), 17 = sjt2b (second)
+const slideMap = {
+  2:{sec:'vr', q:'vr1a', first:true},
+  3:{type:'explain'},
+  4:{sec:'vr', q:'vr1b', first:false},
+  5:{sec:'vr', q:'vr2a', first:true},
+  6:{type:'explain'},
+  7:{sec:'vr', q:'vr2b', first:false},
+  8:{sec:'dm', q:'dm1a', first:true},
+  9:{type:'explain'},
+  10:{sec:'dm', q:'dm1b', first:false},
+  11:{sec:'qr', q:'qr1a', first:true},
+  12:{type:'explain'},
+  13:{type:'doc'},
+  14:{sec:'qr', q:'qr1b', first:false},
+  15:{sec:'sjt', q:'sjt2a', first:true},
+  16:{type:'explain'},
+  17:{sec:'sjt', q:'sjt2b', first:false},
+  18:{type:'result'}
+};
+
+function goTo(idx) {
+  if (idx < 0 || idx >= TOTAL) return;
+  // Block advancing past gate until it's completed
+  if (idx > 1 && !gateCompleted) return;
+  document.querySelector('.slide.active').classList.remove('active');
+  document.querySelector(`.slide[data-slide="${idx}"]`).classList.add('active');
+  currentSlide = idx;
+  updateUI();
+  if (idx === TOTAL - 1) buildResults();
+  window.scrollTo(0, 0);
+}
+
+function prevSlide() {
+  // Going back from first question skips gate, goes to intro
+  if (currentSlide === 2) { goTo(0); return; }
+  goTo(currentSlide - 1);
+}
+
+function updateUI() {
+  const pct = (currentSlide / (TOTAL - 1)) * 100;
+  document.getElementById('progFill').style.width = pct + '%';
+
+  const el = document.querySelector(`.slide[data-slide="${currentSlide}"]`);
+  const sec = el ? el.dataset.section : '';
+
+  // Slide counter — only for content slides 2-17
+  const isContent = currentSlide >= 2 && currentSlide <= TOTAL - 2;
+  document.getElementById('slideCounter').textContent = isContent ? `${currentSlide - 1}/${TOTAL - 3}` : '';
+
+  // Section tag
+  const tag = document.getElementById('navTag');
+  if (currentSlide <= 1 || currentSlide >= TOTAL - 1) {
+    tag.style.display = 'none';
+  } else {
+    tag.style.display = '';
+    tag.textContent = sec || '';
+    tag.style.background = (sectionColors[sec] || '#8A94A8') + '22';
+    tag.style.color = sectionColors[sec] || '#8A94A8';
+  }
+
+  // Nav buttons
+  const btnPrev = document.getElementById('btnPrev');
+  const btnNext = document.getElementById('btnNext');
+
+  // Hide prev on intro (0), gate (1)
+  btnPrev.style.display = (currentSlide <= 1) ? 'none' : 'block';
+  // Hide next on gate (1) and results (18)
+  btnNext.style.display = (currentSlide === 1 || currentSlide === 0 || currentSlide >= TOTAL - 1) ? 'none' : 'block';
+
+  const nb = btnNext;
+  if (currentSlide === TOTAL - 2) nb.textContent = 'See your results →';
+  else if (currentSlide === TOTAL - 3) nb.textContent = 'Continue →';
+  else nb.textContent = 'Next →';
+
+  // Dots
+  const dots = document.getElementById('navDots');
+  dots.innerHTML = '';
+  for (let i = 0; i < TOTAL; i++) {
+    const d = document.createElement('div');
+    const isLocked = i > 1 && !gateCompleted;
+    const isGate = i === 1;
+    d.className = 'dot' + (i === currentSlide ? ' active' : i < currentSlide ? ' done' : '') + (isLocked || isGate ? ' dot-locked' : '');
+    d.onclick = ((idx) => () => {
+      if (idx <= 1) { goTo(idx); return; }
+      if (!gateCompleted) return;
+      goTo(idx);
+    })(i);
+    dots.appendChild(d);
+  }
+}
+
+function selectOpt(btn, qid) {
+  if (answered[qid]) return;
+  document.querySelectorAll(`#opts-${qid} .opt`).forEach(o => o.classList.remove('selected'));
+  btn.classList.add('selected');
+  const cb = document.getElementById(`check-${qid}`);
+  if (cb) cb.classList.add('visible');
+}
+
+function checkAnswer(qid, correct) {
+  if (answered[qid]) return;
+  answered[qid] = true;
+  const opts = document.querySelectorAll(`#opts-${qid} .opt`);
+  let chosen = '';
+  opts.forEach(o => { if (o.classList.contains('selected')) chosen = o.dataset.chosen; });
+  opts.forEach(o => {
+    if (o.dataset.chosen === correct) o.classList.add('correct');
+    else if (o.dataset.chosen === chosen && chosen !== correct) o.classList.add('wrong');
+    o.style.pointerEvents = 'none';
+  });
+  const isCorrect = chosen === correct;
+  const info = Object.values(slideMap).find(s => s.q === qid);
+  if (info && info.sec) {
+    if (info.first && isCorrect) scores[info.sec].first++;
+    if (!info.first && isCorrect) scores[info.sec].second++;
+  }
+  const fb = document.getElementById(`fb-${qid}`);
+  fb.className = 'feedback show ' + (isCorrect ? 'correct-fb' : 'wrong-fb');
+  fb.innerHTML = '<strong>' + (isCorrect ? '✓ Correct' : '✗ Not quite') + '</strong> — ' + getFeedback(qid, isCorrect);
+  document.getElementById(`check-${qid}`).style.display = 'none';
+}
+
+function getFeedback(qid, correct) {
+  const msgs = {
+    vr1a: {
+      c: "Can't Tell is correct. The passage attributes this claim to proponents — the author never confirms it as established fact. Spotting who is speaking is the key VR attribution rule.",
+      w: "The passage says proponents argue this — it is their claim, not a confirmed fact. Whenever a statement is attributed to one side, ask: does the author independently confirm it? Here, they do not. → Can't Tell."
+    },
+    vr1b: {
+      c: "Can't Tell is correct. Health economists contend this — it is their argument, not confirmed by the passage as fact.",
+      w: "Health economists contend this — attribution to one group means the author has not confirmed it. → Can't Tell."
+    },
+    vr2a: {
+      c: "False is correct. Simplified: 'Not all treatments are without side effects' = 'Some treatments have side effects.' The question claims all are side-effect free — directly contradicted.",
+      w: "Rewrite the double negative: 'Not all... without side effects' = 'Some treatments have side effects.' The question says all are free of side effects — that is directly False."
+    },
+    vr2b: {
+      c: "False is correct. 'Not uncommon to not disclose' = patients commonly do NOT disclose. The question says they commonly DO disclose — directly False.",
+      w: "Rewrite: 'not uncommon to not disclose' = patients commonly do not disclose. The question says the opposite — False."
+    },
+    dm1a: {
+      c: "Correct — B. Some A are B + All B are C = Some A are C. Only the doctors who are also researchers definitely attend conferences — 'some doctors,' never 'all.'",
+      w: "'Some doctors are researchers' — not all. Only that subgroup reaches conferences. (Some A are B + All B are C = Some A are C). Never conclude 'all' from 'some.'"
+    },
+    dm1b: {
+      c: "Correct — B. Some nurses are triage-trained + all triage-trained can decide independently → Some nurses can make independent decisions. (Some A are B + All B are C = Some A are C).",
+      w: "Only some nurses are triage-trained — that subgroup can decide independently. (Some A are B + All B are C = Some A are C). Never 'All nurses' from 'some nurses.'"
+    },
+    qr1a: {
+      c: "Correct — 10%. 40% of staff are clinical. 25% of those are specialists = 1 quarter of 40% = 10%. Use the quarter shortcut: 40 ÷ 4 = 10.",
+      w: "25% of the clinical staff (40% of total), not 25% of everyone. Think: 25% = one quarter. One quarter of 40% = 10%. Or: 400 × 40% = 160 clinical. 160 ÷ 4 = 40 specialists. 40/400 = 10%."
+    },
+    qr1b: {
+      c: "Correct — 10%. 80% × 25% × 50% = 10%. Or: 2000 → 1600 domestic → 400 scholarship → 200 science. 200/2000 = 10%.",
+      w: "Multiply the chain: 80% × 25% × 50% = 10%. Or use numbers: 2000 × 0.8 = 1600, × 0.25 = 400, × 0.5 = 200. 200/2000 = 10%."
+    },
+    sjt2a: {
+      c: "Correct — C. Serious third-party risk means confidentiality can be overridden — but the first step is always to inform the patient and encourage voluntary disclosure first. B (going to the supervisor without speaking to the patient) skips this essential step; B comes after C, not before.",
+      w: "A (doing nothing) is always least appropriate when serious third-party risk exists. D (immediately contacting authorities) skips the first step. B (informing supervisor) is correct but comes after C. C is always first: inform the patient and encourage voluntary action."
+    },
+    sjt2b: {
+      c: "Correct — C. The patient is still present, so the first step is to explain the serious risk to vulnerable children and encourage them to act voluntarily, first. B (supervisor) comes next — but not before informing the patient. D bypasses proper channels entirely. A ignores serious third-party risk.",
+      w: "C should come first — always inform the patient and encourage voluntary action before escalating. B is also appropriate but only after C. D (contacting the childcare centre directly) bypasses the established process. A ignores serious third-party risk and is always the least appropriate option."
+    }
+  };
+  return msgs[qid] ? (correct ? msgs[qid].c : msgs[qid].w) : '';
+}
+
+// Web3Forms access key (created for enquiries@ucatcompleteguidance.com at web3forms.com)
+var WEB3FORMS_KEY = '666842b2-1e93-45ac-b1ae-380b9f7db050';
+function handleGateSubmit(e) {
+  e.preventDefault();
+  const name = document.getElementById('g-name').value.trim();
+  const email = document.getElementById('g-email').value.trim();
+  const phone = document.getElementById('g-phone').value.trim();
+  const btn = document.getElementById('gateSubmitBtn');
+  btn.textContent = 'Unlocking...';
+  btn.disabled = true;
+
+  const data = {
+    name, email, phone,
+    _subject: 'UCAT Diagnostic Lead — ' + name,
+    _replyto: email,
+    source: 'UCAT Diagnostic Test — Start Gate'
+  };
+
+  fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    headers: {'Content-Type':'application/json','Accept':'application/json'},
+    body: JSON.stringify(Object.assign({ access_key: WEB3FORMS_KEY, from_name: 'UCAT Complete Guidance website', subject: data._subject, replyto: data._replyto }, data))
+  })
+  .then(() => { gateCompleted = true; goTo(2); })
+  .catch(() => { gateCompleted = true; goTo(2); });
+}
+
+function buildResults() {
+  const grid = document.getElementById('resultGrid');
+  const secs = [
+    {key:'vr', name:'Verbal Reasoning', cls:'rc-vr',
+     diag:{
+       0: 'Attribution and double-negative traps are significantly affecting your VR accuracy. A strategy-first approach is needed across both trap types.',
+       1: 'Developing — one trap type identified but the other still causes errors. Targeted VR strategy work will produce rapid improvement.',
+       2: 'Strong VR instinct — both trap types identified correctly on first attempt.'
+     }},
+    {key:'dm', name:'Decision Making', cls:'rc-dm',
+     diag:{
+       0: 'The Some vs All logical reasoning framework needs structured attention. This is the most common DM syllogism error and is addressed systematically across the 35+ rule set.',
+       1: 'Strong logical instinct — the "Some vs All" trap identified correctly on first attempt. The full 35+ rule framework will sharpen DM accuracy further.'
+     }},
+    {key:'qr', name:'Quantitative Reasoning', cls:'rc-qr',
+     diag:{
+       0: 'Wording interpretation needs systematic attention. QR strategy is primarily about knowing which calculation to do from the wording, not the calculation itself.',
+       1: 'Good QR accuracy on the percentage chain. The full 250+ phrase wording summary addresses all remaining QR interpretation patterns.'
+     }},
+    {key:'sjt', name:'Situational Judgement', cls:'rc-sjt',
+     diag:{
+       0: 'The confidentiality override framework and correct order of steps need development. The ethical value hierarchy requires focused attention.',
+       1: 'Strong SJT ethical reasoning — the confidentiality vs public safety framework applied correctly on first attempt.'
+     }},
+  ];
+
+  grid.innerHTML = '';
+  let tf = 0, ts = 0;
+  secs.forEach(s => {
+    const f = scores[s.key].first, sec = scores[s.key].second, tot = scores[s.key].total;
+    tf += f; ts += sec;
+    const diagText = s.diag[f] || s.diag[tot] || s.diag[0];
+    grid.innerHTML += `<div class="result-card ${s.cls}">
+      <div class="result-card-section">${s.name.toUpperCase()}</div>
+      <div class="result-card-score">${f}/${tot}</div>
+      <div class="result-card-label">first attempt → after strategy: ${sec}/${tot}</div>
+      <div class="result-card-diag">${diagText}</div>
+    </div>`;
+  });
+
+  const total = scores.vr.total + scores.dm.total + scores.qr.total + scores.sjt.total;
+  const pct = Math.round((tf / total) * 100);
+  let pRange, pText;
+  if (pct >= 80) {
+    pRange = '70th–85th';
+    pText = 'Your instinctive approach is already strong across multiple sections. Strategy refinement across the remaining gaps will push you toward the top quartile.';
+  } else if (pct >= 55) {
+    pRange = '50th–70th';
+    pText = 'Solid foundation. Targeted strategy work on your identified trap patterns will produce meaningful, consistent improvement across all sections.';
+  } else if (pct >= 30) {
+    pRange = '35th–55th';
+    pText = 'Common traps are affecting your score across multiple sections. Structured strategy — rather than more question practice — is the priority.';
+  } else {
+    pRange = 'Below 35th';
+    pText = 'Your score reflects strategic gaps rather than knowledge gaps. The right framework produces rapid, substantial improvement — and that is exactly what the programme addresses.';
+  }
+  document.getElementById('percentileNum').textContent = pRange;
+  document.getElementById('percentileDesc').textContent = `Based on ${tf}/${total} correct on first attempts. ${pText}`;
+}
+
+updateUI();
+goTo(0);
+</script>
+</body>
+</html>

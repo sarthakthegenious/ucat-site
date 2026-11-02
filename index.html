@@ -1,3 +1,4 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,33 +6,33 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>UCAT Tutoring Australia | Strategy-First Preparation | UCAT Complete Guidance</title>
 <link rel="canonical" href="https://ucatcompleteguidance.com/">
-<meta name="description" content="UCAT Complete Guidance by Sarthak Mehta — strategy-first UCAT tutoring with 180+ students prepared across Australia. 2025 cohort median: 2,360 (93rd percentile). Book your free diagnostic consultation.">
+<meta name="description" content="UCAT Complete Guidance by Sarthak Mehta — strategy-first UCAT tutoring with 230+ students prepared across Australia. 2025 cohort median: 2,360 (93rd percentile). Book your free diagnostic consultation.">
 <meta name="keywords" content="UCAT tutoring Australia, UCAT preparation, UCAT strategy, UCAT course, medicine admissions Australia">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- Non-blocking font load: media=print trick swaps to all after load -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap"></noscript>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,600;1,400;1,600&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,600;1,400;1,600&display=swap"></noscript>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --navy:   #1A2B4A;
-  --navy2:  #243660;
-  --gold:   #F5A623;
-  --gold2:  #FBBF4A;
-  --white:  #FFFFFF;
-  --offwhite: #F7F8FC;
-  --stone:  #E8EAF0;
-  --text:   #1A2B4A;
-  --muted:  #5A6478;
-  --light:  #8A94A8;
+  --navy:     #0D0D0D;
+  --navy2:    #2A2A2A;
+  --gold:     #E8940A;
+  --gold2:    #F5A825;
+  --white:    #FFFFFF;
+  --offwhite: #FAFAF8;
+  --stone:    #E0E0E0;
+  --text:     #0D0D0D;
+  --muted:    #5C5C5C;
+  --light:    #A8A8A8;
 }
 
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: 'Outfit', sans-serif;
   color: var(--text);
   background: var(--white);
   -webkit-font-smoothing: antialiased;
@@ -43,47 +44,64 @@ body {
 .wrap { max-width: 960px; margin: 0 auto; padding: 0 5vw; }
 .gold { color: var(--gold); }
 
-/* ── NAV ── */
-nav {
+/* ── TOP NAV BAR (scoped, not sidebar nav) ── */
+body > nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-  background: rgba(26,43,74,0.97);
+  background: rgba(255,255,255,0.97);
   backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--stone);
   height: 68px;
   display: flex; align-items: center; justify-content: space-between;
   padding: 0 5vw;
 }
+/* Sidebar nav must be vertical block, not flex row */
+.sidebar-nav {
+  display: block !important;
+  padding: 1rem 0;
+  flex: 1;
+  height: auto !important;
+  position: static !important;
+  background: none !important;
+}
 
+body > nav .nav-brand {
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none;
+}
 .nav-brand {
   display: flex; align-items: center; gap: 10px;
   text-decoration: none;
 }
 
-/* SVG logo inline */
-.nav-logo-svg { width: 40px; height: 40px; flex-shrink: 0; }
+/* PNG logo inline */
+.nav-logo-img { height: 40px; width: auto; display: block; flex-shrink: 0; object-fit: contain; }
 
 .nav-brand-text {
-  font-family: 'Nunito Sans', sans-serif;
-  font-weight: 800;
-  font-size: 1.15rem;
-  color: var(--white);
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--navy);
   line-height: 1.2;
-  letter-spacing: 0.01em;
+  letter-spacing: -0.01em;
 }
-.nav-brand-text span { color: var(--gold); display: block; font-weight: 400; font-size: 0.82rem; letter-spacing: 0.06em; }
+.nav-brand-text span { color: var(--light); display: block; font-weight: 400; font-size: 0.82rem; letter-spacing: 0.01em; }
 
 .nav-links { display: flex; gap: 1.8rem; list-style: none; align-items: center; }
-.nav-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.85rem; font-weight: 600; transition: color 0.2s; padding: 0.5rem 0.25rem; display: inline-block; min-height: 44px; display: flex; align-items: center; }
-.nav-links a:hover { color: var(--white); }
+.nav-links a { color: var(--muted); text-decoration: none; font-size: 0.82rem; font-weight: 500; transition: color 0.2s; padding: 0 0.25rem; display: flex; align-items: center; height: 36px; }
+.nav-links a:hover { color: var(--navy); }
 .nav-links .nav-btn {
-  background: var(--gold); color: var(--navy);
-  padding: 0.4rem 1.1rem; border-radius: 20px;
-  font-weight: 700; font-size: 0.82rem;
+  background: var(--navy); color: var(--white);
+  padding: 0 1.1rem; border-radius: 3px;
+  font-weight: 600; font-size: 0.78rem;
+  height: 36px; display: flex; align-items: center;
+  margin-right: 4px;
 }
-.nav-links .nav-btn:hover { background: var(--gold2); color: var(--navy); }
+.nav-links .nav-btn:hover { background: var(--navy2); color: var(--white); }
 
 /* ── HERO ── */
 .hero {
-  background: var(--navy);
+  background: var(--white);
+  border-bottom: 1px solid var(--stone);
   padding: 130px 5vw 90px;
   min-height: 92vh;
   display: flex; align-items: center;
@@ -93,20 +111,16 @@ nav {
 
 .hero-eyebrow {
   display: inline-flex; align-items: center; gap: 8px;
-  background: rgba(245,166,35,0.15);
-  border: 1px solid rgba(245,166,35,0.3);
   color: var(--gold);
-  font-size: 0.78rem; font-weight: 700;
-  padding: 0.35rem 0.9rem; border-radius: 20px;
+  font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
   margin-bottom: 1.75rem;
-  letter-spacing: 0.04em;
 }
 
 .hero-eyebrow::before {
   content: '';
-  width: 6px; height: 6px;
+  display: block; width: 20px; height: 1px;
   background: var(--gold);
-  border-radius: 50%;
 }
 
 .hero-layout { display: flex; align-items: flex-start; justify-content: space-between; gap: 3rem; }
@@ -114,9 +128,9 @@ nav {
 .hero-left { flex: 1; }
 
 .hero h1 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Lora', serif;
   font-size: clamp(2.4rem, 4.5vw, 3.6rem);
-  color: var(--white);
+  color: var(--navy);
   line-height: 1.1;
   letter-spacing: -0.02em;
   margin-bottom: 1.25rem;
@@ -125,9 +139,9 @@ nav {
 
 
 .hero-sub {
-  color: rgba(255,255,255,0.62);
+  color: var(--muted);
   font-size: 1rem;
-  line-height: 1.75;
+  line-height: 1.8;
   max-width: 500px;
   margin-bottom: 2.25rem;
   font-weight: 400;
@@ -136,36 +150,37 @@ nav {
 .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
 
 .btn-gold {
-  background: var(--gold); color: var(--navy);
-  padding: 0.8rem 1.8rem; border-radius: 25px;
-  font-weight: 800; font-size: 0.9rem;
+  background: var(--navy); color: var(--white);
+  padding: 0.85rem 1.85rem; border-radius: 3px;
+  font-weight: 600; font-size: 0.85rem;
   text-decoration: none; display: inline-block;
-  transition: background 0.2s, transform 0.15s;
+  transition: background 0.15s;
+  letter-spacing: 0.01em;
 }
-.btn-gold:hover { background: var(--gold2); transform: translateY(-2px); }
+.btn-gold:hover { background: var(--navy2); }
 
 .btn-outline {
-  border: 1.5px solid rgba(255,255,255,0.3); color: var(--white);
-  padding: 0.8rem 1.8rem; border-radius: 25px;
-  font-weight: 600; font-size: 0.9rem;
+  border: 1px solid var(--stone); color: var(--muted);
+  padding: 0.85rem 1.8rem; border-radius: 3px;
+  font-weight: 500; font-size: 0.85rem;
   text-decoration: none; display: inline-block;
-  transition: border-color 0.2s, background 0.2s;
+  transition: border-color 0.15s, color 0.15s;
 }
-.btn-outline:hover { border-color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.06); }
+.btn-outline:hover { border-color: var(--navy); color: var(--navy); }
 
 .hero-stats { display: flex; gap: 2.5rem; flex-wrap: wrap; }
 
-.hero-stat { border-left: 2px solid var(--gold); padding-left: 1rem; }
+.hero-stat { border-left: 2px solid var(--stone); padding-left: 1rem; }
 .hero-stat-num {
-  font-family: 'Playfair Display', serif;
-  font-size: 2rem; color: var(--white); line-height: 1;
+  font-family: 'Lora', serif;
+  font-size: 2rem; color: var(--navy); line-height: 1;
   margin-bottom: 0.25rem;
 }
-.hero-stat-label { font-size: 0.75rem; color: rgba(255,255,255,0.5); line-height: 1.4; max-width: 110px; }
+.hero-stat-label { font-size: 0.75rem; color: var(--muted); line-height: 1.4; max-width: 110px; }
 
 /* ── EXTRA HERO STATS ── */
 .hero-stat-gold .hero-stat-num { color: var(--gold); }
-.hero-stat-gold .hero-stat-label { color: rgba(255,255,255,0.5); }
+.hero-stat-gold .hero-stat-label { color: var(--muted); }
 
 /* ── SCORE SECTION ── */
 .score-section { background: var(--offwhite); padding: 80px 5vw; }
@@ -179,7 +194,7 @@ nav {
   padding: 2rem 2.25rem 1.5rem;
   flex-shrink: 0;
   width: 300px;
-  box-shadow: 0 8px 40px rgba(26,43,74,0.1);
+  box-shadow: 0 8px 40px rgba(13,13,13,0.1);
   border: 1px solid var(--stone);
 }
 .score-chart-label {
@@ -199,7 +214,7 @@ nav {
   height: 100%; justify-content: flex-end;
 }
 .score-bar-value {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Lora', serif;
   font-size: 1rem; font-weight: 700;
   color: var(--muted); margin-bottom: 0.4rem; line-height: 1;
 }
@@ -233,11 +248,11 @@ nav {
 .cohort-band-inner { max-width: 960px; margin: 0 auto; }
 .cohort-band-label {
   font-size: 0.72rem; font-weight: 800;
-  color: #92600A; letter-spacing: 0.06em;
+  color: var(--gold); letter-spacing: 0.06em;
   margin-bottom: 0.5rem; display: block;
 }
 .cohort-band-title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Lora', serif;
   font-size: clamp(1.3rem, 2.5vw, 1.9rem);
   color: var(--navy); margin-bottom: 2rem; line-height: 1.25;
 }
@@ -253,11 +268,11 @@ nav {
 
 .cohort-logo-name {
   font-size: 0.7rem; font-weight: 700;
-  color: rgba(255,255,255,0.65); line-height: 1.3;
+  color: var(--muted); line-height: 1.3;
   margin-bottom: 0.6rem; flex: 1;
 }
 .cohort-logo-count {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Lora', serif;
   font-size: 2rem; color: var(--navy); line-height: 1; margin-bottom: 0.2rem;
   font-weight: 700;
 }
@@ -275,13 +290,13 @@ nav {
 
 .section-tag {
   font-size: 0.75rem; font-weight: 700;
-  color: #92600A; letter-spacing: 0.06em;
+  color: var(--gold); letter-spacing: 0.06em;
   margin-bottom: 0.75rem; display: block;
 }
 .section-navy .section-tag { color: var(--gold); }
 
 h2 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Lora', serif;
   font-size: clamp(1.9rem, 3vw, 2.6rem);
   color: var(--navy); line-height: 1.2;
   letter-spacing: -0.02em; margin-bottom: 1rem;
@@ -339,7 +354,7 @@ h2 {
 .tip-item:last-child { margin-bottom: 0; }
 
 .tip-tag {
-  background: rgba(245,166,35,0.2);
+  background: rgba(232,148,10,0.2);
   color: var(--gold);
   font-size: 0.7rem; font-weight: 800;
   padding: 0.2rem 0.55rem;
@@ -367,7 +382,7 @@ h2 {
 
 .include-icon {
   width: 38px; height: 38px;
-  background: rgba(245,166,35,0.12);
+  background: rgba(232,148,10,0.12);
   border-radius: 8px;
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
@@ -382,15 +397,15 @@ h2 {
 .lesson-meta { flex: 0 0 280px; }
 .lesson-badge {
   display: inline-block;
-  background: rgba(245,166,35,0.12);
-  border: 1px solid rgba(245,166,35,0.35);
+  background: rgba(232,148,10,0.12);
+  border: 1px solid rgba(232,148,10,0.35);
   color: #D4870A;
   font-size: 0.8rem; font-weight: 700;
   padding: 0.4rem 0.9rem;
   border-radius: 6px;
   margin-bottom: 1.5rem;
 }
-.lesson-time { font-family: 'Playfair Display', serif; font-size: 3.5rem; color: var(--navy); line-height: 1; }
+.lesson-time { font-family: 'Lora', serif; font-size: 3.5rem; color: var(--navy); line-height: 1; }
 .lesson-time-label { font-size: 0.8rem; color: var(--muted); margin-bottom: 1.5rem; margin-top: 0.25rem; }
 .lesson-breakdown { list-style: none; padding: 0; margin: 0; }
 .lesson-breakdown li {
@@ -400,8 +415,8 @@ h2 {
   display: flex; align-items: center; gap: 0.6rem;
 }
 .lesson-breakdown li::before { content: "●"; color: var(--gold); font-size: 0.5rem; flex-shrink: 0; }
-.lesson-parts { flex: 1; min-width: 260px; display: flex; flex-direction: column; gap: 0; border: 1.5px solid #e2e6ee; border-radius: 12px; overflow: hidden; }
-.lesson-part { padding: 1.5rem 1.75rem; border-bottom: 1px solid var(--stone); border-left: 3px solid var(--gold); background: #f7f8fb; }
+.lesson-parts { flex: 1; min-width: 260px; display: flex; flex-direction: column; gap: 0; border: 1.5px solid var(--stone); border-radius: 12px; overflow: hidden; }
+.lesson-part { padding: 1.5rem 1.75rem; border-bottom: 1px solid var(--stone); border-left: 3px solid var(--gold); background: var(--offwhite); }
 .lesson-part:last-child { border-bottom: none; }
 .lesson-part-label { font-size: 0.72rem; font-weight: 800; color: #D4870A; letter-spacing: 0.06em; margin-bottom: 0.4rem; }
 .lesson-part h3 { font-size: 1.05rem; color: var(--navy); margin-bottom: 0.4rem; font-weight: 800; }
@@ -424,8 +439,8 @@ h2 {
 .how-step:last-child { border-right: none; }
 
 .how-step-num {
-  font-family: 'Playfair Display', serif;
-  font-size: 3rem; color: rgba(245,166,35,0.7);
+  font-family: 'Lora', serif;
+  font-size: 3rem; color: rgba(232,148,10,0.7);
   line-height: 1; margin-bottom: 0.75rem;
 }
 .how-step-num::before { content: counter(steps); }
@@ -461,7 +476,7 @@ h2 {
 }
 
 .review-author { font-weight: 800; font-size: 0.82rem; color: var(--navy); }
-.review-detail { font-size: 0.75rem; color: #92600A; font-weight: 700; margin-top: 0.15rem; }
+.review-detail { font-size: 0.75rem; color: var(--gold); font-weight: 700; margin-top: 0.15rem; }
 
 .review-highlight {
   background: var(--navy);
@@ -486,7 +501,7 @@ h2 {
 
 .workshop-label {
   font-size: 0.72rem; font-weight: 800;
-  color: #92600A; letter-spacing: 0.08em;
+  color: var(--gold); letter-spacing: 0.08em;
   margin-bottom: 0.4rem;
 }
 .workshop-title { font-weight: 800; font-size: 1.15rem; color: var(--navy); margin-bottom: 0.3rem; }
@@ -515,7 +530,7 @@ h2 {
 .lesson-part-row-label {
   font-size: 0.68rem;
   font-weight: 800;
-  color: #92600A;
+  color: var(--gold);
   letter-spacing: 0.05em;
   min-width: 90px;
   padding-top: 0.15rem;
@@ -539,8 +554,8 @@ h2 {
 
 /* ── GUARANTEE ── */
 .guarantee-box {
-  background: rgba(245,166,35,0.08);
-  border: 1.5px solid rgba(245,166,35,0.3);
+  background: rgba(232,148,10,0.08);
+  border: 1.5px solid rgba(232,148,10,0.3);
   border-radius: 12px;
   padding: 2.5rem;
   text-align: center;
@@ -548,7 +563,7 @@ h2 {
   margin: 0 auto;
 }
 .guarantee-icon { font-size: 2.5rem; margin-bottom: 1rem; }
-.guarantee-box h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--navy); margin-bottom: 0.75rem; }
+.guarantee-box h3 { font-family: 'Lora', serif; font-size: 1.5rem; color: var(--navy); margin-bottom: 0.75rem; }
 .guarantee-box p { font-size: 0.9rem; color: var(--muted); line-height: 1.75; }
 
 /* ── CTA STRIP ── */
@@ -558,11 +573,11 @@ h2 {
   text-align: center;
 }
 .cta-strip h2 { color: var(--navy); margin-bottom: 0.75rem; }
-.cta-strip p { color: rgba(26,43,74,0.7); max-width: 460px; margin: 0 auto 2rem; font-size: 0.97rem; line-height: 1.7; }
+.cta-strip p { color: rgba(13,13,13,0.7); max-width: 460px; margin: 0 auto 2rem; font-size: 0.97rem; line-height: 1.7; }
 
 .btn-navy {
   background: var(--navy); color: var(--white);
-  padding: 0.9rem 2.2rem; border-radius: 25px;
+  padding: 0.9rem 2.2rem; border-radius: 3px;
   font-weight: 800; font-size: 0.92rem;
   text-decoration: none; display: inline-block;
   transition: background 0.2s;
@@ -575,7 +590,7 @@ h2 {
 }
 .contact-item {
   display: flex; align-items: center; gap: 0.5rem;
-  font-size: 1rem; color: rgba(26,43,74,1);
+  font-size: 1rem; color: rgba(13,13,13,1);
   font-weight: 700;
 }
 
@@ -615,14 +630,14 @@ h2 {
   text-decoration: none;
   padding: 0.75rem 1.25rem 0.75rem 0.9rem;
   border-radius: 40px;
-  box-shadow: 0 4px 20px rgba(26,43,74,0.35), 0 1px 4px rgba(0,0,0,0.15);
-  border: 1.5px solid rgba(245,166,35,0.5);
+  box-shadow: 0 4px 20px rgba(13,13,13,0.35), 0 1px 4px rgba(0,0,0,0.15);
+  border: 1.5px solid rgba(232,148,10,0.5);
   transition: box-shadow 0.25s, transform 0.2s, border-color 0.2s;
   cursor: pointer;
   white-space: nowrap;
 }
 .diag-float-btn:hover {
-  box-shadow: 0 6px 28px rgba(26,43,74,0.5), 0 2px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 6px 28px rgba(13,13,13,0.5), 0 2px 8px rgba(0,0,0,0.2);
   transform: translateY(-2px);
   border-color: var(--gold);
 }
@@ -667,7 +682,7 @@ h2 {
 
 /* ── DIAGNOSTIC STRIP ── */
 .diag-strip {
-  background: linear-gradient(135deg, #1A2B4A 0%, #243660 60%, #2A3D70 100%);
+  background: linear-gradient(135deg, #0D0D0D 0%, #2A2A2A 60%, #2A3D70 100%);
   border-top: 3px solid var(--gold);
   padding: 1.1rem 5vw;
   display: flex;
@@ -689,7 +704,7 @@ h2 {
 }
 .diag-strip-text { }
 .diag-strip-headline {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Lora', serif;
   font-size: clamp(1rem, 2vw, 1.25rem);
   color: var(--white);
   font-weight: 700;
@@ -709,11 +724,11 @@ h2 {
 .diag-strip-btn {
   background: var(--gold);
   color: var(--navy);
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 0.88rem;
   font-weight: 800;
   padding: 0.7rem 1.6rem;
-  border-radius: 25px;
+  border-radius: 3px;
   text-decoration: none;
   white-space: nowrap;
   flex-shrink: 0;
@@ -744,13 +759,13 @@ h2 {
 }
 .photo-banner-caption {
   position: absolute; bottom: 0; left: 0; right: 0;
-  background: linear-gradient(to top, rgba(26,43,74,0.85), transparent);
+  background: linear-gradient(to top, rgba(13,13,13,0.85), transparent);
   padding: 2rem 2rem 1.25rem;
   color: var(--white);
   font-size: 0.88rem; font-weight: 600;
 }
 .photo-banner-caption strong {
-  display: block; font-family: 'Playfair Display', serif;
+  display: block; font-family: 'Lora', serif;
   font-size: 1.15rem; margin-bottom: 0.2rem;
 }
 
@@ -769,7 +784,7 @@ h2 {
 .photo-split-item:hover img { transform: scale(1.03); }
 .photo-split-caption {
   position: absolute; bottom: 0; left: 0; right: 0;
-  background: linear-gradient(to top, rgba(26,43,74,0.8), transparent);
+  background: linear-gradient(to top, rgba(13,13,13,0.8), transparent);
   padding: 1.5rem 1.25rem 0.9rem;
   color: var(--white); font-size: 0.82rem; font-weight: 600;
 }
@@ -795,10 +810,10 @@ h2 {
 .contact-form input,
 .contact-form select,
 .contact-form textarea {
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 0.9rem; color: var(--navy);
   background: var(--white);
-  border: 2px solid rgba(26,43,74,0.2);
+  border: 2px solid rgba(13,13,13,0.2);
   border-radius: 8px; padding: 0.7rem 0.9rem;
   width: 100%; outline: none;
   transition: border-color 0.2s;
@@ -817,13 +832,13 @@ h2 {
   cursor: pointer; border: none; flex-shrink: 0;
 }
 .form-contact-alt {
-  font-size: 1.05rem; color: rgba(26,43,74,0.85); font-weight: 700; margin-top: 0.25rem;
+  font-size: 1.05rem; color: rgba(13,13,13,0.85); font-weight: 700; margin-top: 0.25rem;
 }
 .form-contact-alt a { color: var(--navy); text-decoration: none; font-weight: 800; font-size: 1.1rem; }
 .form-success {
-  background: rgba(46,158,107,0.12);
-  border: 1.5px solid rgba(46,158,107,0.4);
-  color: #1a6644; border-radius: 8px;
+  background: rgba(232,148,10,0.1);
+  border: 1.5px solid rgba(232,148,10,0.4);
+  color: #A66200; border-radius: 8px;
   padding: 0.85rem 1rem; font-weight: 700;
   font-size: 0.9rem; text-align: center;
 }
@@ -854,7 +869,7 @@ footer {
 .faq-btn {
   width: 100%; background: none; border: none;
   text-align: left; padding: 1.1rem 0;
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 0.93rem; font-weight: 700;
   color: var(--navy); cursor: pointer;
   display: flex; justify-content: space-between; align-items: center; gap: 1rem;
@@ -869,7 +884,7 @@ footer {
 /* ── MOBILE ── */
 @media (max-width: 768px) {
   nav { padding: 0 4vw; }
-  .nav-links li:not(:last-child) { display: none; }
+  .nav-links { display: none !important; }
   .hero { padding: 100px 5vw 64px; min-height: auto; }
   .hero-layout { flex-direction: column; }
   .score-inner { flex-direction: column; gap: 2.5rem; }
@@ -904,10 +919,10 @@ footer {
   "@context": "https://schema.org",
   "@type": "EducationalOrganization",
   "name": "UCAT Complete Guidance",
-  "description": "Strategy-first UCAT tutoring by Sarthak Mehta. 180+ students prepared across Australia with a 2025 cohort median of 2360 (93rd percentile).",
+  "description": "Strategy-first UCAT tutoring by Sarthak Mehta. 230+ students prepared across Australia with a 2026 cohort highest score of 2,580 (top 50 in Australia).",
   "url": "https://ucatcompleteguidance.com",
   "telephone": "+61468423459",
-  "email": "sarthak.ucat@gmail.com",
+  "email": "enquiries@ucatcompleteguidance.com",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Adelaide",
@@ -1008,32 +1023,18 @@ footer {
 
 
 
-@media (max-width: 768px) {
-  .nav-links { display: none !important; }
-  
-}
+/* nav-links hidden on mobile via the rule above */
 
-/* ── NAV RESPONSIVE (no hamburger — just shrink) ── */
+/* ── NAV RESPONSIVE ── */
 @media (max-width: 900px) {
   .nav-brand-text { font-size: 0.95rem; }
   .nav-brand-text span { font-size: 0.68rem; }
-  .nav-links { gap: 1.1rem; }
-  .nav-links a { font-size: 0.78rem; }
-  .nav-links .nav-btn { padding: 0.35rem 0.85rem; font-size: 0.75rem; }
 }
-@media (max-width: 640px) {
-  nav { padding: 0 3vw; }
-  .nav-logo-svg { width: 28px; height: 28px; }
-  .nav-brand-text { font-size: 0.78rem; }
+/* On mobile: hide ALL nav-links (sidebar takes over), show hamburger */
+@media (max-width: 768px) {
+  .nav-links { display: none !important; }
   .nav-brand-text span { display: none; }
-  .nav-links { gap: 0.6rem; }
-  .nav-links a { font-size: 0.7rem; padding: 0.4rem 0.1rem; }
-  .nav-links .nav-btn { padding: 0.3rem 0.65rem; font-size: 0.68rem; }
-}
-@media (max-width: 420px) {
-  .nav-brand-text { display: none; }
-  .nav-links { gap: 0.4rem; }
-  .nav-links a { font-size: 0.65rem; }
+  nav { padding: 0 4vw; gap: 0; }
 }
 
 /* ══════════════════════════════════════════
@@ -1052,7 +1053,7 @@ footer {
     border: none;
     border-bottom: 1px solid var(--stone);
     padding: 1rem 0;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Lora', serif;
     font-size: 1.15rem;
     font-weight: 700;
     color: var(--navy);
@@ -1100,7 +1101,7 @@ footer {
     border: 1.5px solid var(--stone);
     border-radius: 8px;
     padding: 0.75rem;
-    font-family: 'Nunito Sans', sans-serif;
+    font-family: 'Outfit', sans-serif;
     font-size: 0.88rem;
     font-weight: 700;
     color: var(--navy);
@@ -1190,21 +1191,1326 @@ footer {
 }
 
 </style>
+<style>
+/* ── HAMBURGER BUTTON ── always visible, rightmost */
+.hamburger-btn {
+  display: flex; flex-direction: column; justify-content: center; gap: 5px;
+  width: 44px; height: 44px; background: none; border: none; cursor: pointer;
+  padding: 8px; border-radius: 8px; flex-shrink: 0; transition: background 0.2s;
+  margin-left: 12px; order: 99;
+}
+.hamburger-btn:hover { background: rgba(13,13,13,0.06); }
+.hamburger-btn span { display: block; width: 22px; height: 2px; background: var(--navy); border-radius: 2px; transition: transform 0.25s, opacity 0.2s; }
+.hamburger-btn.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger-btn.open span:nth-child(2) { opacity: 0; }
+.hamburger-btn.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ── STUDENT PORTAL BUTTON ── */
+.portal-btn {
+  display: flex; align-items: center; gap: 6px;
+  background: var(--navy);
+  border: 1.5px solid var(--navy);
+  color: var(--white); font-size: 0.78rem; font-weight: 600;
+  padding: 0 0.9rem; height: 36px; border-radius: 3px; text-decoration: none;
+  transition: border-color 0.2s, background 0.2s; white-space: nowrap; letter-spacing: 0.02em;
+  flex-shrink: 0; margin-right: 8px;
+}
+.portal-btn:hover { background: var(--navy2); border-color: var(--navy2); }
+/* Hide portal in nav on mobile — it appears in sidebar instead */
+@media (max-width: 768px) { .portal-btn { display: none; } }
+
+/* ── SIDEBAR OVERLAY ── */
+.sidebar-overlay {
+  position: fixed; inset: 0; background: rgba(10,18,35,0.55); z-index: 299;
+  opacity: 0; pointer-events: none; transition: opacity 0.3s;
+}
+.sidebar-overlay.open { opacity: 1; pointer-events: auto; }
+
+/* ── SIDEBAR — slides from RIGHT ── */
+.sidebar {
+  position: fixed; top: 0; right: 0; bottom: 0; width: 300px; max-width: 85vw;
+  background: var(--navy); z-index: 300;
+  transform: translateX(100%); transition: transform 0.32s cubic-bezier(0.22,0.61,0.36,1);
+  display: flex; flex-direction: column;
+  box-shadow: -4px 0 40px rgba(0,0,0,0.3); overflow-y: auto;
+}
+.sidebar.open { transform: translateX(0); }
+.sidebar-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.1rem 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.1); flex-shrink: 0;
+}
+.sidebar-logo { font-weight: 800; font-size: 0.9rem; color: var(--white); line-height: 1.3; }
+.sidebar-logo span { color: var(--gold); font-weight: 400; font-size: 0.72rem; display: block; letter-spacing: 0.05em; }
+.sidebar-close {
+  width: 36px; height: 36px; background: rgba(255,255,255,0.08); border: none;
+  border-radius: 8px; color: var(--white); font-size: 1.3rem; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0; line-height: 1;
+}
+.sidebar-close:hover { background: rgba(255,255,255,0.15); }
+.sidebar-nav { padding: 1rem 0; flex: 1; }
+.sidebar-nav-label {
+  font-size: 0.62rem; font-weight: 800; color: rgba(255,255,255,0.35);
+  letter-spacing: 0.1em; text-transform: uppercase; padding: 0.5rem 1.25rem 0.3rem; display: block;
+}
+.sidebar-link {
+  display: flex; align-items: center; gap: 0.75rem; padding: 0.8rem 1.25rem;
+  color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.92rem; font-weight: 600;
+  transition: background 0.18s, color 0.18s; border-left: 3px solid transparent;
+}
+.sidebar-link:hover { background: rgba(232,148,10,0.12); color: var(--white); border-left-color: rgba(232,148,10,0.4); }
+.sidebar-link.active { background: rgba(232,148,10,0.12); color: var(--white); border-left-color: var(--gold); }
+.sidebar-link svg { flex-shrink: 0; opacity: 0.7; }
+.sidebar-link:hover svg, .sidebar-link.active svg { opacity: 1; }
+.sidebar-resources-toggle { cursor: pointer; }
+.sidebar-submenu {
+  overflow: hidden; max-height: 0; transition: max-height 0.3s ease;
+  background: rgba(0,0,0,0.15);
+}
+.sidebar-submenu.open { max-height: 400px; }
+.sidebar-sublink {
+  display: block; color: rgba(255,255,255,0.5); text-decoration: none;
+  font-size: 0.82rem; font-weight: 600;
+  padding: 0.5rem 1.25rem 0.5rem 3.5rem;
+  transition: color 0.18s; border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.sidebar-sublink:last-child { border-bottom: none; }
+.sidebar-sublink:hover { color: var(--gold); background: rgba(232,148,10,0.06); }
+.sidebar-footer {
+  padding: 1.25rem; border-top: 1px solid rgba(255,255,255,0.1); flex-shrink: 0;
+}
+/* Portal in sidebar — always shown (primary way to reach it on mobile) */
+.sidebar-portal-link {
+  display: flex; align-items: center; gap: 0.6rem; background: var(--gold);
+  color: #0D0D0D; font-weight: 800; font-size: 0.88rem; padding: 0.7rem 1.1rem;
+  border-radius: 3px; text-decoration: none; justify-content: center; transition: background 0.2s;
+}
+.sidebar-portal-link:hover { background: var(--gold2); }
+.sidebar-chevron { transition: transform 0.25s; margin-left: auto; }
+.sidebar-chevron.open { transform: rotate(180deg); }
+
+/* ── SUBPAGES (page-panel) ── */
+.page-panel { display: none; min-height: 100vh; padding-top: 68px; }
+.page-panel.active { display: block; }
+.article-panel { display: none; min-height: 100vh; padding-top: 68px; }
+.article-panel.active { display: block; }
+
+/* ── SUBPAGE HERO ── */
+.subpage-hero { background: var(--navy); padding: 60px 5vw 56px; }
+.subpage-hero-inner { max-width: 960px; margin: 0 auto; }
+.subpage-eyebrow {
+  font-size: 0.72rem; font-weight: 800; color: var(--gold); letter-spacing: 0.08em;
+  margin-bottom: 0.75rem; display: block;
+}
+.subpage-hero h1 {
+  font-family: 'Lora', serif;
+  font-size: clamp(1.9rem, 3.5vw, 2.8rem); color: var(--white);
+  line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 0.75rem;
+}
+.subpage-hero p { color: rgba(255,255,255,0.6); font-size: 0.97rem; line-height: 1.75; max-width: 580px; }
+.back-btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.8rem; font-weight: 700;
+  margin-bottom: 1.5rem; transition: color 0.2s; background: none; border: none; cursor: pointer;
+  font-family: 'Outfit', sans-serif; letter-spacing: 0.03em;
+}
+.back-btn:hover { color: var(--gold); }
+
+/* ── RESOURCE CARDS ── */
+.resource-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 1.25rem; margin-top: 2.5rem; }
+.resource-card {
+  background: var(--white); border: 1.5px solid var(--stone); border-radius: 12px;
+  overflow: hidden; transition: box-shadow 0.2s, transform 0.2s; cursor: pointer;
+  text-decoration: none; display: flex; flex-direction: column;
+}
+.resource-card:hover { box-shadow: 0 8px 32px rgba(13,13,13,0.13); transform: translateY(-3px); }
+.resource-card-top { background: var(--navy); padding: 1.5rem 1.5rem 1.25rem; }
+.resource-card-icon {
+  width: 44px; height: 44px; background: rgba(232,148,10,0.2); border-radius: 10px;
+  display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;
+}
+.resource-card-tag { font-size: 0.62rem; font-weight: 800; color: var(--gold); letter-spacing: 0.08em; margin-bottom: 0.4rem; text-transform: uppercase; }
+.resource-card h3 { font-family: 'Lora', serif; font-size: 1.05rem; color: var(--white); line-height: 1.25; font-weight: 700; }
+.resource-card-body { padding: 1.25rem 1.5rem; flex: 1; display: flex; flex-direction: column; }
+.resource-card-desc { font-size: 0.83rem; color: var(--muted); line-height: 1.65; flex: 1; margin-bottom: 1rem; }
+.resource-card-cta { font-size: 0.78rem; font-weight: 800; color: #D4870A; display: flex; align-items: center; gap: 4px; }
+
+/* ── ARTICLE VIEW ── */
+.article-body { max-width: 1120px; margin: 0 auto; padding: 3rem 5vw 5rem; }
+.article-body h2 { font-size: clamp(1.3rem,2.5vw,1.9rem); margin-top: 2.5rem; margin-bottom: 0.75rem; }
+.article-body h3 { font-size: 1.05rem; font-weight: 800; color: var(--navy); margin-top: 1.75rem; margin-bottom: 0.5rem; }
+.article-body p { font-size: 0.93rem; color: var(--muted); line-height: 1.85; margin-bottom: 1rem; }
+.article-body ul, .article-body ol { padding-left: 1.5rem; margin-bottom: 1rem; }
+.article-body li { font-size: 0.9rem; color: var(--muted); line-height: 1.75; margin-bottom: 0.35rem; }
+.article-body strong { color: var(--navy); }
+.article-callout {
+  background: rgba(232,148,10,0.1); border-left: 3px solid var(--gold);
+  border-radius: 0 8px 8px 0; padding: 1rem 1.25rem; margin: 1.5rem 0;
+}
+.article-callout p { margin-bottom: 0; font-size: 0.88rem; }
+.article-hero { background: var(--navy); padding: 56px 5vw 48px; }
+.article-hero-inner { max-width: 1120px; margin: 0 auto; }
+.article-hero h1 {
+  font-family: 'Lora', serif; font-size: clamp(1.7rem,3vw,2.4rem);
+  color: var(--white); line-height: 1.2; margin-bottom: 0.75rem; margin-top: 1rem;
+}
+.article-hero p { color: rgba(255,255,255,0.55); font-size: 0.9rem; line-height: 1.7; }
+
+/* ── Blog article inner styles (from real articles) ── */
+.article-panel .container {
+  max-width: 1120px; margin: 0 auto;
+  padding: 3rem max(16px, 5vw) 5rem;
+}
+.article-panel .eyebrow {
+  font-size: 10.5px; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase;
+  color: var(--muted, #6B6B65); margin-bottom: 0.6rem;
+}
+.article-panel h1 {
+  font-family: 'Lora', serif;
+  font-size: clamp(1.8rem, 5vw, 2.5rem); font-weight: 700;
+  line-height: 1.15; margin: 0 0 0.85rem 0;
+}
+.article-panel .standfirst {
+  font-size: 1rem; color: var(--muted, #6B6B65); line-height: 1.6;
+  margin-bottom: 1.75rem; max-width: 56ch;
+}
+.article-panel hr { border: none; border-top: 1px solid rgba(0,0,0,0.12); margin: 1.75rem 0; }
+.article-panel p { margin: 0 0 1rem 0; max-width: 66ch; }
+.article-panel p:last-child { margin-bottom: 0; }
+.article-panel h2 {
+  font-family: 'Lora', serif; font-size: 1.3rem; font-weight: 700;
+  margin: 1.75rem 0 0.5rem 0; line-height: 1.2;
+}
+.article-panel h3 { font-size: 0.95rem; font-weight: 600; margin: 1.25rem 0 0.25rem 0; }
+
+/* Stat blocks (VR article) */
+.article-panel .stat-block {
+  background: rgba(13,13,13,0.04); border-left: 3px solid var(--navy);
+  padding: 0.85rem 1.1rem; margin: 1.4rem 0; border-radius: 0 6px 6px 0;
+}
+.article-panel .stat-block .num {
+  font-family: 'Lora', serif; font-size: 1.85rem; font-weight: 700;
+  color: var(--navy); line-height: 1; display: block; margin-bottom: 0.2rem;
+}
+.article-panel .stat-block p { font-size: 0.87rem; color: #6B6B65; margin: 0; }
+
+/* Callout (VR + percentile article) */
+.article-panel .callout {
+  background: rgba(232,148,10,0.08); border-left: 3px solid var(--gold);
+  padding: 0.8rem 1.1rem; margin: 1.4rem 0; border-radius: 0 6px 6px 0;
+}
+.article-panel .callout-label {
+  font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+  color: #A66200; margin-bottom: 0.25rem;
+}
+.article-panel .callout p { font-size: 0.92rem; margin: 0; max-width: 100%; }
+
+/* CTA block */
+.article-panel .cta-block {
+  background: rgba(232,148,10,0.08); border-left: 3px solid var(--gold);
+  border-radius: 0 6px 6px 0; padding: 0.85rem 1.1rem; margin: 1.5rem 0;
+}
+.article-panel .cta-block p { margin: 0; font-size: 0.92rem; max-width: 100%; }
+
+/* Trap cards (VR article) */
+.article-panel .trap-card {
+  border: 1px solid rgba(0,0,0,0.12); border-radius: 8px;
+  padding: 1rem 1.2rem; margin: 1.1rem 0;
+}
+.article-panel .trap-n {
+  font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+  color: #6B6B65; margin-bottom: 0.25rem;
+}
+.article-panel .trap-card h2 { margin: 0 0 0.55rem 0; font-size: 1.05rem; }
+.article-panel .pair {
+  background: var(--offwhite); border-radius: 6px; padding: 0.65rem 0.9rem;
+  font-size: 0.87rem; margin-bottom: 0.85rem; line-height: 1.6;
+  display: grid; grid-template-columns: 5.5rem 1fr; gap: 0.2rem 0.5rem; align-items: baseline;
+}
+.article-panel .pair .lbl {
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+  color: #6B6B65; padding-top: 0.05rem;
+}
+
+/* Stat row / stat items (percentile article) */
+.article-panel .stat-row { display: flex; gap: 1rem; margin: 1.4rem 0; flex-wrap: wrap; }
+.article-panel .stat-item {
+  flex: 1; min-width: 130px; background: var(--offwhite);
+  border-left: 3px solid var(--navy); border-radius: 0 6px 6px 0; padding: 0.75rem 1rem;
+}
+.article-panel .stat-item .num {
+  font-family: 'Lora', serif; font-size: 1.6rem; font-weight: 700;
+  color: var(--navy); line-height: 1; display: block; margin-bottom: 0.15rem;
+}
+.article-panel .stat-item .lbl { font-size: 0.78rem; color: #6B6B65; }
+
+/* Tables (percentile, requirements articles) */
+.article-panel .tbl-wrap { overflow-x: auto; margin: 1.25rem 0; }
+.article-panel table { width: 100%; border-collapse: collapse; font-size: 0.88rem; font-variant-numeric: tabular-nums; }
+.article-panel th {
+  background: var(--offwhite); font-weight: 600; font-size: 0.75rem; letter-spacing: 0.05em;
+  text-transform: uppercase; padding: 0.5rem 0.75rem; text-align: left;
+  border-bottom: 2px solid var(--stone);
+}
+.article-panel td { padding: 0.45rem 0.75rem; border-bottom: 1px solid rgba(0,0,0,0.08); vertical-align: top; }
+.article-panel tr:last-child td { border-bottom: none; }
+.article-panel .highlight-row td { background: rgba(232,148,10,0.08); font-weight: 600; color: #A66200; }
+.article-panel .source-note { font-size: 0.78rem; color: #6B6B65; margin-top: 0.5rem; }
+.article-panel .footer-line {
+  margin-top: 2.25rem; font-size: 0.83rem; color: #6B6B65;
+  border-top: 1px solid rgba(0,0,0,0.1); padding-top: 1.25rem;
+}
+
+/* State tabs (university requirements article) */
+.article-panel .tabs { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
+.article-panel .tab-btn {
+  font-size: 0.8rem; font-weight: 600; border: 1.5px solid rgba(0,0,0,0.15);
+  background: #fff; color: #6B6B65; border-radius: 3px; padding: 0.3rem 0.85rem;
+  cursor: pointer; transition: all 0.15s;
+}
+.article-panel .tab-btn:hover { border-color: var(--navy); color: var(--navy); }
+.article-panel .tab-btn.active { background: var(--navy); color: #fff; border-color: var(--navy); }
+.article-panel .tab-panel { display: none; }
+.article-panel .tab-panel.active { display: block; }
+
+/* Badges (university requirements) */
+.article-panel .uni-name { font-weight: 600; font-size: 0.85rem; }
+.article-panel .badge {
+  display: inline-block; font-size: 0.68rem; font-weight: 700;
+  border-radius: 3px; padding: 0.05rem 0.35rem;
+  margin-right: 0.25rem; white-space: nowrap;
+}
+.article-panel .badge-green { background: rgba(232,148,10,0.1); color: #A66200; }
+.article-panel .badge-warn  { background: rgba(13,13,13,0.07); color: var(--navy); }
+.article-panel .badge-blue  { background: rgba(13,13,13,0.06); color: var(--navy); }
+.article-panel .note-text { font-size: 0.78rem; color: #6B6B65; }
+.article-panel .info-box {
+  background: rgba(232,148,10,0.07); border-left: 3px solid var(--gold);
+  padding: 0.8rem 1.1rem; margin: 1.4rem 0; border-radius: 0 6px 6px 0;
+}
+.article-panel .info-label {
+  font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+  color: #A66200; margin-bottom: 0.25rem;
+}
+.article-panel .info-box p { font-size: 0.92rem; margin: 0; max-width: 100%; }
+.article-panel .section-intro { font-size: 0.92rem; color: #6B6B65; margin-bottom: 1rem; }
+
+/* Tip list (requirements article) */
+.article-panel .tip-list { list-style: none; margin: 1.2rem 0; padding: 0; display: flex; flex-direction: column; gap: 0.75rem; }
+.article-panel .tip-list li { display: grid; grid-template-columns: auto 1fr; gap: 0.7rem 0.85rem; align-items: start; }
+.article-panel .tip-num {
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; color: #A66200;
+  background: rgba(232,148,10,0.1); border-radius: 3px; padding: 0.12rem 0.4rem;
+  margin-top: 0.18rem; white-space: nowrap;
+}
+.article-panel .tip-body h4 { font-size: 0.9rem; font-weight: 700; margin: 0 0 0.15rem 0; }
+.article-panel .tip-body p { font-size: 0.84rem; color: #6B6B65; margin: 0; line-height: 1.55; }
+
+/* UCAT ANZ article (patterns) */
+.article-panel .stat-strip {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 0.75rem; margin: 1.4rem 0;
+}
+.article-panel .stat-card {
+  background: rgba(13,13,13,0.04); border-left: 3px solid var(--navy);
+  border-radius: 0 8px 8px 0; padding: 0.8rem 1rem;
+}
+.article-panel .stat-num {
+  font-family: 'Lora', serif; font-size: 1.55rem; font-weight: 700;
+  color: var(--navy); line-height: 1; display: block; margin-bottom: 0.15rem;
+}
+.article-panel .stat-lbl { font-size: 0.76rem; color: #6B6B65; line-height: 1.35; }
+.article-panel .section-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem; margin: 1.2rem 0;
+}
+.article-panel .section-card {
+  border: 1.5px solid rgba(0,0,0,0.12); border-radius: 10px; padding: 1rem 1.1rem;
+}
+.article-panel .section-tag {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 0.35rem;
+}
+.article-panel .section-name {
+  font-family: 'Lora', serif; font-size: 1rem; font-weight: 700; margin-bottom: 0.2rem;
+}
+.article-panel .section-meta { font-size: 0.8rem; color: #6B6B65; line-height: 1.5; }
+.article-panel .section-score { font-size: 0.78rem; font-weight: 600; color: var(--gold); margin-top: 0.4rem; }
+.article-panel .update-grid { display: grid; grid-template-columns: 1fr; gap: 0.85rem; margin: 1.2rem 0; }
+.article-panel .update-card { border-radius: 8px; padding: 1rem 1.15rem; }
+.article-panel .update-card.vr  { background: rgba(13,13,13,0.04); border-left: 4px solid var(--navy); }
+.article-panel .update-card.dm  { background: rgba(232,148,10,0.07); border-left: 4px solid var(--gold); }
+.article-panel .update-card.qr  { background: rgba(13,13,13,0.04); border-left: 4px solid var(--navy); }
+.article-panel .update-card.sjt { background: rgba(232,148,10,0.05); border-left: 4px solid var(--stone); }
+.article-panel .update-header { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.4rem; }
+.article-panel .update-tag { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; }
+.article-panel .update-tag.vr  { color: var(--navy); }
+.article-panel .update-tag.dm  { color: #A66200; }
+.article-panel .update-tag.qr  { color: var(--navy); }
+.article-panel .update-tag.sjt { color: var(--muted); }
+.article-panel .update-title { font-weight: 700; font-size: 0.95rem; }
+.article-panel .update-card ul { margin: 0.3rem 0 0; padding-left: 1.2rem; font-size: 0.87rem; }
+.article-panel .update-card li { margin-bottom: 0.3rem; line-height: 1.55; }
+.article-panel .pill-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.6rem 0 1.1rem; }
+.article-panel .pill {
+  font-size: 0.78rem; font-weight: 600; border-radius: 3px; padding: 0.25rem 0.75rem;
+  background: var(--offwhite); border: 1.5px solid var(--stone);
+}
+.article-panel .green-box {
+  background: rgba(232,148,10,0.07); border-left: 3px solid var(--gold);
+  padding: 0.8rem 1.1rem; margin: 1.4rem 0; border-radius: 0 6px 6px 0;
+}
+.article-panel .green-label {
+  font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+  color: #A66200; margin-bottom: 0.25rem;
+}
+.article-panel .green-box p { font-size: 0.92rem; margin: 0; max-width: 100%; }
+
+/* ── STORY / OUR STORY ── */
+.story-timeline { max-width: 680px; margin: 2.5rem auto 0; }
+.story-item { display: flex; gap: 1.5rem; padding-bottom: 2.5rem; position: relative; }
+.story-item::after { content: ''; position: absolute; left: 19px; top: 38px; bottom: 0; width: 2px; background: var(--stone); }
+.story-item:last-child::after { display: none; }
+.story-dot {
+  width: 40px; height: 40px; border-radius: 50%; background: var(--gold);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  font-weight: 800; font-size: 0.8rem; color: var(--navy); z-index: 1;
+}
+.story-content h3 { font-size: 1rem; font-weight: 800; color: var(--navy); margin-bottom: 0.35rem; line-height: 1.3; }
+.story-year { font-size: 0.72rem; font-weight: 700; color: #D4870A; letter-spacing: 0.06em; margin-bottom: 0.3rem; display: block; }
+.story-content p { font-size: 0.88rem; color: var(--muted); line-height: 1.7; }
+
+/* ── COURSE INCLUSIONS PAGE ── */
+.course-features { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem; }
+@media (max-width: 640px) { .course-features { grid-template-columns: 1fr; } .resource-grid { grid-template-columns: 1fr; } }
+.course-feature-card {
+  background: var(--white); border: 1.5px solid var(--stone); border-radius: 12px;
+  padding: 1.75rem; display: flex; flex-direction: column; gap: 0.75rem;
+}
+.course-feature-icon { width: 48px; height: 48px; background: rgba(232,148,10,0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; }
+.course-feature-card h3 { font-size: 1rem; font-weight: 800; color: var(--navy); }
+.course-feature-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.65; }
+.course-feature-badge { display: inline-block; background: rgba(232,148,10,0.12); color: #D4870A; font-size: 0.68rem; font-weight: 800; padding: 0.2rem 0.6rem; border-radius: 4px; letter-spacing: 0.04em; width: fit-content; }
+
+/* ── REVIEWS PAGE ── */
+.reviews-page-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.25rem; margin-top: 2rem; }
+@media (max-width: 640px) { .reviews-page-grid { grid-template-columns: 1fr; } }
+
+/* Make the main tab panel work as a page */
+.tab-panel { display: block !important; }
+#main-home { display: block; }
+.page-panel, .article-panel { display: none; }
+.page-panel.active, .article-panel.active { display: block; }
+
+/* When a subpage is active, hide main content */
+body.subpage-active #main-home { display: none; }
+body.subpage-active .diag-float { display: none; }
+
+/* Nav brand: ensure it can shrink so hamburger (on right) has room */
+.nav-brand { flex: 1; min-width: 0; }
+.nav-links { flex-shrink: 0; }
+</style>
 </head>
-<body>
+<body id="siteBody">
+
+<!-- ── SIDEBAR OVERLAY ── -->
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
+
+<!-- ── SIDEBAR (slides from right) ── -->
+<aside class="sidebar" id="sidebar" aria-label="Site navigation">
+  <div class="sidebar-header">
+    <div class="sidebar-logo">
+      UCAT COMPLETE GUIDANCE
+      <span>by Sarthak Mehta</span>
+    </div>
+    <button class="sidebar-close" onclick="closeSidebar()" aria-label="Close menu">✕</button>
+  </div>
+  <div class="sidebar-nav">
+    <span class="sidebar-nav-label">Navigation</span>
+    <a href="#" class="sidebar-link active" id="sl-home" onclick="showPage('home');closeSidebar()">
+      <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      Home
+    </a>
+    <a href="#" class="sidebar-link" id="sl-inclusions" onclick="showPage('inclusions');closeSidebar()">
+      <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+      Course Inclusions
+    </a>
+    <a href="#" class="sidebar-link" id="sl-story" onclick="showPage('story');closeSidebar()">
+      <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      Our Story
+    </a>
+    <a href="#" class="sidebar-link" id="sl-reviews" onclick="showPage('reviews');closeSidebar()">
+      <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      Reviews
+    </a>
+    <a href="#" class="sidebar-link sidebar-resources-toggle" id="sl-resources" onclick="toggleResourcesMenu(event)">
+      <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+      Key Resources
+      <svg class="sidebar-chevron" id="resourcesChevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+    </a>
+    <div class="sidebar-submenu" id="resourcesSubmenu">
+      <a href="#" class="sidebar-sublink" onclick="showArticle('percentile');closeSidebar()">UCAT Percentiles 2026</a>
+      <a href="#" class="sidebar-sublink" onclick="showArticle('requirements');closeSidebar()">University Requirements</a>
+      <a href="#" class="sidebar-sublink" onclick="showArticle('patterns');closeSidebar()">What Is the UCAT ANZ?</a>
+      <a href="#" class="sidebar-sublink" onclick="showArticle('vr');closeSidebar()">How to Improve in VR</a>
+      <a href="#" class="sidebar-sublink" onclick="showArticle('calculator');closeSidebar()">Score Calculator 2026</a>
+    </div>
+  </div>
+  <div class="sidebar-footer">
+    <a href="https://portal.ucatcompleteguidance.com" target="_blank" class="sidebar-portal-link">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      Student Portal
+    </a>
+  </div>
+</aside>
+
+<!-- ══════════════════ SUBPAGES ══════════════════ -->
+
+<!-- ── COURSE INCLUSIONS ── -->
+<div class="page-panel" id="page-inclusions">
+  <section class="subpage-hero">
+    <div class="subpage-hero-inner">
+      <button class="back-btn" onclick="showPage('home')">← Back to Home</button>
+      <span class="subpage-eyebrow">THE PROGRAMME</span>
+      <h1>Everything included in the course.</h1>
+      <p>A comprehensive, structured preparation system — not a collection of resources. Every element is designed to build accuracy first, then speed.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap">
+      <div class="includes-grid">
+        <div class="include-item">
+          <div class="include-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#E8940A" stroke-width="2"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg></div>
+          <div>
+            <div class="include-title">All 20 question types covered</div>
+            <div class="include-desc">Complete dissection of every UCAT question type across VR, DM, QR and SJT — strategy, worked examples, and the traps most students fall into.</div>
+          </div>
+        </div>
+        <div class="include-item">
+          <div class="include-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#E8940A" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div>
+            <div class="include-title">2.5 hours of live teaching per week</div>
+            <div class="include-desc">1.5-hour live strategy session + 1-hour evaluation session every week. Active, structured teaching tailored to your patterns — not passive lecture.</div>
+          </div>
+        </div>
+        <div class="include-item">
+          <div class="include-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#E8940A" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+          <div>
+            <div class="include-title">Guided practice + strategy personalisation</div>
+            <div class="include-desc">1 hour of structured homework per week. Not just drilling questions — guided practice with strategy modification based on your individual weak points.</div>
+          </div>
+        </div>
+        <div class="include-item">
+          <div class="include-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#E8940A" stroke-width="2"><path d="M4 6h16M4 10h16M4 14h8M4 18h8"/></svg></div>
+          <div>
+            <div class="include-title">Access to 4,000+ practice questions</div>
+            <div class="include-desc">A bank of over 4,000 questions to build fluency and test strategy under realistic conditions across all four subtests.</div>
+          </div>
+        </div>
+        <div class="include-item">
+          <div class="include-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#E8940A" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+          <div>
+            <div class="include-title">3 full mock tests</div>
+            <div class="include-desc">Three timed, full-length mock exams to simulate real UCAT conditions, track your score progression, and identify remaining gaps before exam day.</div>
+          </div>
+        </div>
+        <div class="include-item">
+          <div class="include-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#E8940A" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div>
+          <div>
+            <div class="include-title">All lesson recordings provided</div>
+            <div class="include-desc">Every session is recorded and made available so you can revisit any strategy, re-watch worked examples, and review at your own pace between sessions.</div>
+          </div>
+        </div>
+        <div class="include-item">
+          <div class="include-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#E8940A" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+          <div>
+            <div class="include-title">Consistent evaluation sessions post-course</div>
+            <div class="include-desc">Free evaluation sessions continue after the course concludes — ongoing progress monitoring and strategy refinement right up to your exam date.</div>
+          </div>
+        </div>
+        <div class="include-item">
+          <div class="include-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#E8940A" stroke-width="2"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/><path d="M9 12h6M9 16h4"/></svg></div>
+          <div>
+            <div class="include-title">Progress tests at Week 10 &amp; Week 16</div>
+            <div class="include-desc">Structured mid-course and late-course progress tests to assess strategy retention, identify remaining gaps, and recalibrate preparation before mock test phases.</div>
+          </div>
+        </div>
+        <div class="include-item">
+          <div class="include-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#E8940A" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div>
+            <div class="include-title">Pre-lesson test before the course begins</div>
+            <div class="include-desc">A short test before each lesson to strategically analyse weaker question types — so the course targets your specific gaps from the very first session.</div>
+          </div>
+        </div>
+        <div class="include-item">
+          <div class="include-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#E8940A" stroke-width="2"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0"/></svg></div>
+          <div>
+            <div class="include-title">Free interview preparation workshop</div>
+            <div class="include-desc">A dedicated workshop covering MMI and panel interview technique, ethical frameworks, and medical school-specific interview formats — included as part of the course.</div>
+          </div>
+        </div>
+        <div class="include-item">
+          <div class="include-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#E8940A" stroke-width="2"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg></div>
+          <div>
+            <div class="include-title">Free Med/Dent applications &amp; counselling workshop</div>
+            <div class="include-desc">Guidance on medical and dental school applications, personal statements, and admissions strategy — a free workshop to support students through the full admissions process.</div>
+          </div>
+        </div>
+      </div>
+      <div class="workshop-banner" style="margin-top:3rem">
+        <div>
+          <div class="workshop-label">FREE TO START</div>
+          <div class="workshop-title">Book a free diagnostic consultation first</div>
+          <div class="workshop-detail">A 30-minute call to assess where you are and whether this programme is the right fit.</div>
+        </div>
+        <a href="#" onclick="showPage('home');setTimeout(()=>document.getElementById('tab-contact').scrollIntoView({behavior:'smooth'}),150)" class="btn-gold" style="white-space:nowrap">Book Free Consultation</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ── OUR STORY ── -->
+<div class="page-panel" id="page-story">
+  <section class="subpage-hero">
+    <div class="subpage-hero-inner">
+      <button class="back-btn" onclick="showPage('home')">← Back to Home</button>
+      <span class="subpage-eyebrow">OUR STORY</span>
+      <h1>From sitting the UCAT to teaching it — the long way around.</h1>
+      <p>What started as a personal obsession with understanding how the exam works became a teaching practice built on real patterns, not textbook theory.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap">
+      <div class="story-timeline">
+        <div class="story-item"><div class="story-dot">01</div><div class="story-content"><span class="story-year">2020</span><h3>Sitting the UCAT</h3><p>Sarthak sat the UCAT as a school leaver — 97th percentile, 99.95 ATAR, and offers from 12+ medical schools across Australia. What stood out wasn't just the result, but the realisation that most preparation material was built for volume, not understanding.</p></div></div>
+        <div class="story-item"><div class="story-dot">02</div><div class="story-content"><span class="story-year">2021</span><h3>Teaching begins — one student at a time</h3><p>Starting with a single student, Sarthak began refining a teaching approach that prioritised locked-in strategy over memorised approaches. Each session revealed new patterns in how students think — and where standard preparation falls short.</p></div></div>
+        <div class="story-item"><div class="story-dot">03</div><div class="story-content"><span class="story-year">2022–2023</span><h3>Every major UCAT system studied. One built from scratch.</h3><p>Two full UCAT cycles spent understanding how students approach each question type — and personally completing every major UCAT preparation system. UCAT Complete Guidance was built to make strategy-first preparation the default, not the exception.</p></div></div>
+        <div class="story-item"><div class="story-dot">04</div><div class="story-content"><span class="story-year">2026</span><h3>Graduated as a medical doctor. Still teaching.</h3><p>Graduating from Flinders University MD while continuing to run full UCAT cohorts. 230+ students prepared. 78% with medicine or dentistry offers. The 2026 cohort's highest score reached 2,580 — top 50 in Australia.</p></div></div>
+        <div class="story-item"><div class="story-dot">05</div><div class="story-content"><span class="story-year">2027</span><h3>The journey begins — with you.</h3><p>Each new cohort brings new exam patterns, new feedback, and new refinements to the strategy framework. If you're preparing for UCAT in 2027, this is where it starts.</p></div></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ── REVIEWS PAGE ── -->
+<div class="page-panel" id="page-reviews">
+  <section class="subpage-hero">
+    <div class="subpage-hero-inner">
+      <button class="back-btn" onclick="showPage('home')">← Back to Home</button>
+      <span class="subpage-eyebrow">STUDENT REVIEWS</span>
+      <h1>What students say about UCAT Complete Guidance.</h1>
+      <p>230+ students prepared. Here's what the experience looked like from their side.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap">
+      <div class="reviews-page-grid">
+        <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"Before starting with Sarthak, my practice scores were all over the place. After just three sessions I understood why. On exam day I scored 2,340."</p><div class="review-author">Priya S.</div><div class="review-detail">2,340 · University of Adelaide Offer · 2025</div></div>
+        <div class="review-card review-highlight"><div class="review-stars">★★★★★</div><p class="review-text">"Jumped from 55th to 92nd percentile. Every question type has a framework, and the frameworks actually work under time pressure."</p><div class="review-author">James R.</div><div class="review-detail">2,370 · UNSW Medicine Offer · 2025</div></div>
+        <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"The 1-on-1 strategy session changed everything. My VR accuracy went from 60% to 83% within a week."</p><div class="review-author">Amelia T.</div><div class="review-detail">2,295 · Monash University Offer · 2025</div></div>
+        <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"The post-course evaluation sessions are what made the difference. That level of support doesn't exist anywhere else."</p><div class="review-author">Daniel K.</div><div class="review-detail">2,410 · University of Queensland Offer · 2025</div></div>
+        <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"Sarthak's approach to VR doesn't try to make you read faster — it teaches you what to look for and what to ignore."</p><div class="review-author">Sophie L.</div><div class="review-detail">2,260 · Flinders University Offer · 2025</div></div>
+        <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"Went from 550 to 730 in Decision Making alone. By the end I had a clear approach for every DM subtype."</p><div class="review-author">Marcus B.</div><div class="review-detail">2,330 · Curtin University Offer · 2025</div></div>
+        <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"Genuinely the most intelligent UCAT teaching I've encountered. Sarthak understands the exam at a structural level no question bank can replicate."</p><div class="review-author">Kavya N.</div><div class="review-detail">2,580 · Top 50 in Australia · 2026</div></div>
+        <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"My score improved by 170 points over six weeks. No fluff, no empty reassurance — just clear, direct strategy."</p><div class="review-author">Aiden W.</div><div class="review-detail">2,300 · University of Adelaide Offer · 2025</div></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ── KEY RESOURCES ── -->
+<div class="page-panel" id="page-resources">
+  <section class="subpage-hero">
+    <div class="subpage-hero-inner">
+      <button class="back-btn" onclick="showPage('home')">← Back to Home</button>
+      <span class="subpage-eyebrow">KEY RESOURCES</span>
+      <h1>Free guides, tools, and insights for UCAT preparation.</h1>
+      <p>Practical resources built from real exam sittings and hundreds of student sessions.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap">
+      <div class="resource-grid">
+        <a href="#" class="resource-card" onclick="showArticle('percentile');return false">
+          <div class="resource-card-top">
+            <div class="resource-card-icon"><svg width="20" height="20" fill="none" stroke="#E8940A" stroke-width="2" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+            <div class="resource-card-tag">DATA</div>
+            <h3>UCAT Percentiles 2026</h3>
+          </div>
+          <div class="resource-card-body">
+            <p class="resource-card-desc">Where every score sits in the 2026 cohort — and what it means for your medical school application.</p>
+            <span class="resource-card-cta">Read more →</span>
+          </div>
+        </a>
+        <a href="#" class="resource-card" onclick="showArticle('requirements');return false">
+          <div class="resource-card-top">
+            <div class="resource-card-icon"><svg width="20" height="20" fill="none" stroke="#E8940A" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+            <div class="resource-card-tag">GUIDE</div>
+            <h3>University Requirements by State</h3>
+          </div>
+          <div class="resource-card-body">
+            <p class="resource-card-desc">UCAT cutoffs, weighting models, and selection processes at every Australian medical school — updated for 2026.</p>
+            <span class="resource-card-cta">Read more →</span>
+          </div>
+        </a>
+        <a href="#" class="resource-card" onclick="showArticle('patterns');return false">
+          <div class="resource-card-top">
+            <div class="resource-card-icon"><svg width="20" height="20" fill="none" stroke="#E8940A" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+            <div class="resource-card-tag">GUIDE</div>
+            <h3>What Is the UCAT ANZ?</h3>
+          </div>
+          <div class="resource-card-body">
+            <p class="resource-card-desc">The complete beginner's guide — sections, scoring, 2026 exam patterns, and how to prepare effectively.</p>
+            <span class="resource-card-cta">Read more →</span>
+          </div>
+        </a>
+        <a href="#" class="resource-card" onclick="showArticle('vr');return false">
+          <div class="resource-card-top">
+            <div class="resource-card-icon"><svg width="20" height="20" fill="none" stroke="#E8940A" stroke-width="2" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+            <div class="resource-card-tag">STRATEGY</div>
+            <h3>VR Tips: Why Most Students Lose Marks</h3>
+          </div>
+          <div class="resource-card-body">
+            <p class="resource-card-desc">The three repeatable traps that account for most VR errors — and the decision rules that fix them.</p>
+            <span class="resource-card-cta">Read more →</span>
+          </div>
+        </a>
+        <a href="#" class="resource-card" onclick="showArticle('calculator');return false">
+          <div class="resource-card-top">
+            <div class="resource-card-icon"><svg width="20" height="20" fill="none" stroke="#E8940A" stroke-width="2" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="10" y2="12"/><line x1="14" y1="12" x2="16" y2="12"/><line x1="8" y1="16" x2="10" y2="16"/><line x1="14" y1="16" x2="16" y2="16"/></svg></div>
+            <div class="resource-card-tag">TOOL</div>
+            <h3>UCAT Score Calculator 2026</h3>
+          </div>
+          <div class="resource-card-body">
+            <p class="resource-card-desc">Enter your score, see your percentile instantly, and find which medical schools are within reach — by state.</p>
+            <span class="resource-card-cta">Use calculator →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════════════ ARTICLE PANELS ══════════════════ -->
+
+<!-- ARTICLE: UCAT Percentiles 2026 -->
+<div class="article-panel" id="article-percentile">
+  <div class="article-hero">
+    <div class="article-hero-inner">
+      <button class="back-btn" onclick="showPage('resources')">← Back to Key Resources</button>
+      <span class="subpage-eyebrow">DATA · UCAT ANZ 2026</span>
+      <h1>UCAT Percentiles 2026: Where Does Your Score Rank?</h1>
+      <p>The number on your UCAT result means nothing without context. Here's exactly where every score sits in the 2026 cohort.</p>
+    </div>
+  </div>
+  <div class="container">
+    <p class="eyebrow">UCAT ANZ 2026</p>
+
+    <!-- Calculator CTA at top of percentile article -->
+    <div style="background:rgba(13,13,13,0.06);border:1.5px solid rgba(13,13,13,0.15);border-radius:10px;padding:1rem 1.25rem;margin-bottom:1.75rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;">
+      <div>
+        <div style="font-size:0.68rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:0.25rem;">Interactive Tool</div>
+        <div style="font-weight:700;font-size:0.95rem;color:var(--navy);">Know your exact percentile — instantly</div>
+        <div style="font-size:0.82rem;color:var(--muted);margin-top:0.15rem;">Enter your score, pick your state, see which med schools you're targeting.</div>
+      </div>
+      <a href="#" onclick="showArticle('calculator');return false" style="background:var(--navy);color:var(--white);font-weight:800;font-size:0.85rem;padding:0.6rem 1.4rem;border-radius:20px;text-decoration:none;white-space:nowrap;flex-shrink:0;transition:background 0.2s;" onmouseover="this.style.background='var(--navy2)'" onmouseout="this.style.background='var(--navy)'">Open Calculator →</a>
+    </div>
+
+    <p>Your UCAT score is made up of three cognitive subtest scores (VR, DM, QR), each scaled from 300–900, giving a total cognitive score out of 2700. Universities rank applicants against the full sitting cohort — so your percentile matters as much as your raw score.</p>
+
+    <div class="stat-row">
+      <div class="stat-item"><span class="num">1,964</span><span class="lbl">Mean total score (2026)</span></div>
+      <div class="stat-item"><span class="num">580</span><span class="lbl">Mean SJT score (2026)</span></div>
+      <div class="stat-item"><span class="num">~17,000</span><span class="lbl">ANZ candidates per year</span></div>
+    </div>
+
+    <h2>2026 Score Percentiles — Total Cognitive (out of 2700)</h2>
+    <p>Each decile represents 10% of the sitting cohort. A score at the 9th decile means you outperformed 90% of all candidates.</p>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Decile</th><th>Percentile</th><th>Total Score</th><th>VR</th><th>DM</th><th>QR</th><th>SJT</th></tr></thead>
+        <tbody>
+          <tr><td>1st</td><td>Top 90%</td><td>1,610</td><td>520</td><td>530</td><td>530</td><td>486</td></tr>
+          <tr><td>2nd</td><td>Top 80%</td><td>1,720</td><td>550</td><td>570</td><td>570</td><td>525</td></tr>
+          <tr><td>3rd</td><td>Top 70%</td><td>1,800</td><td>570</td><td>590</td><td>600</td><td>550</td></tr>
+          <tr><td>4th</td><td>Top 60%</td><td>1,880</td><td>600</td><td>620</td><td>630</td><td>570</td></tr>
+          <tr class="highlight-row"><td>5th</td><td>Median (50%)</td><td>1,950</td><td>610</td><td>650</td><td>660</td><td>589</td></tr>
+          <tr><td>6th</td><td>Top 40%</td><td>2,040</td><td>630</td><td>670</td><td>690</td><td>607</td></tr>
+          <tr><td>7th</td><td>Top 30%</td><td>2,120</td><td>660</td><td>690</td><td>730</td><td>621</td></tr>
+          <tr><td>8th</td><td>Top 20%</td><td>2,220</td><td>680</td><td>720</td><td>820</td><td>640</td></tr>
+          <tr><td>9th</td><td>Top 10%</td><td>2,340</td><td>730</td><td>750</td><td>880</td><td>664</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="source-note">Source: UCAT ANZ 2026 official preliminary results. The median row (highlighted) is the score 50% of all candidates scored below.</p>
+
+    <hr>
+
+    <h2>What the percentiles actually mean for admissions</h2>
+    <p>Most Australian medical schools using UCAT set interview cutoffs between the <strong>8th and 9th decile</strong> — meaning only the top 10–20% of candidates are invited to interview. A score at the median (around 1,950) is unlikely to be competitive for direct-entry medicine at most Go8 universities.</p>
+
+    <div class="callout">
+      <div class="callout-label">The gap that matters</div>
+      <p>The difference between the 7th and 9th decile is roughly <strong>220 points</strong> on the total score. That gap — the one separating a competitive application from a non-competitive one — is not random. It comes down to specific subtest strategies, particularly in VR and QR where score variance is highest.</p>
+    </div>
+
+    <h2>How scores have shifted year on year</h2>
+    <p>The 2026 mean total score of 1,964 is slightly higher than the 2025 mean of 1,941. QR continues to show the widest score spread — the gap between the 1st and 9th decile in QR is 350 points, compared to 210 in VR and 220 in DM. This makes QR the highest-leverage subtest for improving your percentile.</p>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Year</th><th>Mean Total</th><th>Mean VR</th><th>Mean DM</th><th>Mean QR</th><th>Mean SJT</th></tr></thead>
+        <tbody>
+          <tr><td>2025</td><td>1,941</td><td>620</td><td>642</td><td>679</td><td>586</td></tr>
+          <tr><td>2026</td><td>1,964</td><td>~628</td><td>~650</td><td>~686</td><td>580</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="source-note">2025 data: UCAT ANZ official summary statistics. 2026 subtest means estimated from decile data.</p>
+
+    <hr>
+
+    <div class="cta-block">
+      <p>Knowing your percentile is the starting point — knowing <strong>which subtests to target</strong> is what actually moves it. We've helped students improve their total score by 300+ points on their UCAT. <strong>Book a free diagnostic consultation</strong> to find out where your marks are going and what a realistic improvement looks like for your sitting date.</p>
+    </div>
+
+    <p class="footer-line">Percentile data sourced from UCAT ANZ 2025 official summary statistics and 2026 preliminary results. University cutoff data is indicative — always confirm directly with each institution before applying.</p>
+  </div>
+</div>
+
+<!-- ARTICLE: University Requirements -->
+<div class="article-panel" id="article-requirements">
+  <div class="article-hero">
+    <div class="article-hero-inner">
+      <button class="back-btn" onclick="showPage('resources')">← Back to Key Resources</button>
+      <span class="subpage-eyebrow">GUIDE · UCAT ANZ 2026</span>
+      <h1>What UCAT Score Will Get You Into Med School?</h1>
+      <p>There's no single answer — it depends on your state, your ATAR, and which universities you're targeting.</p>
+    </div>
+  </div>
+  <div class="container">
+    <p>Every Australian medical school using UCAT sets its own threshold — and the gap between the easiest and hardest entry points is enormous. The same score that lands you an interview at one university leaves you well short at another.</p>
+
+    <div class="callout">
+      <div class="callout-label">The short answer</div>
+      <p>For highly competitive universities like Monash and Adelaide, you need to be in the <strong>top 10–15% of UCAT candidates</strong> (roughly 2,300+ total score) to be genuinely competitive — even as an in-state applicant.</p>
+    </div>
+
+    <hr>
+
+    <h2>Entry Requirements by State</h2>
+    <p class="section-intro">Select your state below. Scores shown are indicative competitive thresholds for in-state applicants.</p>
+
+    <div class="tabs">
+      <button class="tab-btn active" onclick="showUniTab('nsw', this)">NSW</button>
+      <button class="tab-btn" onclick="showUniTab('vic', this)">VIC</button>
+      <button class="tab-btn" onclick="showUniTab('qld', this)">QLD</button>
+      <button class="tab-btn" onclick="showUniTab('sa', this)">SA</button>
+      <button class="tab-btn" onclick="showUniTab('wa', this)">WA</button>
+      <button class="tab-btn" onclick="showUniTab('tas', this)">TAS</button>
+    </div>
+
+    <div id="unitab-nsw" class="tab-panel active">
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>University</th><th>Course</th><th>UCAT Threshold</th><th>Formula</th><th>Interview?</th></tr></thead>
+        <tbody>
+          <tr><td><span class="uni-name">UNSW Sydney</span></td><td>BMed/MD (6yr)</td><td><span class="badge badge-warn">~92–93rd %ile</span><br><span class="note-text">~2,270–2,300</span></td><td><span class="note-text">~Equal thirds: UCAT / ATAR / MMI</span></td><td><span class="badge badge-blue">Semi-structured panel</span></td></tr>
+          <tr><td><span class="uni-name">Newcastle / UNE (JMP)</span></td><td>BMedSc/MD (5yr)</td><td><span class="badge badge-warn">96–97th %ile</span><br><span class="note-text">~2,400–2,420 to get interview</span></td><td><span class="note-text">UCAT → interview shortlist only; PQA + MSA decide offers</span></td><td><span class="badge badge-blue">MSA (in-person, 8 stations)</span></td></tr>
+          <tr><td><span class="uni-name">WSU / CSU (Joint)</span></td><td>BClSc(Med)/MD (5yr)</td><td><span class="badge badge-green">Weighted formula</span><br><span class="note-text">NSW cutoff ~795 weighted; GWS local ~760</span></td><td><span class="note-text">VR-weighted: (Total + 2×VR) / 5; ATAR = threshold only</span></td><td><span class="badge badge-blue">MMI (Zoom, ~450 spots)</span></td></tr>
+        </tbody>
+      </table></div>
+      <div class="info-box"><div class="info-label">NSW tip</div><p>At UNSW a 92nd–93rd percentile is the floor. At JMP (Newcastle/UNE), UCAT only secures the interview; the MSA decides offers. At WSU/CSU, Verbal Reasoning is <strong>triple-weighted</strong>, making it the single most important subtest for that school.</p></div>
+    </div>
+
+    <div id="unitab-vic" class="tab-panel">
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>University</th><th>Course</th><th>UCAT Threshold (VIC)</th><th>UCAT Threshold (Interstate)</th><th>Formula</th><th>Interview?</th></tr></thead>
+        <tbody>
+          <tr><td><span class="uni-name">Monash University</span></td><td>BMedSc/MD (5yr)</td><td><span class="badge badge-warn">~93–94th %ile</span><br><span class="note-text">~2,300 (VIC metro, Dec round)</span></td><td><span class="badge badge-warn">~97–99th %ile</span><br><span class="note-text">99.8+ ATAR + 97th %ile UCAT typically required</span></td><td><span class="note-text">~Equal thirds: UCAT / ATAR / MMI</span></td><td><span class="badge badge-blue">MMI online, 8 stations × 10 min</span></td></tr>
+          <tr><td><span class="uni-name">La Trobe University</span></td><td>BMedSc/MD (5yr) — Rural entry only</td><td><span class="badge badge-green">Lower threshold</span><br><span class="note-text">Rural/regional VIC applicants only</span></td><td><span class="note-text">—</span></td><td><span class="note-text">Rural selection criteria</span></td><td><span class="badge badge-blue">Interview</span></td></tr>
+        </tbody>
+      </table></div>
+      <div class="info-box"><div class="info-label">VIC note</div><p>Monash runs two interview rounds. December uses UCAT only (~94th %ile for metro VIC). Interstate applicants typically need 99.8+ ATAR alongside a 97th+ percentile UCAT. La Trobe's BMedSc/MD is <strong>rural-entry only</strong>.</p></div>
+    </div>
+
+    <div id="unitab-qld" class="tab-panel">
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>University</th><th>Course</th><th>UCAT Threshold (QLD)</th><th>Formula</th><th>Interview?</th></tr></thead>
+        <tbody>
+          <tr><td><span class="uni-name">University of Queensland</span></td><td>MD Provisional (3+4yr)</td><td><span class="badge badge-warn">~95th %ile</span><br><span class="note-text">Lowest 2026 interview invite: 2,290 (non-rural)</span></td><td><span class="note-text">25% UCAT / 25% ATAR / 50% MMI; SJT = tiebreaker</span></td><td><span class="badge badge-blue">MMI, 8 stations × 9 min</span></td></tr>
+          <tr><td><span class="uni-name">CQUniversity → UQ MD</span></td><td>BMedSc at CQU + MD at UQ (3+4yr)</td><td><span class="badge badge-green">~2,350–2,400 est.</span><br><span class="note-text">Rural/regional QLD priority</span></td><td><span class="note-text">25% UCAT / 25% ATAR / 50% MMI</span></td><td><span class="badge badge-blue">MMI (same as UQ format)</span></td></tr>
+        </tbody>
+      </table></div>
+      <div class="info-box"><div class="info-label">QLD tip</div><p>UQ's formula is transparent: 25/25/50 (UCAT/ATAR/MMI). The UCAT gets you to interview; the interview is where offers are won. Rural applicants received invitations from UCAT scores as low as 1,960 in 2026.</p></div>
+    </div>
+
+    <div id="unitab-sa" class="tab-panel">
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>University</th><th>Course</th><th>UCAT Threshold</th><th>Formula</th><th>Interview?</th></tr></thead>
+        <tbody>
+          <tr><td><span class="uni-name">Adelaide University</span></td><td>BMedSt/MD (6yr)</td><td><span class="badge badge-warn">~85th %ile</span><br><span class="note-text">~2,200 (SA applicants)</span></td><td><span class="note-text">40% ATAR / 40% Interview / 20% UCAT</span></td><td><span class="badge badge-blue">MMI online (Zoom)</span></td></tr>
+          <tr><td><span class="uni-name">Flinders University</span></td><td>BClSc/MD (6yr)</td><td><span class="badge badge-green">~79th %ile (formula threshold)</span><br><span class="note-text">UCAT is only 10% of ranking — ATAR of 99.90–99.95 is the real requirement for metro applicants</span></td><td><span class="note-text">90% ATAR / 10% UCAT — no interview</span></td><td><span class="badge badge-warn">No interview</span></td></tr>
+        </tbody>
+      </table></div>
+      <div class="info-box"><div class="info-label">SA note</div><p>Flinders has <strong>no interview</strong>. The ~79th percentile is the minimum threshold for the formula — not a guide to what's competitive. Metro applicants need an ATAR of 99.90–99.95. For Adelaide, the interview carries 40% weight — a strong MMI can offset a lower UCAT.</p></div>
+    </div>
+
+    <div id="unitab-wa" class="tab-panel">
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>University</th><th>Course</th><th>UCAT Threshold (WA)</th><th>Formula</th><th>Interview?</th></tr></thead>
+        <tbody>
+          <tr><td><span class="uni-name">UWA</span></td><td>MD via BBiomedSc (2+4yr)</td><td><span class="badge badge-warn">~90th %ile</span><br><span class="note-text">~2,230 (WA resident)</span></td><td><span class="note-text">50% Interview / 30% ATAR / 20% UCAT</span></td><td><span class="badge badge-blue">In-person MMI, 8 stations × 10 min</span></td></tr>
+          <tr><td><span class="uni-name">Curtin University</span></td><td>BMBBS (6yr)</td><td><span class="badge badge-warn">~90th %ile</span><br><span class="note-text">~2,230 (WA local)</span></td><td><span class="note-text">Shortlist: 35% ATAR / 35% CASPer / 30% UCAT</span></td><td><span class="badge badge-blue">MMI format</span></td></tr>
+        </tbody>
+      </table></div>
+      <div class="info-box"><div class="info-label">WA tip</div><p>WA has the highest interstate bar of any state — UWA effectively requires ~99th percentile UCAT for non-WA applicants. Curtin is the only Australian med school that also requires <strong>CASPer</strong>.</p></div>
+    </div>
+
+    <div id="unitab-tas" class="tab-panel">
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>University</th><th>Course</th><th>UCAT Threshold</th><th>Formula</th><th>Interview?</th></tr></thead>
+        <tbody>
+          <tr><td><span class="uni-name">University of Tasmania</span></td><td>BMedScMD (5yr)</td><td><span class="badge badge-green">50th %ile — minimum to proceed</span><br><span class="note-text">Competitive in-state: ~87th %ile (~2,170+). Interstate: ~95th %ile+.</span></td><td><span class="note-text">ATAR = primary ranking; UCAT = tiebreaker within ATAR band</span></td><td><span class="badge badge-warn">No interview</span></td></tr>
+        </tbody>
+      </table></div>
+      <div class="info-box"><div class="info-label">TAS note</div><p>UTAS's 50th percentile is a <strong>minimum eligibility threshold</strong> — not a guide to what's competitive. In-state Tasmanian applicants need around the 87th percentile to be meaningfully competitive. Tasmanians have a major structural advantage with 75% of places reserved for TAS residents.</p></div>
+    </div>
+
+    <hr>
+
+    <h2>What Score Should You Be Aiming For?</h2>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>Total Score</th><th>Approx. Percentile</th><th>Where you stand</th></tr></thead>
+      <tbody>
+        <tr><td><strong>2,340+</strong></td><td>~90th %ile+</td><td>Highly competitive at most schools, including Monash and Adelaide.</td></tr>
+        <tr><td><strong>2,270–2,339</strong></td><td>~93–89th %ile</td><td>Competitive for in-state applicants at UNSW, Adelaide, UWA.</td></tr>
+        <tr><td><strong>2,170–2,269</strong></td><td>~87–92nd %ile</td><td>Competitive for UTAS in-state. Borderline for Adelaide and UWA.</td></tr>
+        <tr><td><strong>Under 2,170</strong></td><td>Below 87th %ile</td><td>Below competitive threshold for most UCAT-required schools. Rural pathways may apply.</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="cta-block">
+      <p>Not sure where your score sits? We've helped students improve their total scores by 300+ points on their UCAT. <strong>Book a diagnostic test</strong> to find out which subtests are holding you back and what a realistic improvement looks like for your sitting date.</p>
+    </div>
+
+    <p class="footer-line">Entry requirement data sourced from university admissions offices, SATAC, QTAC, UAC, VTAC, and TISC publications. All thresholds are indicative and subject to change. Always confirm directly with each institution before applying.</p>
+  </div>
+</div>
+
+<!-- ARTICLE: What Is the UCAT ANZ? (patterns) -->
+<div class="article-panel" id="article-patterns">
+  <div class="article-hero">
+    <div class="article-hero-inner">
+      <button class="back-btn" onclick="showPage('resources')">← Back to Key Resources</button>
+      <span class="subpage-eyebrow">GUIDE · UCAT ANZ 2026</span>
+      <h1>What Is the UCAT ANZ?</h1>
+      <p>The UCAT is the main entry test for medicine and dentistry in Australia and New Zealand. Sections, scoring, 2026 exam patterns, and what to prioritise in prep.</p>
+    </div>
+  </div>
+  <div class="container">
+    <p class="eyebrow">UCAT ANZ 2026 · Beginner's Guide</p>
+
+    <p>The <strong>University Clinical Aptitude Test Australia and New Zealand (UCAT ANZ)</strong> is a standardised admissions test used by most Australian and New Zealand universities to select students for undergraduate and provisional-entry medicine, dentistry, and related health programs. It assesses your <strong>thinking skills under time pressure</strong>: verbal reasoning, decision making, quantitative reasoning, abstract thinking, and situational judgement.</p>
+
+    <div class="stat-strip">
+      <div class="stat-card"><span class="stat-num">~17,000</span><span class="stat-lbl">Candidates per year (ANZ)</span></div>
+      <div class="stat-card"><span class="stat-num">2 hrs</span><span class="stat-lbl">Total test duration</span></div>
+      <div class="stat-card"><span class="stat-num">228</span><span class="stat-lbl">Total questions</span></div>
+      <div class="stat-card"><span class="stat-num">900–2,700</span><span class="stat-lbl">Cognitive score range</span></div>
+    </div>
+
+    <hr>
+
+    <h2>The Five Sections</h2>
+    <div class="section-grid">
+      <div class="section-card"><div class="section-tag">Section 1</div><div class="section-name">Verbal Reasoning (VR)</div><div class="section-meta">44 questions · 21 minutes<br>Read passages and answer comprehension questions</div><div class="section-score">Scored 300–900</div></div>
+      <div class="section-card"><div class="section-tag">Section 2</div><div class="section-name">Decision Making (DM)</div><div class="section-meta">29 questions · 31 minutes<br>Logical puzzles, syllogisms, Venn diagrams, probabilistic reasoning</div><div class="section-score">Scored 300–900</div></div>
+      <div class="section-card"><div class="section-tag">Section 3</div><div class="section-name">Quantitative Reasoning (QR)</div><div class="section-meta">36 questions · 25 minutes<br>Numerical problem solving with tables, graphs, and everyday data</div><div class="section-score">Scored 300–900</div></div>
+      <div class="section-card"><div class="section-tag">Section 4</div><div class="section-name">Abstract Reasoning (AR)</div><div class="section-meta">55 questions · 13 minutes<br>Identify patterns in shape sequences</div><div class="section-score">Scored 300–900</div></div>
+      <div class="section-card"><div class="section-tag">Section 5</div><div class="section-name">Situational Judgement (SJT)</div><div class="section-meta">69 questions · 26 minutes<br>Ethical and interpersonal scenarios in healthcare</div><div class="section-score">Band 1 (best) to Band 4 · Reported separately</div></div>
+    </div>
+
+    <div class="info-box">
+      <div class="info-label">How scoring works</div>
+      <p>Your total cognitive score is the sum of VR + DM + QR + AR — ranging from <strong>900 to 2,700</strong>. SJT is excluded from the cognitive total. Universities use your percentile rank within that year's cohort. The 2026 mean total was approximately <strong>1,964</strong>.</p>
+    </div>
+
+    <hr>
+
+    <h2>What the 2026 Exam Actually Tested — Section by Section</h2>
+    <p>Based on feedback collected from students across multiple 2026 sittings, compiled by a medical doctor who has tutored over 230 UCAT candidates.</p>
+
+    <div class="green-box">
+      <div class="green-label">Why this matters for your preparation</div>
+      <p>Question banks and official sample tests don't always reflect the real exam's style or difficulty distribution. Knowing what genuinely came up in 2026 means you can weight your preparation toward what actually matters.</p>
+    </div>
+
+    <div class="update-grid">
+      <div class="update-card vr">
+        <div class="update-header"><span class="update-tag vr">VR — Verbal Reasoning</span></div>
+        <ul>
+          <li><strong>Author/conclusion-type questions dominated</strong> — the majority required identifying what the author concludes or assumes, rather than factual recall</li>
+          <li><strong>Passages were 3–4 paragraphs long</strong> — some question banks use longer passages; don't be surprised by how concise the real passages are</li>
+          <li>True/false/can't tell questions remain common — the key discipline is committing to "can't tell" whenever the passage doesn't explicitly confirm a statement</li>
+        </ul>
+      </div>
+      <div class="update-card dm">
+        <div class="update-header"><span class="update-tag dm">DM — Decision Making</span></div>
+        <ul>
+          <li><strong>Logical puzzles were less straightforward than official question banks</strong> — scenarios included statements defined as either a truth or a lie</li>
+          <li><strong>Syllogisms required strong pattern recognition</strong> across All/Some/None combinations</li>
+          <li>Vague language was common in premises — expect "most", "some", and "can be" rather than clear absolutes</li>
+        </ul>
+      </div>
+      <div class="update-card qr">
+        <div class="update-header"><span class="update-tag qr">QR — Quantitative Reasoning</span></div>
+        <ul>
+          <li><strong>Higher frequency of mean/median/mode and percentage questions</strong> than in some practice banks</li>
+          <li><strong>Questions stayed within roughly 4–5 calculation steps</strong> — the real exam was more efficient than some practice banks</li>
+          <li><strong>Strategic skipping matters more in QR than any other section</strong> — flag time-heavy questions and return</li>
+        </ul>
+      </div>
+      <div class="update-card sjt">
+        <div class="update-header"><span class="update-tag sjt">SJT — Situational Judgement</span></div>
+        <ul>
+          <li><strong>Scenario complexity was manageable for students who knew the ethical framework</strong></li>
+          <li>Primary ethical values (patient autonomy, non-maleficence, beneficence, justice) are the framework every scenario should be read through</li>
+          <li>Students who internalised the framework reported pattern-matching rather than reasoning from scratch</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="source-note">These patterns reflect student feedback from 2026 sittings and are not official UCAT ANZ disclosures.</p>
+
+    <hr>
+
+    <h2>How It's Used in Admissions</h2>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>How UCAT is used</th><th>Universities</th><th>What it means for you</th></tr></thead>
+      <tbody>
+        <tr><td><strong>One-third of ranking</strong></td><td>UNSW, Monash, Adelaide</td><td>Every point counts — but strong interview can compensate</td></tr>
+        <tr><td><strong>Interview shortlist only</strong></td><td>Newcastle/UNE (JMP)</td><td>UCAT gets you in the door; the interview decides the offer</td></tr>
+        <tr><td><strong>25% of ranking</strong></td><td>UQ, CQU pathway</td><td>Interview (50%) matters most — UCAT and ATAR equally weighted</td></tr>
+        <tr><td><strong>10% of ranking</strong></td><td>Flinders</td><td>ATAR dominates at 90% — UCAT is the tiebreaker</td></tr>
+        <tr><td><strong>Tiebreaker only</strong></td><td>UTAS, Griffith</td><td>Only resolves ties within the same ATAR band</td></tr>
+      </tbody>
+    </table></div>
+
+    <hr>
+
+    <div class="callout">
+      <div class="callout-label">Common trap</div>
+      <p><strong>More practice questions ≠ better scores.</strong> Without a consistent strategy, you'll find results fluctuating — 60% on one mock, 40% on the next — because you're approaching the same question type differently each time.</p>
+    </div>
+
+    <div class="pill-row">
+      <span class="pill">✓ Strategy first, volume second</span>
+      <span class="pill">✓ Consistent mixed-section practice</span>
+      <span class="pill">✓ Lock in your approach per question type</span>
+      <span class="pill">✓ Skip wisely in QR</span>
+      <span class="pill">✓ Learn the SJT ethical framework</span>
+    </div>
+
+    <p class="footer-line">UCAT ANZ structure and scoring information sourced from UCAT ANZ official publications. 2026 exam feedback reflects patterns reported by students across multiple sittings. Always confirm current test structure directly with UCAT ANZ before sitting.</p>
+  </div>
+</div>
+
+<!-- ARTICLE: VR Tips -->
+<div class="article-panel" id="article-vr">
+  <div class="article-hero">
+    <div class="article-hero-inner">
+      <button class="back-btn" onclick="showPage('resources')">← Back to Key Resources</button>
+      <span class="subpage-eyebrow">STRATEGY · VERBAL REASONING</span>
+      <h1>UCAT Verbal Reasoning Tips: Why Most Students Lose Marks</h1>
+      <p>You've done the practice. You know the format. VR is still your lowest score. Here's the part most resources don't cover.</p>
+    </div>
+  </div>
+  <div class="container">
+    <p class="eyebrow">UCAT Verbal Reasoning</p>
+
+    <p>VR isn't hard because the passages are complicated. It's hard because the <strong>statements are designed to mislead you</strong> — and they do it in specific, repeatable ways.</p>
+
+    <p>Most UCAT verbal reasoning tips tell you to read faster or manage your time better. Students aren't losing marks because they didn't read the passage. They're losing marks because they answered a question the passage never asked.</p>
+
+    <div class="stat-block">
+      <span class="num">~30%</span>
+      <p>of VR marks are lost not on difficult passages, but on statements that sound correct — because students assume reasoning the passage never gave them.</p>
+    </div>
+
+    <div class="callout">
+      <div class="callout-label">What this means for your timing</div>
+      <p>VR gives you 44 questions across 21 minutes — less than 30 seconds per statement once you've read the passage. The students who score well aren't faster readers — they've trained themselves to pause on specific trigger words in the statement before committing to an answer.</p>
+    </div>
+
+    <hr>
+
+    <h2>Three traps that appear in almost every sitting</h2>
+
+    <div class="trap-card">
+      <p class="trap-n">Trap 01</p>
+      <h2>The Assumed Link</h2>
+      <div class="pair">
+        <span class="lbl">Passage</span><span>The hospital introduced a new triage system in March. Patient waiting times fell significantly in April.</span>
+        <span class="lbl">Statement</span><span>Patient waiting times fell <strong>because</strong> the hospital introduced a new triage system.</span>
+      </div>
+      <p>Answer: <strong>Can't Tell.</strong> Most students mark True — the logic feels airtight. But the passage described two events in sequence. It never said one caused the other.</p>
+      <p>The rule: if you see <strong>because, led to, as a result of, due to</strong> in a statement, the passage must have explicitly made that connection. If it didn't, the answer is Can't Tell — every time.</p>
+    </div>
+
+    <div class="trap-card">
+      <p class="trap-n">Trap 02</p>
+      <h2>True Event, Wrong Reason</h2>
+      <div class="pair">
+        <span class="lbl">Passage</span><span>The school changed its uniform policy in 2019. Parents had written to the board throughout 2018 requesting changes.</span>
+        <span class="lbl">Statement</span><span>The school changed its uniform policy because parents had complained about <strong>the cost</strong>.</span>
+      </div>
+      <p>Answer: <strong>Can't Tell.</strong> The event happened — the policy did change. But the statement adds a specific reason (cost) that the passage never mentioned. The cause is fabricated.</p>
+      <p>This is the harder version of Trap 01. The event is real, so True feels safe. What students miss is that the <em>reason</em> in the statement is new information — introduced by the question, not the passage.</p>
+    </div>
+
+    <div class="trap-card">
+      <p class="trap-n">Trap 03</p>
+      <h2>Absolute Language</h2>
+      <div class="pair">
+        <span class="lbl">Passage</span><span>Most patients with this condition respond well to the standard antibiotic course.</span>
+        <span class="lbl">Statement</span><span><strong>All</strong> patients with this condition respond well to the standard antibiotic course.</span>
+      </div>
+      <p>Answer: <strong>False.</strong> The passage said <em>most</em>. The statement says <em>all</em>. One word — but it's the difference between a qualified claim and a universal one.</p>
+      <p>Whenever you see <strong>always, never, all, every, only, must, entirely</strong> in a statement, check whether the passage used that word. It almost never did.</p>
+    </div>
+
+    <hr>
+
+    <h2>Why more practice alone won't fix this</h2>
+
+    <p>If you're not identifying <em>why</em> you got a question wrong, you're not learning from it. Getting an answer wrong and moving on just reinforces whatever instinct led you there.</p>
+
+    <div class="stat-block">
+      <span class="num">55–60%</span>
+      <p>of incorrect VR answers fall into a small number of trap categories. Once you can name the trap, you can train against it.</p>
+    </div>
+
+    <p>These three are a fraction of what appears in a real UCAT sitting. There are eight trap types in total, several of which are harder to spot than anything covered here. Our UCAT Complete Guidance works through all of them — with a pre-lesson diagnostic showing you which gaps to close first.</p>
+
+    <div class="cta-block">
+      <p>If VR is the section holding your score back, book a <strong>free diagnostic consultation</strong> to identify exactly which traps are costing you marks and how to fix them before exam day.</p>
+    </div>
+
+    <p class="footer-line">This post covers three of the eight trap types present in UCAT Verbal Reasoning. A full trap framework with worked strategies is available through UCAT Complete Guidance.</p>
+  </div>
+</div>
+
+<!-- ARTICLE: UCAT Score Calculator 2026 -->
+<div class="article-panel" id="article-calculator">
+  <div class="article-hero">
+    <div class="article-hero-inner">
+      <button class="back-btn" onclick="showPage('resources')">← Back to Key Resources</button>
+      <span class="subpage-eyebrow">TOOL · UCAT ANZ 2026</span>
+      <h1>UCAT Score Calculator 2026: Find Your Percentile Instantly</h1>
+      <p>Enter your total UCAT score to see your exact percentile, which universities are within reach by state, and what the 2025 cutoffs looked like.</p>
+    </div>
+  </div>
+  <div class="container" style="padding-top:2.5rem;padding-bottom:4rem;">
+
+<style>
+/* ── CALCULATOR STYLES ── */
+.calc-card {
+  border: 1px solid var(--stone); border-radius: 12px;
+  padding: 1.6rem 1.75rem; margin: 1.5rem 0;
+  background: var(--offwhite);
+}
+.calc-card h3 { margin-top: 0; font-family: 'Lora', serif; font-size: 1.15rem; color: var(--navy); margin-bottom: 1.1rem; }
+.slider-row { margin-bottom: 1.25rem; }
+.slider-row label { display: flex; justify-content: space-between; align-items: baseline; font-size: 0.88rem; font-weight: 700; color: var(--navy); margin-bottom: 0.4rem; }
+.slider-row label span.score-val { color: var(--gold); font-family: 'Lora', serif; font-size: 1.25rem; font-weight: 700; }
+input[type=range] { width: 100%; accent-color: var(--navy); height: 4px; cursor: pointer; display: block; }
+.slider-labels { display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--muted); margin-top: 0.25rem; }
+.state-row { margin-bottom: 1.25rem; }
+.state-row label { display: block; font-size: 0.88rem; font-weight: 700; color: var(--navy); margin-bottom: 0.4rem; }
+.calc-select {
+  width: 100%; padding: 0.55rem 0.85rem; border: 2px solid rgba(13,13,13,0.2);
+  border-radius: 8px; background: var(--white); color: var(--navy);
+  font-family: 'Outfit', sans-serif; font-size: 0.9rem; cursor: pointer; outline: none;
+  transition: border-color 0.2s;
+}
+.calc-select:focus { border-color: var(--navy); }
+.result-box {
+  background: var(--white); border: 1.5px solid var(--stone); border-radius: 10px;
+  padding: 1.25rem 1.4rem; margin-top: 1.25rem;
+}
+.result-main { display: flex; gap: 1.5rem; align-items: flex-start; flex-wrap: wrap; margin-bottom: 1rem; }
+.result-score { text-align: center; min-width: 90px; }
+.result-score .big { font-family: 'Lora', serif; font-size: 2.6rem; font-weight: 700; color: var(--navy); line-height: 1; display: block; }
+.result-score .sub { font-size: 0.75rem; color: var(--muted); font-weight: 600; }
+.result-details { flex: 1; min-width: 200px; font-size: 0.88rem; color: var(--muted); line-height: 1.65; }
+.result-details strong { color: var(--navy); }
+.uni-rec-calc { margin-top: 0.85rem; }
+.uni-rec-calc .rec-label { font-size: 0.68rem; font-weight: 800; letter-spacing: 0.09em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.6rem; }
+.uni-card-calc {
+  background: rgba(232,148,10,0.07); border-left: 3px solid var(--gold);
+  border-radius: 0 6px 6px 0; padding: 0.6rem 1rem; margin-bottom: 0.45rem; font-size: 0.85rem;
+}
+.uni-card-calc .uni-name { font-weight: 700; color: var(--navy); margin-bottom: 0.2rem; }
+.uni-card-calc .uni-detail { color: var(--muted); font-size: 0.8rem; line-height: 1.5; }
+.uni-card-warn-calc {
+  background: rgba(13,13,13,0.05); border-left: 3px solid var(--navy);
+  border-radius: 0 6px 6px 0; padding: 0.6rem 1rem; margin-bottom: 0.45rem; font-size: 0.85rem;
+}
+.uni-card-warn-calc .uni-name { font-weight: 700; color: var(--navy); margin-bottom: 0.2rem; }
+.uni-card-warn-calc .uni-detail { color: var(--muted); font-size: 0.8rem; line-height: 1.5; }
+.cta-inline-calc { background: rgba(13,13,13,0.06); border-left: 3px solid var(--navy); border-radius: 0 6px 6px 0; padding: 0.75rem 1rem; margin-top: 1rem; font-size: 0.87rem; color: var(--muted); }
+.cta-inline-calc strong { color: var(--navy); }
+
+/* Conversion table */
+.conv-tables-outer { display: grid; grid-template-columns: 1fr 220px; gap: 1.5rem; align-items: start; margin: 1.5rem 0; }
+@media (max-width: 620px) { .conv-tables-outer { grid-template-columns: 1fr; } }
+.tbl-scroll { overflow-x: auto; width: 100%; }
+.conv-table { border-collapse: collapse; font-size: 0.83rem; font-variant-numeric: tabular-nums; width: 100%; min-width: 300px; }
+.conv-table th { background: var(--offwhite); font-weight: 700; font-size: 0.7rem; letter-spacing: 0.05em; text-transform: uppercase; padding: 0.45rem 0.75rem; text-align: center; border-bottom: 2px solid var(--stone); white-space: nowrap; color: var(--navy); }
+.conv-table th.left { text-align: left; }
+.conv-table td { padding: 0.38rem 0.75rem; border-bottom: 1px solid var(--stone); text-align: center; color: var(--muted); font-size: 0.82rem; }
+.conv-table td.left { text-align: left; color: var(--navy); font-weight: 600; }
+.conv-table tr:last-child td { border-bottom: none; }
+.conv-sep-row td { background: rgba(13,13,13,0.07); color: var(--navy); font-size: 0.68rem; font-weight: 800; padding: 0.22rem 0.75rem; letter-spacing: 0.05em; text-transform: uppercase; }
+.hl-gold { background: rgba(232,148,10,0.15) !important; color: var(--navy) !important; font-weight: 700; }
+.side-stack-calc { display: flex; flex-direction: column; gap: 1rem; }
+.sjt-note { font-size: 0.75rem; color: var(--muted); margin-top: 0.6rem; max-width: 200px; line-height: 1.5; }
+.median-box-calc { background: var(--offwhite); border: 1px solid var(--stone); border-radius: 10px; padding: 1rem 1.1rem; font-size: 0.84rem; }
+.median-box-title-calc { font-size: 0.68rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.7rem; }
+.median-row-calc { display: flex; align-items: center; gap: 0.55rem; margin-bottom: 0.4rem; }
+.median-tag-calc { font-size: 0.68rem; font-weight: 800; border-radius: 4px; padding: 0.1rem 0.4rem; background: rgba(232,148,10,0.15); color: #A66200; min-width: 28px; text-align: center; }
+.median-score-calc { font-family: 'Lora', serif; font-size: 1.05rem; font-weight: 700; color: var(--navy); min-width: 38px; }
+.median-q-calc { font-size: 0.72rem; color: var(--muted); }
+.median-note-calc { font-size: 0.7rem; color: var(--muted); font-style: italic; margin-top: 0.5rem; }
+</style>
+
+    <!-- Calculator widget -->
+    <div class="calc-card">
+      <h3>Your UCAT Percentile Calculator</h3>
+
+      <div class="slider-row">
+        <label>Total UCAT Score (out of 2700) <span class="score-val" id="calc-score-display">1,950</span></label>
+        <input type="range" id="calc-score-slider" min="900" max="2700" step="10" value="1950">
+        <div class="slider-labels"><span>900</span><span>1,800</span><span>2,700</span></div>
+      </div>
+
+      <div class="state-row">
+        <label>Your state <span style="font-weight:400;color:var(--muted);font-size:0.78rem;">(select to see your medical school preferences ranked)</span></label>
+        <select class="calc-select" id="calc-state-select">
+          <option value="">— Select state —</option>
+          <option value="NSW">New South Wales</option>
+          <option value="VIC">Victoria</option>
+          <option value="QLD">Queensland</option>
+          <option value="SA">South Australia</option>
+          <option value="WA">Western Australia</option>
+          <option value="TAS">Tasmania</option>
+          <option value="NT">Northern Territory / ACT</option>
+        </select>
+      </div>
+
+      <div class="result-box" id="calc-result-box">
+        <div class="result-main">
+          <div class="result-score">
+            <span class="big" id="calc-pct-display">50th</span>
+            <span class="sub">percentile</span>
+          </div>
+          <div class="result-details">
+            <div id="calc-band-text"></div>
+            <div id="calc-median-text" style="margin-top:0.3rem;"></div>
+          </div>
+        </div>
+        <div class="uni-rec-calc" id="calc-uni-rec"></div>
+        <div class="cta-inline-calc" id="calc-cta-inline"></div>
+      </div>
+    </div>
+
+    <hr>
+
+    <h2 style="font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--navy);margin-bottom:0.75rem;">UCAT Score Conversion Table 2026</h2>
+    <p style="font-size:0.9rem;color:var(--muted);margin-bottom:0.5rem;">How many questions correct per subtest to reach a given scaled score?</p>
+    <p style="font-size:0.82rem;color:var(--muted);margin-bottom:1rem;">VR: 44 questions · DM: 29 questions · QR: 36 questions. Each subtest scales 300–900. Figures based on historical UCAT ANZ sitting data — official conversion tables are not published by UCAT ANZ.</p>
+
+    <div class="conv-tables-outer">
+      <div class="tbl-scroll">
+        <table class="conv-table">
+          <thead><tr><th class="left">Scaled Score</th><th>VR (/44)</th><th>DM (/29)</th><th>QR (/36)</th></tr></thead>
+          <tbody>
+            <tr class="conv-sep-row"><td colspan="4">Low (300–480)</td></tr>
+            <tr><td class="left">300</td><td>0–5</td><td>0–3</td><td>0–3</td></tr>
+            <tr><td class="left">350</td><td>8</td><td>5</td><td>6–7</td></tr>
+            <tr><td class="left">400</td><td>11</td><td>7</td><td>10–11</td></tr>
+            <tr><td class="left">450</td><td>14</td><td>9</td><td>14–15</td></tr>
+            <tr><td class="left">480</td><td>15–16</td><td>10</td><td>16</td></tr>
+            <tr class="conv-sep-row"><td colspan="4">Below average (500–580)</td></tr>
+            <tr><td class="left">500</td><td>17</td><td>11</td><td>17</td></tr>
+            <tr><td class="left">530</td><td>18–19</td><td>12</td><td>18</td></tr>
+            <tr><td class="left">550</td><td>20</td><td>13</td><td>19</td></tr>
+            <tr><td class="left">580</td><td>21–22</td><td>14</td><td>20</td></tr>
+            <tr class="conv-sep-row"><td colspan="4">Average (600–680)</td></tr>
+            <tr><td class="left">600</td><td>23</td><td>15</td><td>21</td></tr>
+            <tr><td class="left">630</td><td>24–25</td><td>16</td><td>22</td></tr>
+            <tr><td class="left">650</td><td>26</td><td>17</td><td>23</td></tr>
+            <tr><td class="left">680</td><td>27–28</td><td>18</td><td>24</td></tr>
+            <tr class="conv-sep-row"><td colspan="4">Competitive (700–740)</td></tr>
+            <tr><td class="left">700</td><td>29</td><td>19</td><td>25</td></tr>
+            <tr><td class="left">730</td><td>30–31</td><td>20</td><td>26</td></tr>
+            <tr class="conv-sep-row"><td colspan="4">High Competitive (750–900)</td></tr>
+            <tr><td class="left">750</td><td>32</td><td>21</td><td>27</td></tr>
+            <tr><td class="left">780</td><td class="hl-gold">33–34</td><td>22</td><td>28</td></tr>
+            <tr><td class="left">800</td><td>35</td><td class="hl-gold">23</td><td>29</td></tr>
+            <tr><td class="left">830</td><td>36–37</td><td>24</td><td>30</td></tr>
+            <tr><td class="left">850</td><td>38</td><td>25</td><td class="hl-gold">31</td></tr>
+            <tr><td class="left">880</td><td>39–40</td><td>26</td><td>32</td></tr>
+            <tr><td class="left">900</td><td>41–44</td><td>27–29</td><td>33–36</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="side-stack-calc">
+        <div class="tbl-scroll">
+          <table class="conv-table">
+            <thead><tr><th class="left">SJT Score</th><th>Qs</th><th>%ile</th></tr></thead>
+            <tbody>
+              <tr><td class="left">&lt;525</td><td>≤38</td><td>Bot. 20%</td></tr>
+              <tr><td class="left">525–549</td><td>39–41</td><td>Top 80%</td></tr>
+              <tr><td class="left">550–569</td><td>42–44</td><td>Top 70%</td></tr>
+              <tr><td class="left">570–588</td><td>45–47</td><td>Top 60%</td></tr>
+              <tr><td class="left">589–606</td><td>48–50</td><td>Median</td></tr>
+              <tr><td class="left">607–620</td><td>51–53</td><td>Top 40%</td></tr>
+              <tr><td class="left">621–639</td><td>54–56</td><td>Top 30%</td></tr>
+              <tr><td class="left">640–663</td><td>57–60</td><td>Top 20%</td></tr>
+              <tr><td class="left">664+</td><td>61–69</td><td>Top 10%</td></tr>
+            </tbody>
+          </table>
+          <p class="sjt-note">SJT: 69 questions, separate from the cognitive total. Most universities use it as a tiebreaker or minimum threshold only.</p>
+        </div>
+        <div class="median-box-calc">
+          <div class="median-box-title-calc">Our students' median scores</div>
+          <div class="median-row-calc"><span class="median-tag-calc">VR</span><span class="median-score-calc">780</span><span class="median-q-calc">33 / 44</span></div>
+          <div class="median-row-calc"><span class="median-tag-calc">DM</span><span class="median-score-calc">800</span><span class="median-q-calc">23 / 29</span></div>
+          <div class="median-row-calc"><span class="median-tag-calc">QR</span><span class="median-score-calc">850</span><span class="median-q-calc">31 / 36</span></div>
+          <div class="median-note-calc">Highlighted in gold in the table ←</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-label">What this table tells you</div>
+      <p>The conversion is non-linear — extra correct answers in QR matter more at 800+ than at 600. If QR is dragging your total, that's where the fastest gains are. Our <em>world's first UCAT diagnostic improvement test</em> pinpoints exactly which question types you're dropping marks on per subtest.</p>
+    </div>
+
+    <div class="cta-block">
+      <p>We've supported students through score improvements of 300+ points on their UCAT. If you want a clear picture of what's holding your score back and a comprehensive plan that can move your score significantly, <strong>book a free diagnostic consultation</strong> — no obligation, just answers.</p>
+    </div>
+
+    <p class="footer-line">Score conversion data from historical UCAT ANZ sittings. University cutoff figures are from 2025 — always verify directly with each institution. Student placement figures refer to students we supported through the full application process in 2025.</p>
+  </div>
+</div>
+
+
 <!-- ── NAV ── -->
 <nav aria-label="Main navigation">
   <a href="#" class="nav-brand">
-    <svg class="nav-logo-svg" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="10" y="18" width="28" height="36" rx="3" stroke="#F5A623" stroke-width="3" fill="none"/>
-      <rect x="42" y="18" width="28" height="36" rx="3" stroke="#F5A623" stroke-width="3" fill="none"/>
-      <line x1="40" y1="18" x2="40" y2="54" stroke="#F5A623" stroke-width="2.5"/>
-      <line x1="16" y1="28" x2="32" y2="28" stroke="#F5A623" stroke-width="1.8"/>
-      <line x1="16" y1="34" x2="32" y2="34" stroke="#F5A623" stroke-width="1.8"/>
-      <line x1="48" y1="28" x2="64" y2="28" stroke="#F5A623" stroke-width="1.8"/>
-      <line x1="48" y1="34" x2="64" y2="34" stroke="#F5A623" stroke-width="1.8"/>
-      <path d="M6 56 Q40 62 74 56" stroke="#F5A623" stroke-width="3" fill="none"/>
-    </svg>
+    <img class="nav-logo-img" src="data:image/png;base64,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" alt="Book icon">
     <div class="nav-brand-text">
       UCAT COMPLETE GUIDANCE
       <span>by Sarthak Mehta</span>
@@ -1216,8 +2522,17 @@ footer {
     <li><a href="#tab-reviews">Reviews</a></li>
     <li><a href="#tab-contact" class="nav-btn">Free Consultation</a></li>
   </ul>
+
+  <a href="https://portal.ucatcompleteguidance.com" target="_blank" class="portal-btn" title="Student Portal">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+    <span class="portal-label">Student Portal</span>
+  </a>
+  <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleSidebar()" aria-label="Open navigation menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
+<div id="main-home">
 <main>
 
 <!-- ══════════════════════════════════════════
@@ -1237,7 +2552,7 @@ footer {
         </div>
         <div class="hero-stats">
           <div class="hero-stat">
-            <div class="hero-stat-num">180+</div>
+            <div class="hero-stat-num">230+</div>
             <div class="hero-stat-label">students prepared across Australia</div>
           </div>
           <div class="hero-stat">
@@ -1262,6 +2577,22 @@ footer {
     </div>
   </div>
 </section>
+
+<!-- ── DIAGNOSTIC STRIP ── -->
+<div class="diag-strip">
+  <div class="diag-strip-left">
+    <div class="diag-strip-icon">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E8940A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+      </svg>
+    </div>
+    <div class="diag-strip-text">
+      <div class="diag-strip-headline">Don't just practise questions — <b>see a 120+ point improvement</b> before you leave this page.</div>
+      <div class="diag-strip-sub">World's first UCAT diagnostic improvement test · Learn the trap · Apply it instantly · See your score move</div>
+    </div>
+  </div>
+  <a href="/diagnostic-test" target="_blank" class="diag-strip-btn">Try the free diagnostic test →</a>
+</div>
 
 
 <!-- ── 2025 COHORT RESULTS BAND ── -->
@@ -1438,123 +2769,6 @@ footer {
      TAB: PROGRAMME
 ══════════════════════════════════════════ -->
 <div class="tab-panel" id="tab-programme">
-<!-- ── WHAT'S INCLUDED ── -->
-<section class="section section-alt" >
-  <div class="wrap">
-    <span class="section-tag mob-hide-heading">The programme</span>
-    <h2 class="mob-hide-heading">Everything included in the course.</h2>
-    <p class="section-intro mob-hide-heading">A comprehensive, structured preparation system — not a collection of resources. Every element is designed to build accuracy first, then speed.</p>
-
-    <button class="mob-accordion-trigger" onclick="mobToggle(this)" aria-expanded="false">
-      Course inclusions
-      <svg class="mob-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 9l-7 7-7-7"/></svg>
-    </button>
-    <div class="mob-accordion-body">
-    <div class="includes-grid">
-      <div class="include-item">
-        <div class="include-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="2"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
-        </div>
-        <div>
-          <div class="include-title">All 20 question types covered</div>
-          <div class="include-desc">Complete dissection of every UCAT question type across VR, DM, QR and SJT — strategy, worked examples, and the traps most students fall into.</div>
-        </div>
-      </div>
-      <div class="include-item">
-        <div class="include-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        </div>
-        <div>
-          <div class="include-title">2.5 hours of live teaching per week</div>
-          <div class="include-desc">1.5-hour live strategy session + 1-hour evaluation session every week. Active, structured teaching tailored to your patterns — not passive lecture.</div>
-        </div>
-      </div>
-      <div class="include-item">
-        <div class="include-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-        </div>
-        <div>
-          <div class="include-title">Guided practice + strategy personalisation</div>
-          <div class="include-desc">1 hour of structured homework per week. Not just drilling questions — guided practice with strategy modification based on your individual weak points.</div>
-        </div>
-      </div>
-      <div class="include-item">
-        <div class="include-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="2"><path d="M4 6h16M4 10h16M4 14h8M4 18h8"/></svg>
-        </div>
-        <div>
-          <div class="include-title">Access to 4,000+ practice questions</div>
-          <div class="include-desc">A bank of over 4,000 questions to build fluency and test strategy under realistic conditions across all four subtests.</div>
-        </div>
-      </div>
-      <div class="include-item">
-        <div class="include-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-        </div>
-        <div>
-          <div class="include-title">3 full mock tests</div>
-          <div class="include-desc">Three timed, full-length mock exams to simulate real UCAT conditions, track your score progression, and identify remaining gaps before exam day.</div>
-        </div>
-      </div>
-      <div class="include-item">
-        <div class="include-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
-        </div>
-        <div>
-          <div class="include-title">All lesson recordings provided</div>
-          <div class="include-desc">Every session is recorded and made available so you can revisit any strategy, re-watch worked examples, and review at your own pace between sessions.</div>
-        </div>
-      </div>
-      <div class="include-item">
-        <div class="include-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
-        </div>
-        <div>
-          <div class="include-title">Consistent evaluation sessions post-course</div>
-          <div class="include-desc">Free evaluation sessions continue after the course concludes — ongoing progress monitoring and strategy refinement right up to your exam date.</div>
-        </div>
-      </div>
-      <div class="include-item">
-        <div class="include-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="2"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/><path d="M9 12h6M9 16h4"/></svg>
-        </div>
-        <div>
-          <div class="include-title">Progress tests at Week 10 & Week 16</div>
-          <div class="include-desc">Structured mid-course and late-course progress tests to assess strategy retention, identify remaining gaps, and recalibrate preparation before mock test phases.</div>
-        </div>
-      </div>
-      <div class="include-item">
-        <div class="include-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
-        <div>
-          <div class="include-title">Pre-lesson test before the course begins</div>
-          <div class="include-desc">A short test before each lesson to strategically analyse weaker question types — so the course targets your specific gaps from the very first session.</div>
-        </div>
-      </div>
-      <div class="include-item">
-        <div class="include-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="2"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0"/></svg>
-        </div>
-        <div>
-          <div class="include-title">Free interview preparation workshop</div>
-          <div class="include-desc">A dedicated workshop covering MMI and panel interview technique, ethical frameworks, and medical school-specific interview formats — included as part of the course.</div>
-        </div>
-      </div>
-      <div class="include-item">
-        <div class="include-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="2"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-        </div>
-        <div>
-          <div class="include-title">Free Med/Dent applications & counselling workshop</div>
-          <div class="include-desc">Guidance on medical and dental school applications, personal statements, and admissions strategy — a free workshop to support students through the full admissions process.</div>
-        </div>
-      </div>
-    </div>
-    </div><!-- /mob-accordion-body includes -->
-  </div>
-</section>
-
 <!-- ── LESSON STRUCTURE ── -->
 <section class="section" >
   <div class="wrap">
@@ -1718,7 +2932,7 @@ footer {
         <div class="workshop-title">UCAT Strategy Workshop — Adelaide</div>
         <div class="workshop-detail"><strong>Prospect Library, 128 Prospect Road SA 5082</strong> &nbsp;·&nbsp; Free Entry &nbsp;·&nbsp; 40 spots</div>
       </div>
-      <div style="background:rgba(245,166,35,0.12); border:1px solid rgba(245,166,35,0.3); padding:0.6rem 1.1rem; border-radius:6px; font-size:0.82rem; font-weight:700; color:var(--gold); flex-shrink:0;">Completed</div>
+      <div style="background:rgba(232,148,10,0.12); border:1px solid rgba(232,148,10,0.3); padding:0.6rem 1.1rem; border-radius:6px; font-size:0.82rem; font-weight:700; color:var(--gold); flex-shrink:0;">Completed</div>
     </div>
 
     <div class="workshop-banner" style="margin-top:1.25rem;">
@@ -1853,7 +3067,7 @@ footer {
         <div class="form-contact-alt">
           Or reach us directly:
           <a href="tel:0468423459">0468 423 459</a> &nbsp;·&nbsp;
-          <a href="mailto:sarthak.ucat@gmail.com">sarthak.ucat@gmail.com</a>
+          <a href="mailto:enquiries@ucatcompleteguidance.com">enquiries@ucatcompleteguidance.com</a>
         </div>
       </div>
       <div class="form-success" id="formSuccess" style="display:none">
@@ -1864,26 +3078,33 @@ footer {
 </section>
 
 </main>
+</div><!-- end main-home -->
 
 </div>
 
 </main>
 
 
+<!-- ── FLOATING DIAGNOSTIC BUTTON ── -->
+<div class="diag-float">
+  <a href="/diagnostic-test" target="_blank" class="diag-float-btn" title="Try the free UCAT diagnostic test">
+    <div class="diag-float-dot">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0D0D0D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+      </svg>
+    </div>
+    <div class="diag-float-copy">
+      <div class="diag-float-top">FREE DIAGNOSTIC TEST</div>
+      <div class="diag-float-main">See your improvement now →</div>
+    </div>
+  </a>
+</div>
+
 
 <!-- ── FOOTER ── -->
 <footer role="contentinfo">
   <div class="footer-brand">
-    <svg width="36" height="36" viewBox="0 0 80 80" fill="none">
-      <rect x="10" y="18" width="28" height="36" rx="3" stroke="#F5A623" stroke-width="3" fill="none"/>
-      <rect x="42" y="18" width="28" height="36" rx="3" stroke="#F5A623" stroke-width="3" fill="none"/>
-      <line x1="40" y1="18" x2="40" y2="54" stroke="#F5A623" stroke-width="2.5"/>
-      <line x1="16" y1="28" x2="32" y2="28" stroke="#F5A623" stroke-width="1.8"/>
-      <line x1="16" y1="34" x2="32" y2="34" stroke="#F5A623" stroke-width="1.8"/>
-      <line x1="48" y1="28" x2="64" y2="28" stroke="#F5A623" stroke-width="1.8"/>
-      <line x1="48" y1="34" x2="64" y2="34" stroke="#F5A623" stroke-width="1.8"/>
-      <path d="M6 56 Q40 62 74 56" stroke="#F5A623" stroke-width="3" fill="none"/>
-    </svg>
+    <img class="nav-logo-img" src="data:image/png;base64,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" alt="Book icon">
     <div class="footer-brand-text">
       UCAT COMPLETE GUIDANCE
       <span>by Sarthak Mehta</span>
@@ -1892,7 +3113,7 @@ footer {
   <p class="footer-copy">© 2026 UCAT Complete Guidance · Sarthak Mehta</p>
   <div class="footer-contact">
     <a href="tel:0468423459">0468 423 459</a><br>
-    <a href="mailto:sarthak.ucat@gmail.com">sarthak.ucat@gmail.com</a>
+    <a href="mailto:enquiries@ucatcompleteguidance.com">enquiries@ucatcompleteguidance.com</a>
   </div>
 </footer>
 
@@ -1956,6 +3177,8 @@ function toggleFaq(btn) {
 
 <script>
 
+// Web3Forms access key (created for enquiries@ucatcompleteguidance.com at web3forms.com)
+var WEB3FORMS_KEY = '666842b2-1e93-45ac-b1ae-380b9f7db050';
 function handleFormSubmit(e) {
   e.preventDefault();
   const f = e.target;
@@ -1973,27 +3196,27 @@ function handleFormSubmit(e) {
     _replyto: f.email.value
   };
 
-  fetch('https://formspree.io/f/xeaeezel', {
+  fetch('https://api.web3forms.com/submit', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-    body: JSON.stringify(data)
+    body: JSON.stringify(Object.assign({ access_key: WEB3FORMS_KEY, from_name: 'UCAT Complete Guidance website', subject: data._subject, replyto: data._replyto }, data))
   })
   .then(function(res) { return res.json(); })
   .then(function(data) {
-    if (data.ok || data.next) {
+    if (data.success) {
       document.getElementById('formSuccess').style.display = 'block';
       f.reset();
       btn.textContent = 'Sent ✓';
     } else {
       btn.textContent = 'Send enquiry';
       btn.disabled = false;
-      alert('Something went wrong — please email sarthak.ucat@gmail.com directly.');
+      alert('Something went wrong — please email enquiries@ucatcompleteguidance.com directly.');
     }
   })
   .catch(function() {
     btn.textContent = 'Send enquiry';
     btn.disabled = false;
-    alert('Something went wrong — please email sarthak.ucat@gmail.com directly.');
+    alert('Something went wrong — please email enquiries@ucatcompleteguidance.com directly.');
   });
 }
 function toggleFaq(btn) {
@@ -2081,5 +3304,220 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a) {
   });
 });
 </script>
+
+<script>
+// ── Sidebar state ──
+function toggleSidebar() {
+  var sb = document.getElementById('sidebar');
+  var ov = document.getElementById('sidebarOverlay');
+  var btn = document.getElementById('hamburgerBtn');
+  var isOpen = sb.classList.contains('open');
+  if (isOpen) {
+    sb.classList.remove('open');
+    ov.classList.remove('open');
+    btn.classList.remove('open');
+  } else {
+    sb.classList.add('open');
+    ov.classList.add('open');
+    btn.classList.add('open');
+  }
+}
+function closeSidebar() {
+  document.getElementById('sidebar').classList.remove('open');
+  document.getElementById('sidebarOverlay').classList.remove('open');
+  document.getElementById('hamburgerBtn').classList.remove('open');
+}
+
+// ── Resources submenu ──
+function toggleResourcesMenu(e) {
+  e.preventDefault();
+  var submenu = document.getElementById('resourcesSubmenu');
+  var chevron = document.getElementById('resourcesChevron');
+  submenu.classList.toggle('open');
+  chevron.classList.toggle('open');
+}
+
+// ── University requirements tab switching ──
+function showUniTab(id, btn) {
+  document.querySelectorAll('#article-requirements .tab-panel').forEach(function(p) { p.classList.remove('active'); });
+  document.querySelectorAll('#article-requirements .tab-btn').forEach(function(b) { b.classList.remove('active'); });
+  var panel = document.getElementById('unitab-' + id);
+  if (panel) panel.classList.add('active');
+  if (btn) btn.classList.add('active');
+}
+
+// ── Page navigation ──
+var PAGES = ['home','inclusions','story','reviews','resources'];
+var ARTICLES = ['percentile','requirements','patterns','vr','calculator'];
+
+function showPage(pageId) {
+  PAGES.forEach(function(p) {
+    var el = document.getElementById('page-' + p);
+    if (el) el.classList.remove('active');
+  });
+  ARTICLES.forEach(function(a) {
+    var el = document.getElementById('article-' + a);
+    if (el) el.classList.remove('active');
+  });
+
+  ['home','inclusions','story','reviews','resources'].forEach(function(p) {
+    var link = document.getElementById('sl-' + p);
+    if (link) link.classList.remove('active');
+  });
+
+  if (pageId === 'home') {
+    document.getElementById('main-home').style.display = '';
+    document.body.classList.remove('subpage-active');
+    var sl = document.getElementById('sl-home');
+    if (sl) sl.classList.add('active');
+    window.scrollTo(0,0);
+  } else {
+    document.getElementById('main-home').style.display = 'none';
+    document.body.classList.add('subpage-active');
+    var panel = document.getElementById('page-' + pageId);
+    if (panel) panel.classList.add('active');
+    var sl = document.getElementById('sl-' + pageId);
+    if (sl) sl.classList.add('active');
+    window.scrollTo(0,0);
+  }
+}
+
+function showArticle(articleId) {
+  PAGES.forEach(function(p) {
+    var el = document.getElementById('page-' + p);
+    if (el) el.classList.remove('active');
+  });
+  ARTICLES.forEach(function(a) {
+    var el = document.getElementById('article-' + a);
+    if (el) el.classList.remove('active');
+  });
+
+  document.getElementById('main-home').style.display = 'none';
+  document.body.classList.add('subpage-active');
+  var panel = document.getElementById('article-' + articleId);
+  if (panel) panel.classList.add('active');
+  window.scrollTo(0,0);
+}
+
+// Hash routing on load
+window.addEventListener('load', function() {
+  var h = location.hash.replace('#','');
+  if (h === 'inclusions') showPage('inclusions');
+  else if (h === 'story') showPage('story');
+  else if (h === 'reviews') showPage('reviews');
+  else if (h === 'resources') showPage('resources');
+  else if (h === 'article-percentile') showArticle('percentile');
+  else if (h === 'article-requirements') showArticle('requirements');
+  else if (h === 'article-patterns') showArticle('patterns');
+  else if (h === 'article-vr') showArticle('vr');
+  else if (h === 'article-calculator') showArticle('calculator');
+});
+</script>
+
+<script>
+// ── CALCULATOR LOGIC ──
+function calcGetPercentile(score) {
+  const pts = [
+    [900,1],[1609,10],[1720,20],[1760,25],[1800,30],[1880,40],[1950,50],
+    [2040,60],[2120,70],[2170,75],[2220,80],[2340,90],[2360,91],[2375,92],
+    [2395,93],[2410,94],[2430,95],[2455,96],[2480,97],[2510,98],[2560,99],[2700,99]
+  ];
+  if (score <= 900) return 1;
+  if (score >= 2560) return 99;
+  for (let i = 1; i < pts.length; i++) {
+    if (score <= pts[i][0]) {
+      const [x0,y0] = pts[i-1]; const [x1,y1] = pts[i];
+      return Math.round(y0 + (score-x0)/(x1-x0)*(y1-y0));
+    }
+  }
+  return 50;
+}
+function calcPctLabel(p) {
+  if (p<30) return '<30th';
+  const sfx = (p%10===1&&p!==11)?'st':(p%10===2&&p!==12)?'nd':(p%10===3&&p!==13)?'rd':'th';
+  return p+sfx;
+}
+const calcUnis = {
+  NSW:[
+    {name:"UNSW Sydney BMed/MD",cutoff:2270,formula:"33% UCAT · 33% ATAR · 33% MMI",threshold:"~92nd percentile minimum. 240 domestic places.",students:"14 of our students received an offer for UNSW Medicine in 2025",tier:"high"},
+    {name:"Newcastle / UNE Joint Medical Program",cutoff:2400,formula:"UCAT shortlists for interview — final offer based on PQA + MSA",threshold:"~96–97th percentile for interview shortlist.",students:"9 of our students received an offer for JMP Newcastle in 2025",tier:"high"},
+    {name:"WSU / CSU Joint Medical Program",cutoff:2150,formula:"UCAT shortlist: (Total + 2×VR) ÷ 5. Final: 75% MMI · 25% UCAT",threshold:"VR-weighted — strong VR can offset a lower total.",students:"7 of our students received an offer for WSU/CSU Medicine in 2025",tier:"mid"},
+  ],
+  VIC:[
+    {name:"Monash University BMedSc/MD",cutoff:2150,formula:"33% UCAT · 33% ATAR · 33% MMI",threshold:"~85th %ile for VIC metro (Dec round ~94th). 234 domestic places.",students:"16 of our students received an offer for Monash Medicine in 2025",tier:"high"},
+    {name:"University of Melbourne MD",cutoff:null,formula:"Graduate entry only — GAMSAT required, not UCAT.",threshold:"No UCAT pathway for school leavers.",students:null,tier:"info"},
+  ],
+  QLD:[
+    {name:"University of Queensland MD",cutoff:2290,formula:"25% UCAT · 25% ATAR · 50% MMI",threshold:"~95th percentile for interview shortlist.",students:"13 of our students received an offer for UQ Medicine in 2025",tier:"high"},
+    {name:"CQUniversity → UQ MD Pathway",cutoff:2350,formula:"50% MMI · 25% UCAT · 25% ATAR. Regional QLD priority.",threshold:"~90th percentile est. 60 dedicated places.",students:"5 of our students received an offer via the CQU pathway in 2025",tier:"high"},
+  ],
+  SA:[
+    {name:"Adelaide University BMedSt/MD",cutoff:2120,formula:"40% ATAR · 40% MMI · 20% UCAT",threshold:"~85th %ile for SA residents (~97th interstate).",students:"12 of our students received an offer for Adelaide Medicine in 2025",tier:"mid"},
+    {name:"Flinders University BClSc/MD",cutoff:1960,formula:"90% ATAR · 10% UCAT. No interview.",threshold:"~79th percentile competitive (rural offers lower).",students:"8 of our students received an offer for Flinders Medicine in 2025",tier:"low"},
+  ],
+  WA:[
+    {name:"University of Western Australia MD",cutoff:2230,formula:"50% MMI · 30% ATAR · 20% UCAT",threshold:"~90th %ile for WA residents (~99th interstate).",students:"14 of our students received an offer for UWA Medicine in 2025",tier:"high"},
+    {name:"Curtin University MBBS",cutoff:2230,formula:"Shortlist: 35% ATAR · 35% CASPer · 30% UCAT. CASPer mandatory.",threshold:"~90th %ile for WA applicants.",students:"11 of our students received an offer for Curtin Medicine in 2025",tier:"high"},
+  ],
+  TAS:[
+    {name:"University of Tasmania BMedSc/MD",cutoff:1850,formula:"ATAR primary ranking. UCAT = tiebreaker. No interview.",threshold:"50th percentile minimum. 75% of places reserved for Tasmanians.",students:"5 of our students received an offer for UTAS Medicine in 2025",tier:"low"},
+  ],
+  NT:[
+    {name:"WSU / CSU Joint Medical Program (Rural Pathway)",cutoff:2050,formula:"(Total + 2×VR) ÷ 5 shortlist. Final: 75% MMI · 25% UCAT.",threshold:"~60th percentile for rural pathway applicants.",students:"3 of our students received an offer via the WSU/CSU rural pathway in 2025",tier:"mid"},
+  ],
+};
+function calcRender() {
+  const slider = document.getElementById('calc-score-slider');
+  const stateEl = document.getElementById('calc-state-select');
+  if (!slider) return;
+  const score = parseInt(slider.value);
+  const state = stateEl.value;
+  document.getElementById('calc-score-display').textContent = score.toLocaleString();
+  const pct = calcGetPercentile(score);
+  const pctDisp = calcPctLabel(pct);
+  document.getElementById('calc-pct-display').textContent = pctDisp;
+  const diff = Math.abs(score - 1950);
+  const pctPhrase = pct<30 ? 'below the 30th percentile' : `at approximately the <strong>${pctDisp} percentile</strong>`;
+  document.getElementById('calc-band-text').innerHTML = `Your score of <strong>${score.toLocaleString()}</strong> puts you ${pctPhrase} of all 2026 UCAT ANZ candidates.`;
+  document.getElementById('calc-median-text').innerHTML = score>1950
+    ? `You are <strong>${diff} points above the median</strong> (1,950 · 50th percentile).`
+    : score===1950 ? `You are <strong>at the median</strong> — 50th percentile (1,950).`
+    : `You are <strong>${diff} points below the median</strong> (1,950). Most medicine cutoffs start around the 85th–90th percentile.`;
+  const uniRec = document.getElementById('calc-uni-rec');
+  if (state) {
+    const su = calcUnis[state]||[];
+    let html = `<div class="rec-label">University pathways — ${stateEl.options[stateEl.selectedIndex].text}</div>`;
+    su.forEach((u,i)=>{
+      const reachable = u.cutoff!==null ? score>=u.cutoff : true;
+      const isInfo = u.tier==='info';
+      const cc = (isInfo||!reachable)?'uni-card-warn-calc':'uni-card-calc';
+      const pfx = isInfo?'—':(reachable?'✓':'↑');
+      const sl = u.students?`<br><em>${u.students}.</em>`:'';
+      html+=`<div class="${cc}"><div class="uni-name">${pfx} ${u.name}</div><div class="uni-detail"><strong>Formula:</strong> ${u.formula}<br><strong>Threshold:</strong> ${u.threshold}${sl}${!reachable&&!isInfo?'<br><strong>Score below typical cutoff.</strong>':''}</div></div>`;
+    });
+    uniRec.innerHTML = html;
+  } else {
+    uniRec.innerHTML = '<div class="rec-label">Select your state to see university pathways</div>';
+  }
+  const ctaEl = document.getElementById('calc-cta-inline');
+  if (pct<70) ctaEl.innerHTML = `${pct<30?'Below the 30th percentile':`At the ${pctDisp} percentile`}, most medicine interview cutoffs are still some distance away. <strong>Book a free diagnostic consultation</strong> — we can help you build a comprehensive plan and improve significantly before your sitting.`;
+  else if (pct<90) ctaEl.innerHTML = `You're in range for several programs — but the difference between the ${pctDisp} and 90th+ percentile is where most interview offers are decided. <strong>Book a free diagnostic consultation</strong> to build a plan that moves your score higher.`;
+  else ctaEl.innerHTML = `A ${pctDisp} percentile puts you in a strong position. The key now is maintaining this consistently. <strong>Book a free consultation</strong> — we'll help you peak on test day.`;
+}
+document.addEventListener('DOMContentLoaded', function() {
+  const slider = document.getElementById('calc-score-slider');
+  const stateEl = document.getElementById('calc-state-select');
+  if (slider) { slider.addEventListener('input', calcRender); calcRender(); }
+  if (stateEl) stateEl.addEventListener('change', calcRender);
+});
+// Also re-init when article is shown (panel may not exist at DOMContentLoaded)
+const _origShowArticle = window.showArticle;
+window.showArticle = function(id) {
+  if (_origShowArticle) _origShowArticle(id);
+  if (id === 'calculator') setTimeout(calcRender, 50);
+};
+</script>
+
 </body>
 </html>
+</body></html>
