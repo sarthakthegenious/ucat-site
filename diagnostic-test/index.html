@@ -160,6 +160,9 @@ nav{position:fixed;top:3px;left:0;right:0;z-index:200;background:rgba(13,13,13,0
   .gate-form-group input[type="tel"]{max-width:100%!important}
   .gate-form-wrap{padding:1.25rem}
 }
+/* no copy */
+body{-webkit-user-select:none;-moz-user-select:none;user-select:none;-webkit-touch-callout:none}
+input,textarea{-webkit-user-select:text;user-select:text}
 </style>
 </head>
 <body>
@@ -193,44 +196,9 @@ nav{position:fixed;top:3px;left:0;right:0;z-index:200;background:rgba(13,13,13,0
 </div>
 
 <!-- ═══════════════════════════════════
-     SLIDE 1 — GATE (locked)
-═══════════════════════════════════ -->
-<div class="slide" data-slide="1" data-section="intro">
-  <div class="slide-inner" style="max-width:660px">
-    <div style="text-align:center;margin-bottom:1.75rem">
-      <p style="font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:0.85rem">Free · Personalised to you</p>
-      <h2 style="font-size:clamp(1.6rem,3.5vw,2.4rem);margin-bottom:0.9rem">You're one step away.</h2>
-      <p style="font-size:0.95rem;color:#2a3a58;line-height:1.75;max-width:520px;margin:0 auto 0.6rem">Leave your details and we'll send you your personalised results — including your section-by-section breakdown, estimated percentile, and a free follow-up with Sarthak, our specialist UCAT tutor.</p>
-    </div>
-    <div class="gate-form-wrap">
-      <form onsubmit="handleGateSubmit(event)">
-        <div class="gate-form-row">
-          <div class="gate-form-group">
-            <label for="g-name">First name <sup class="red-ast">*</sup></label>
-            <input type="text" id="g-name" placeholder="Your name" required>
-          </div>
-          <div class="gate-form-group">
-            <label for="g-email">Email address <sup class="red-ast">*</sup></label>
-            <input type="email" id="g-email" placeholder="your@email.com" required>
-          </div>
-        </div>
-        <div class="gate-form-row-full">
-          <div class="gate-form-group">
-            <label for="g-phone">Phone number <sup class="red-ast">*</sup></label>
-            <input type="tel" id="g-phone" placeholder="04XX XXX XXX" required style="max-width:260px">
-          </div>
-        </div>
-        <button type="submit" class="gate-submit-btn" id="gateSubmitBtn">Start my diagnostic →</button>
-        <p class="gate-privacy">We will reach out personally within 24 hours to discuss your results and next steps.</p>
-      </form>
-    </div>
-  </div>
-</div>
-
-<!-- ═══════════════════════════════════
      VR TRAP 1 — Q1 (Author vs Fact)
 ═══════════════════════════════════ -->
-<div class="slide" data-slide="2" data-section="VR" data-q="vr1a">
+<div class="slide" data-slide="1" data-section="VR" data-q="vr1a">
   <div class="slide-inner">
     <div class="slide-type type-vr">VR · Trap 1 of 2 · First Attempt</div>
     <h2>Verbal Reasoning</h2>
@@ -251,7 +219,7 @@ nav{position:fixed;top:3px;left:0;right:0;z-index:200;background:rgba(13,13,13,0
 </div>
 
 <!-- VR TRAP 1 — EXPLANATION -->
-<div class="slide" data-slide="3" data-section="VR" data-type="explain">
+<div class="slide" data-slide="2" data-section="VR" data-type="explain">
   <div class="slide-inner">
     <div class="slide-type type-explain">VR · Strategy Reveal</div>
     <h2>The Author's View Trap</h2>
@@ -275,7 +243,7 @@ nav{position:fixed;top:3px;left:0;right:0;z-index:200;background:rgba(13,13,13,0
 </div>
 
 <!-- VR TRAP 1 — Q2 -->
-<div class="slide" data-slide="4" data-section="VR" data-q="vr1b">
+<div class="slide" data-slide="3" data-section="VR" data-q="vr1b">
   <div class="slide-inner">
     <div class="second-q-banner"><span>Apply the rule →</span> Watch for who is making the claim in the passage before answering.</div>
     <div class="slide-type type-vr">VR · Trap 1 of 2 · Apply the Rule</div>
@@ -298,7 +266,7 @@ nav{position:fixed;top:3px;left:0;right:0;z-index:200;background:rgba(13,13,13,0
 <!-- ═══════════════════════════════════
      VR TRAP 2 — Q1 (Double Negative)
 ═══════════════════════════════════ -->
-<div class="slide" data-slide="5" data-section="VR" data-q="vr2a">
+<div class="slide" data-slide="4" data-section="VR" data-q="vr2a">
   <div class="slide-inner">
     <div class="slide-type type-vr">VR · Trap 2 of 2 · First Attempt</div>
     <h2>Verbal Reasoning</h2>
@@ -318,7 +286,7 @@ nav{position:fixed;top:3px;left:0;right:0;z-index:200;background:rgba(13,13,13,0
 </div>
 
 <!-- VR TRAP 2 — EXPLANATION -->
-<div class="slide" data-slide="6" data-section="VR" data-type="explain">
+<div class="slide" data-slide="5" data-section="VR" data-type="explain">
   <div class="slide-inner">
     <div class="slide-type type-explain">VR · Strategy Reveal</div>
     <h2>The Double Negative Trap</h2>
@@ -345,7 +313,7 @@ nav{position:fixed;top:3px;left:0;right:0;z-index:200;background:rgba(13,13,13,0
 </div>
 
 <!-- VR TRAP 2 — Q2 -->
-<div class="slide" data-slide="7" data-section="VR" data-q="vr2b">
+<div class="slide" data-slide="6" data-section="VR" data-q="vr2b">
   <div class="slide-inner">
     <div class="second-q-banner"><span>Apply the rule →</span> Spot the double negative trigger words and simplify before reading the question.</div>
     <div class="slide-type type-vr">VR · Trap 2 of 2 · Apply the Rule</div>
@@ -362,6 +330,43 @@ nav{position:fixed;top:3px;left:0;right:0;z-index:200;background:rgba(13,13,13,0
     </div>
     <button class="check-btn" id="check-vr2b" onclick="checkAnswer('vr2b','B')">Check Answer</button>
     <div class="feedback" id="fb-vr2b"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════
+     SLIDE 7 — GATE (locked)
+═══════════════════════════════════ -->
+<div class="slide" data-slide="7" data-section="intro">
+  <div class="slide-inner" style="max-width:660px">
+    <div style="text-align:center;margin-bottom:1.75rem">
+      <p style="font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:0.85rem">Personalised to you</p>
+      <h2 style="font-size:clamp(1.6rem,3.5vw,2.4rem);margin-bottom:0.4rem">Let's continue</h2>
+      <p style="font-size:0.85rem;font-weight:700;color:var(--green);margin-bottom:0.9rem">You've finished 1 out of 4 sections</p>
+      <p style="font-size:0.95rem;color:#2a3a58;line-height:1.75;max-width:520px;margin:0 auto 0.6rem">Please enter your details below <b>to proceed with the remaining test</b> and receive your <b>Top 3 areas of improvement</b> and a detailed section-by-section <b>percentile breakdown</b>.</p>
+    </div>
+    <div class="gate-form-wrap">
+      <form onsubmit="handleGateSubmit(event)">
+        <div class="gate-form-row">
+          <div class="gate-form-group">
+            <label for="g-name">First name <sup class="red-ast">*</sup></label>
+            <input type="text" id="g-name" placeholder="Your name" required>
+          </div>
+          <div class="gate-form-group">
+            <label for="g-email">Email address <sup class="red-ast">*</sup></label>
+            <input type="email" id="g-email" placeholder="your@email.com" required>
+          </div>
+        </div>
+        <div class="gate-form-row-full">
+          <div class="gate-form-group">
+            <label for="g-phone">Phone number <sup class="red-ast">*</sup></label>
+            <input type="tel" id="g-phone" placeholder="04XX XXX XXX" required style="max-width:260px">
+          </div>
+        </div>
+        <button type="submit" class="gate-submit-btn" id="gateSubmitBtn">Finish my diagnostic →</button>
+        <p class="gate-privacy">We will reach out personally within 24 hours to discuss your results and next steps.</p>
+      </form>
+    </div>
+    <p style="font-size:1.05rem;color:var(--ink);line-height:1.7;max-width:600px;margin:1.25rem auto 0;text-align:center">Based on your performance, you will get the opportunity to receive a <b style="white-space:nowrap">1-on-1 teaching lesson</b> with Dr. Sarthak Mehta, our specialist UCAT tutor.</p>
   </div>
 </div>
 
@@ -409,9 +414,9 @@ nav{position:fixed;top:3px;left:0;right:0;z-index:200;background:rgba(13,13,13,0
       </div>
     </div>
 
-    <!-- VENN / EULER DIAGRAM -->
+    <!-- VENN DIAGRAM -->
     <div class="venn-wrap">
-      <p style="font-size:0.7rem;font-weight:800;color:var(--muted);letter-spacing:0.05em;margin-bottom:0.6rem">VISUALISE IT — EULER DIAGRAM</p>
+      <p style="font-size:0.7rem;font-weight:800;color:var(--muted);letter-spacing:0.05em;margin-bottom:0.6rem">VISUALISE IT — VENN DIAGRAM</p>
       <svg viewBox="0 0 480 205" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:480px;display:block;margin:0 auto">
         <defs>
           <marker id="arr" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
@@ -751,6 +756,8 @@ nav{position:fixed;top:3px;left:0;right:0;z-index:200;background:rgba(13,13,13,0
 </div>
 
 <script>
+['copy','cut','contextmenu','dragstart','selectstart'].forEach(ev=>document.addEventListener(ev,e=>{if(!e.target.closest||!e.target.closest('input,textarea'))e.preventDefault();}));
+document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&['c','x','a','p','s','u'].includes(e.key.toLowerCase())&&!(e.target.closest&&e.target.closest('input,textarea')))e.preventDefault();});
 const TOTAL = 19;
 let currentSlide = 0;
 let gateCompleted = false;
@@ -768,18 +775,19 @@ const sectionColors = {
   QR:'#E8940A', SJT:'#E8940A', Results:'#0D0D0D'
 };
 
-// Slide 2 = vr1a (first), 4 = vr1b (second)
-// Slide 5 = vr2a (first), 7 = vr2b (second)
+// Slide 1 = vr1a (first), 3 = vr1b (second)
+// Slide 4 = vr2a (first), 6 = vr2b (second)
+// Slide 7 = gate
 // Slide 8 = dm1a (first), 10 = dm1b (second)
 // Slide 11 = qr1a (first), 14 = qr1b (second)
 // Slide 15 = sjt2a (first), 17 = sjt2b (second)
 const slideMap = {
-  2:{sec:'vr', q:'vr1a', first:true},
-  3:{type:'explain'},
-  4:{sec:'vr', q:'vr1b', first:false},
-  5:{sec:'vr', q:'vr2a', first:true},
-  6:{type:'explain'},
-  7:{sec:'vr', q:'vr2b', first:false},
+  1:{sec:'vr', q:'vr1a', first:true},
+  2:{type:'explain'},
+  3:{sec:'vr', q:'vr1b', first:false},
+  4:{sec:'vr', q:'vr2a', first:true},
+  5:{type:'explain'},
+  6:{sec:'vr', q:'vr2b', first:false},
   8:{sec:'dm', q:'dm1a', first:true},
   9:{type:'explain'},
   10:{sec:'dm', q:'dm1b', first:false},
@@ -796,7 +804,7 @@ const slideMap = {
 function goTo(idx) {
   if (idx < 0 || idx >= TOTAL) return;
   // Block advancing past gate until it's completed
-  if (idx > 1 && !gateCompleted) return;
+  if (idx > 7 && !gateCompleted) return;
   document.querySelector('.slide.active').classList.remove('active');
   document.querySelector(`.slide[data-slide="${idx}"]`).classList.add('active');
   currentSlide = idx;
@@ -807,7 +815,7 @@ function goTo(idx) {
 
 function prevSlide() {
   // Going back from first question skips gate, goes to intro
-  if (currentSlide === 2) { goTo(0); return; }
+  if (currentSlide === 8) { goTo(6); return; }
   goTo(currentSlide - 1);
 }
 
@@ -819,12 +827,12 @@ function updateUI() {
   const sec = el ? el.dataset.section : '';
 
   // Slide counter — only for content slides 2-17
-  const isContent = currentSlide >= 2 && currentSlide <= TOTAL - 2;
-  document.getElementById('slideCounter').textContent = isContent ? `${currentSlide - 1}/${TOTAL - 3}` : '';
+  const isContent = currentSlide >= 1 && currentSlide <= TOTAL - 2 && currentSlide !== 7;
+  document.getElementById('slideCounter').textContent = isContent ? `${currentSlide > 7 ? currentSlide - 1 : currentSlide}/${TOTAL - 3}` : '';
 
   // Section tag
   const tag = document.getElementById('navTag');
-  if (currentSlide <= 1 || currentSlide >= TOTAL - 1) {
+  if (currentSlide === 0 || currentSlide === 7 || currentSlide >= TOTAL - 1) {
     tag.style.display = 'none';
   } else {
     tag.style.display = '';
@@ -838,9 +846,9 @@ function updateUI() {
   const btnNext = document.getElementById('btnNext');
 
   // Hide prev on intro (0), gate (1)
-  btnPrev.style.display = (currentSlide <= 1) ? 'none' : 'block';
+  btnPrev.style.display = (currentSlide === 0 || currentSlide === 7) ? 'none' : 'block';
   // Hide next on gate (1) and results (18)
-  btnNext.style.display = (currentSlide === 1 || currentSlide === 0 || currentSlide >= TOTAL - 1) ? 'none' : 'block';
+  btnNext.style.display = (currentSlide === 7 || currentSlide === 0 || currentSlide >= TOTAL - 1) ? 'none' : 'block';
 
   const nb = btnNext;
   if (currentSlide === TOTAL - 2) nb.textContent = 'See your results →';
@@ -852,11 +860,11 @@ function updateUI() {
   dots.innerHTML = '';
   for (let i = 0; i < TOTAL; i++) {
     const d = document.createElement('div');
-    const isLocked = i > 1 && !gateCompleted;
-    const isGate = i === 1;
+    const isLocked = i > 7 && !gateCompleted;
+    const isGate = i === 7;
     d.className = 'dot' + (i === currentSlide ? ' active' : i < currentSlide ? ' done' : '') + (isLocked || isGate ? ' dot-locked' : '');
     d.onclick = ((idx) => () => {
-      if (idx <= 1) { goTo(idx); return; }
+      if (idx <= 7) { goTo(idx); return; }
       if (!gateCompleted) return;
       goTo(idx);
     })(i);
@@ -941,7 +949,7 @@ function getFeedback(qid, correct) {
   return msgs[qid] ? (correct ? msgs[qid].c : msgs[qid].w) : '';
 }
 
-// Web3Forms access key (created for enquiries@ucatcompleteguidance.com at web3forms.com)
+// Web3Forms access key (sends to enquiries@ucatcompleteguidance.com)
 var WEB3FORMS_KEY = '666842b2-1e93-45ac-b1ae-380b9f7db050';
 function handleGateSubmit(e) {
   e.preventDefault();
@@ -964,8 +972,8 @@ function handleGateSubmit(e) {
     headers: {'Content-Type':'application/json','Accept':'application/json'},
     body: JSON.stringify(Object.assign({ access_key: WEB3FORMS_KEY, from_name: 'UCAT Complete Guidance website', subject: data._subject, replyto: data._replyto }, data))
   })
-  .then(() => { gateCompleted = true; goTo(2); })
-  .catch(() => { gateCompleted = true; goTo(2); });
+  .then(() => { gateCompleted = true; goTo(8); })
+  .catch(() => { gateCompleted = true; goTo(8); });
 }
 
 function buildResults() {
