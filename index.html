@@ -1619,6 +1619,22 @@ body.subpage-active .diag-float { display: none; }
 /* Nav brand: ensure it can shrink so hamburger (on right) has room */
 .nav-brand { flex: 1; min-width: 0; }
 .nav-links { flex-shrink: 0; }
+
+/* ── Wider layout on laptops/desktops ── */
+.wrap, .hero-inner, .score-inner, .cohort-band-inner, .subpage-hero-inner { max-width: 1200px; }
+/* ── 2025 cohort label, under the offers ── */
+.cohort-band-foot { margin-top: 1.75rem; text-align: center; font-size: 0.95rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); }
+.cohort-logos { justify-content: center; }
+@media (max-width: 768px) { .cohort-band-foot { font-size: 0.82rem; margin-top: 1.25rem; } }
+/* ── Rotating reviews ── */
+.reviews-grid { transition: opacity .45s ease; }
+.reviews-grid.rev-fade { opacity: 0; }
+.rev-controls { display: flex; align-items: center; justify-content: center; gap: .9rem; margin-top: 1.5rem; }
+.rev-arrow { width: 38px; height: 38px; border-radius: 50%; border: 1px solid rgba(13,13,13,.18); background: #fff; color: #0D0D0D; font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: border-color .2s, background .2s; }
+.rev-arrow:hover { border-color: #0D0D0D; background: #FAFAF8; }
+.rev-dots { display: flex; gap: .45rem; }
+.rev-dot { width: 9px; height: 9px; border-radius: 50%; border: none; padding: 0; background: rgba(13,13,13,.2); cursor: pointer; transition: background .2s, transform .2s; }
+.rev-dot.on { background: #E8940A; transform: scale(1.25); }
 </style>
 </head>
 <body id="siteBody">
@@ -1637,23 +1653,23 @@ body.subpage-active .diag-float { display: none; }
   </div>
   <div class="sidebar-nav">
     <span class="sidebar-nav-label">Navigation</span>
-    <a href="#" class="sidebar-link active" id="sl-home" onclick="showPage('home');closeSidebar()">
+    <a href="#" class="sidebar-link active" id="sl-home" onclick="showPage('home');closeSidebar();return false">
       <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
       Home
     </a>
-    <a href="#" class="sidebar-link" id="sl-inclusions" onclick="showPage('inclusions');closeSidebar()">
+    <a href="#" class="sidebar-link" id="sl-inclusions" onclick="showPage('inclusions');closeSidebar();return false">
       <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
       Course Inclusions
     </a>
-    <a href="#" class="sidebar-link" id="sl-story" onclick="showPage('story');closeSidebar()">
+    <a href="#" class="sidebar-link" id="sl-story" onclick="showPage('story');closeSidebar();return false">
       <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
       Our Story
     </a>
-    <a href="#" class="sidebar-link" id="sl-reviews" onclick="showPage('reviews');closeSidebar()">
+    <a href="#" class="sidebar-link" id="sl-reviews" onclick="showPage('reviews');closeSidebar();return false">
       <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
       Reviews
     </a>
-    <a href="#" class="sidebar-link sidebar-resources-toggle" id="sl-resources" onclick="toggleResourcesMenu(event)">
+    <a href="#" class="sidebar-link sidebar-resources-toggle" id="sl-resources" onclick="toggleResourcesMenu(event);return false">
       <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
       Key Resources
       <svg class="sidebar-chevron" id="resourcesChevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
@@ -1773,7 +1789,7 @@ body.subpage-active .diag-float { display: none; }
           <div class="workshop-title">Book a free diagnostic consultation first</div>
           <div class="workshop-detail">A 30-minute call to assess where you are and whether this programme is the right fit.</div>
         </div>
-        <a href="#" onclick="showPage('home');setTimeout(()=>document.getElementById('tab-contact').scrollIntoView({behavior:'smooth'}),150)" class="btn-gold" style="white-space:nowrap">Book Free Consultation</a>
+        <a href="#" onclick="showPage('home');setTimeout(()=>document.getElementById('tab-contact').scrollIntoView({behavior:'smooth'}),150);return false" class="btn-gold" style="white-space:nowrap">Book Free Consultation</a>
       </div>
     </div>
   </section>
@@ -2126,24 +2142,23 @@ body.subpage-active .diag-float { display: none; }
     <div class="stat-strip">
       <div class="stat-card"><span class="stat-num">~17,000</span><span class="stat-lbl">Candidates per year (ANZ)</span></div>
       <div class="stat-card"><span class="stat-num">2 hrs</span><span class="stat-lbl">Total test duration</span></div>
-      <div class="stat-card"><span class="stat-num">228</span><span class="stat-lbl">Total questions</span></div>
+      <div class="stat-card"><span class="stat-num">178</span><span class="stat-lbl">Total questions</span></div>
       <div class="stat-card"><span class="stat-num">900–2,700</span><span class="stat-lbl">Cognitive score range</span></div>
     </div>
 
     <hr>
 
-    <h2>The Five Sections</h2>
+    <h2>The Four Sections</h2>
     <div class="section-grid">
       <div class="section-card"><div class="section-tag">Section 1</div><div class="section-name">Verbal Reasoning (VR)</div><div class="section-meta">44 questions · 21 minutes<br>Read passages and answer comprehension questions</div><div class="section-score">Scored 300–900</div></div>
       <div class="section-card"><div class="section-tag">Section 2</div><div class="section-name">Decision Making (DM)</div><div class="section-meta">29 questions · 31 minutes<br>Logical puzzles, syllogisms, Venn diagrams, probabilistic reasoning</div><div class="section-score">Scored 300–900</div></div>
       <div class="section-card"><div class="section-tag">Section 3</div><div class="section-name">Quantitative Reasoning (QR)</div><div class="section-meta">36 questions · 25 minutes<br>Numerical problem solving with tables, graphs, and everyday data</div><div class="section-score">Scored 300–900</div></div>
-      <div class="section-card"><div class="section-tag">Section 4</div><div class="section-name">Abstract Reasoning (AR)</div><div class="section-meta">55 questions · 13 minutes<br>Identify patterns in shape sequences</div><div class="section-score">Scored 300–900</div></div>
-      <div class="section-card"><div class="section-tag">Section 5</div><div class="section-name">Situational Judgement (SJT)</div><div class="section-meta">69 questions · 26 minutes<br>Ethical and interpersonal scenarios in healthcare</div><div class="section-score">Band 1 (best) to Band 4 · Reported separately</div></div>
+      <div class="section-card"><div class="section-tag">Section 4</div><div class="section-name">Situational Judgement (SJT)</div><div class="section-meta">69 questions · 26 minutes<br>Ethical and interpersonal scenarios in healthcare</div><div class="section-score">Band 1 (best) to Band 4 · Reported separately</div></div>
     </div>
 
     <div class="info-box">
       <div class="info-label">How scoring works</div>
-      <p>Your total cognitive score is the sum of VR + DM + QR + AR — ranging from <strong>900 to 2,700</strong>. SJT is excluded from the cognitive total. Universities use your percentile rank within that year's cohort. The 2026 mean total was approximately <strong>1,964</strong>.</p>
+      <p>Your total cognitive score is the sum of VR + DM + QR — ranging from <strong>900 to 2,700</strong>. SJT is excluded from the cognitive total. Universities use your percentile rank within that year's cohort. The 2026 mean total was approximately <strong>1,964</strong>.</p>
     </div>
 
     <hr>
@@ -2611,7 +2626,6 @@ input[type=range] { width: 100%; accent-color: var(--navy); height: 4px; cursor:
   <div class="cohort-band-inner">
     <div class="cohort-top-row">
       <div>
-        <span class="cohort-band-label">2025 COHORT · MEDICAL SCHOOL OFFERS</span>
         <div class="cohort-band-title">Our students received offers from Australia's leading medical schools.</div>
       </div>
     </div>
@@ -2647,6 +2661,7 @@ input[type=range] { width: 100%; accent-color: var(--navy); height: 4px; cursor:
         <div class="cohort-logo-offers">OFFERS</div>
       </div>
     </div>
+    <div class="cohort-band-foot">2025 Cohort · Medical School Offers</div>
   </div>
 </div>
 
@@ -3302,10 +3317,59 @@ function mobExpandReviews() {
   if (btn) btn.classList.add('hidden');
 }
 
+
+// ── HOMEPAGE REVIEWS: rotate through sets of 8 (homepage reviews + Reviews page) ──
+(function(){
+  var grid = document.querySelector('#main-home .reviews-grid') || document.querySelector('.reviews-grid');
+  if (!grid) return;
+  var seen = {}, pool = [];
+  function add(card){
+    var t = (card.querySelector('.review-text') || card).textContent.replace(/\s+/g, ' ').trim();
+    if (!t || seen[t]) return; seen[t] = 1;
+    var c = card.cloneNode(true); c.classList.remove('review-highlight'); pool.push(c.outerHTML);
+  }
+  Array.prototype.forEach.call(grid.querySelectorAll('.review-card'), add);
+  Array.prototype.forEach.call(document.querySelectorAll('.reviews-page-grid .review-card'), add);
+  var SIZE = 8, sets = [];
+  for (var i = 0; i < pool.length; i += SIZE) sets.push(pool.slice(i, i + SIZE));
+  if (sets.length < 2) return;
+  var last = sets[sets.length - 1];
+  for (var j = 0; last.length < SIZE && j < pool.length; j++) last.push(pool[j]); // keep every set a full 8
+  var first = grid.innerHTML, cur = 0, timer = null, paused = false, DELAY = 9000;
+  var ctrl = document.createElement('div'); ctrl.className = 'rev-controls';
+  ctrl.innerHTML = '<button class="rev-arrow" aria-label="Previous reviews">&#8592;</button><div class="rev-dots"></div><button class="rev-arrow" aria-label="Next reviews">&#8594;</button>';
+  var dots = ctrl.querySelector('.rev-dots');
+  sets.forEach(function(_, k){ var d = document.createElement('button'); d.className = 'rev-dot' + (k === 0 ? ' on' : ''); d.setAttribute('aria-label', 'Show reviews ' + (k * SIZE + 1) + '–' + (k * SIZE + SIZE)); d.onclick = function(){ show(k, true); }; dots.appendChild(d); });
+  var arrows = ctrl.querySelectorAll('.rev-arrow');
+  arrows[0].onclick = function(){ show((cur - 1 + sets.length) % sets.length, true); };
+  arrows[1].onclick = function(){ show((cur + 1) % sets.length, true); };
+  grid.insertAdjacentElement('afterend', ctrl);
+  function show(k, user){
+    if (k === cur) return;
+    grid.classList.add('rev-fade');
+    setTimeout(function(){
+      grid.innerHTML = k === 0 ? first : sets[k].join('');
+      cur = k;
+      Array.prototype.forEach.call(dots.children, function(d, n){ d.classList.toggle('on', n === k); });
+      grid.classList.remove('rev-fade');
+    }, 450);
+    if (user) restart();
+  }
+  function restart(){ clearInterval(timer); if (!paused && !reduce) timer = setInterval(function(){ show((cur + 1) % sets.length); }, DELAY); }
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  [grid, ctrl].forEach(function(el){
+    el.addEventListener('mouseenter', function(){ paused = true; clearInterval(timer); });
+    el.addEventListener('mouseleave', function(){ paused = false; restart(); });
+  });
+  document.addEventListener('visibilitychange', function(){ if (document.hidden) clearInterval(timer); else restart(); });
+  restart();
+})();
 // Smooth scroll for nav links
 document.querySelectorAll('a[href^="#"]').forEach(function(a) {
   a.addEventListener('click', function(e) {
-    var target = document.querySelector(this.getAttribute('href'));
+    var href = this.getAttribute('href');
+    if (!href || href.length < 2) return;
+    var target = null; try { target = document.querySelector(href); } catch (err) {}
     if (target) {
       e.preventDefault();
       var offset = 70; // nav height
@@ -3431,6 +3495,7 @@ var ARTICLE_TITLES = {};
     if (!routing) setUrl(id === 'home' ? '/' : '/#' + id, true);
   };
   window.addEventListener('popstate', function(){
+    if (/#$/.test(location.href)) return; // a bare "#" link, not a page change
     routing = true;
     var id = slugToId(location.pathname.replace(/^\/|\/$/g, ''));
     var h = location.hash.replace('#', '');
