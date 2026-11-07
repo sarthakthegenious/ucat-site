@@ -1615,13 +1615,27 @@ footer {
 /* When a subpage is active, hide main content */
 body.subpage-active #main-home { display: none; }
 body.subpage-active .diag-float { display: none; }
+/* …but keep it on every blog/guide so readers can always try the diagnostic */
+body.subpage-active:has(.article-panel.active) .diag-float { display: block; }
 
 /* Nav brand: ensure it can shrink so hamburger (on right) has room */
 .nav-brand { flex: 1; min-width: 0; }
 .nav-links { flex-shrink: 0; }
 
 /* ── Wider layout on laptops/desktops ── */
-.wrap, .hero-inner, .score-inner, .cohort-band-inner, .subpage-hero-inner { max-width: 1200px; }
+.hero-inner, .score-inner, .cohort-band-inner, .subpage-hero-inner { max-width: 1100px; }
+/* .wrap carries its own 5vw side padding, so allow for it — every section's content now lines up on the same 1100px column */
+.wrap { max-width: calc(1100px + 10vw); }
+@media (min-width: 900px) {
+  /* sections already have side padding — don't add it twice */
+  .section > .wrap { padding-left: 0; padding-right: 0; max-width: 1100px; }
+  /* Course structure: two equal columns */
+  .lesson-layout { flex-wrap: nowrap; gap: 3rem; }
+  .lesson-meta, .lesson-parts { flex: 1 1 0; min-width: 0; }
+  /* FAQ: centred block */
+  .faq-section .section-tag, .faq-section h2 { display: block; text-align: center; }
+  .faq-section .faq-list { max-width: 820px; margin-left: auto; margin-right: auto; }
+}
 /* ── 2025 cohort label, under the offers ── */
 .cohort-band-foot { margin-top: 1.75rem; text-align: center; font-size: 0.95rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); }
 .cohort-logos { justify-content: center; }
@@ -2991,7 +3005,7 @@ input[type=range] { width: 100%; accent-color: var(--navy); height: 4px; cursor:
 </section>
 
 <!-- ── FAQ ── -->
-<section class="section section-alt" >
+<section class="section section-alt faq-section" >
   <div class="wrap">
     <button class="mob-accordion-trigger" onclick="mobToggle(this)" aria-expanded="false">
       Frequently asked questions
