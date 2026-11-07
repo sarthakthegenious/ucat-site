@@ -1648,11 +1648,11 @@ body.subpage-active .diag-float { display: none; }
       <svg class="sidebar-chevron" id="resourcesChevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
     </a>
     <div class="sidebar-submenu" id="resourcesSubmenu">
-      <a href="#" class="sidebar-sublink" onclick="showArticle('percentile');closeSidebar()">UCAT Percentiles 2026</a>
-      <a href="#" class="sidebar-sublink" onclick="showArticle('requirements');closeSidebar()">University Requirements</a>
-      <a href="#" class="sidebar-sublink" onclick="showArticle('patterns');closeSidebar()">What Is the UCAT ANZ?</a>
-      <a href="#" class="sidebar-sublink" onclick="showArticle('vr');closeSidebar()">How to Improve in VR</a>
-      <a href="#" class="sidebar-sublink" onclick="showArticle('calculator');closeSidebar()">Score Calculator 2026</a>
+      <a href="/ucat-percentiles" class="sidebar-sublink" onclick="showArticle('percentile');closeSidebar();return false">UCAT Percentiles 2026</a>
+      <a href="/ucat-score-requirements" class="sidebar-sublink" onclick="showArticle('requirements');closeSidebar();return false">University Requirements</a>
+      <a href="/what-is-the-ucat" class="sidebar-sublink" onclick="showArticle('patterns');closeSidebar();return false">What Is the UCAT ANZ?</a>
+      <a href="/verbal-reasoning-tips" class="sidebar-sublink" onclick="showArticle('vr');closeSidebar();return false">How to Improve in VR</a>
+      <a href="/ucat-calculator" class="sidebar-sublink" onclick="showArticle('calculator');closeSidebar();return false">Score Calculator 2026</a>
     </div>
   </div>
   <div class="sidebar-footer">
@@ -1830,7 +1830,7 @@ body.subpage-active .diag-float { display: none; }
   <section class="section">
     <div class="wrap">
       <div class="resource-grid">
-        <a href="#" class="resource-card" onclick="showArticle('percentile');return false">
+        <a href="/ucat-percentiles" class="resource-card" onclick="showArticle('percentile');return false">
           <div class="resource-card-top">
             <div class="resource-card-icon"><svg width="20" height="20" fill="none" stroke="#E8940A" stroke-width="2" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
             <div class="resource-card-tag">DATA</div>
@@ -1841,7 +1841,7 @@ body.subpage-active .diag-float { display: none; }
             <span class="resource-card-cta">Read more →</span>
           </div>
         </a>
-        <a href="#" class="resource-card" onclick="showArticle('requirements');return false">
+        <a href="/ucat-score-requirements" class="resource-card" onclick="showArticle('requirements');return false">
           <div class="resource-card-top">
             <div class="resource-card-icon"><svg width="20" height="20" fill="none" stroke="#E8940A" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
             <div class="resource-card-tag">GUIDE</div>
@@ -1852,7 +1852,7 @@ body.subpage-active .diag-float { display: none; }
             <span class="resource-card-cta">Read more →</span>
           </div>
         </a>
-        <a href="#" class="resource-card" onclick="showArticle('patterns');return false">
+        <a href="/what-is-the-ucat" class="resource-card" onclick="showArticle('patterns');return false">
           <div class="resource-card-top">
             <div class="resource-card-icon"><svg width="20" height="20" fill="none" stroke="#E8940A" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
             <div class="resource-card-tag">GUIDE</div>
@@ -1863,7 +1863,7 @@ body.subpage-active .diag-float { display: none; }
             <span class="resource-card-cta">Read more →</span>
           </div>
         </a>
-        <a href="#" class="resource-card" onclick="showArticle('vr');return false">
+        <a href="/verbal-reasoning-tips" class="resource-card" onclick="showArticle('vr');return false">
           <div class="resource-card-top">
             <div class="resource-card-icon"><svg width="20" height="20" fill="none" stroke="#E8940A" stroke-width="2" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
             <div class="resource-card-tag">STRATEGY</div>
@@ -1874,7 +1874,7 @@ body.subpage-active .diag-float { display: none; }
             <span class="resource-card-cta">Read more →</span>
           </div>
         </a>
-        <a href="#" class="resource-card" onclick="showArticle('calculator');return false">
+        <a href="/ucat-calculator" class="resource-card" onclick="showArticle('calculator');return false">
           <div class="resource-card-top">
             <div class="resource-card-icon"><svg width="20" height="20" fill="none" stroke="#E8940A" stroke-width="2" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="10" y2="12"/><line x1="14" y1="12" x2="16" y2="12"/><line x1="8" y1="16" x2="10" y2="16"/><line x1="14" y1="16" x2="16" y2="16"/></svg></div>
             <div class="resource-card-tag">TOOL</div>
@@ -1912,7 +1912,7 @@ body.subpage-active .diag-float { display: none; }
         <div style="font-weight:700;font-size:0.95rem;color:var(--navy);">Know your exact percentile — instantly</div>
         <div style="font-size:0.82rem;color:var(--muted);margin-top:0.15rem;">Enter your score, pick your state, see which med schools you're targeting.</div>
       </div>
-      <a href="#" onclick="showArticle('calculator');return false" style="background:var(--navy);color:var(--white);font-weight:800;font-size:0.85rem;padding:0.6rem 1.4rem;border-radius:20px;text-decoration:none;white-space:nowrap;flex-shrink:0;transition:background 0.2s;" onmouseover="this.style.background='var(--navy2)'" onmouseout="this.style.background='var(--navy)'">Open Calculator →</a>
+      <a href="/ucat-calculator" onclick="showArticle('calculator');return false" style="background:var(--navy);color:var(--white);font-weight:800;font-size:0.85rem;padding:0.6rem 1.4rem;border-radius:20px;text-decoration:none;white-space:nowrap;flex-shrink:0;transition:background 0.2s;" onmouseover="this.style.background='var(--navy2)'" onmouseout="this.style.background='var(--navy)'">Open Calculator →</a>
     </div>
 
     <p>Your UCAT score is made up of three cognitive subtest scores (VR, DM, QR), each scaled from 300–900, giving a total cognitive score out of 2700. Universities rank applicants against the full sitting cohort — so your percentile matters as much as your raw score.</p>
@@ -3399,6 +3399,43 @@ function showArticle(articleId) {
   window.scrollTo(0,0);
 }
 
+
+// ── Clean blog links (e.g. /verbal-reasoning-tips) ──
+var ARTICLE_SLUGS = {percentile:'ucat-percentiles', requirements:'ucat-score-requirements', patterns:'what-is-the-ucat', vr:'verbal-reasoning-tips', calculator:'ucat-calculator'};
+var ARTICLE_TITLES = {};
+(function(){
+  var baseTitle = document.title;
+  function slugToId(sl){ for (var k in ARTICLE_SLUGS) if (ARTICLE_SLUGS[k] === sl) return k; return null; }
+  function setUrl(path, push){ try { if (location.pathname + location.hash === path) return; history[push ? 'pushState' : 'replaceState'](null, '', path); } catch(e){} }
+  var _showArticle = showArticle, _showPage = showPage, routing = false;
+  showArticle = function(id){
+    _showArticle(id);
+    var h = document.querySelector('#article-' + id + ' h1');
+    document.title = (h ? h.textContent.trim() + ' | ' : '') + 'UCAT Complete Guidance';
+    if (!routing && ARTICLE_SLUGS[id]) setUrl('/' + ARTICLE_SLUGS[id], true);
+  };
+  showPage = function(id){
+    _showPage(id);
+    document.title = baseTitle;
+    if (!routing) setUrl(id === 'home' ? '/' : '/#' + id, true);
+  };
+  window.addEventListener('popstate', function(){
+    routing = true;
+    var id = slugToId(location.pathname.replace(/^\/|\/$/g, ''));
+    var h = location.hash.replace('#', '');
+    if (id) showArticle(id);
+    else if (h.indexOf('article-') === 0 && ARTICLE_SLUGS[h.slice(8)]) showArticle(h.slice(8));
+    else if (PAGES.indexOf(h) > 0) showPage(h);
+    else showPage('home');
+    routing = false;
+  });
+  window.addEventListener('load', function(){
+    var h = location.hash.replace('#', '');
+    var id = (h.indexOf('article-') === 0 && ARTICLE_SLUGS[h.slice(8)]) ? h.slice(8) : slugToId(location.pathname.replace(/^\/|\/$/g, ''));
+    if (!id) return;
+    setTimeout(function(){ routing = true; showArticle(id); routing = false; setUrl('/' + ARTICLE_SLUGS[id], false); }, 0);
+  });
+})();
 // Hash routing on load
 window.addEventListener('load', function() {
   var h = location.hash.replace('#','');
