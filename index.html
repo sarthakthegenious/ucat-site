@@ -1623,7 +1623,8 @@ body.subpage-active:has(.article-panel.active) .diag-float { display: block; }
 .nav-links { flex-shrink: 0; }
 
 /* ── Wider layout on laptops/desktops ── */
-.hero-inner, .score-inner, .cohort-band-inner, .subpage-hero-inner { max-width: 1100px; }
+.cohort-band-inner, .subpage-hero-inner { max-width: 1100px; }
+.hero-inner, .score-inner { max-width: 960px; } /* hero + score comparison keep the original narrower width */
 /* .wrap carries its own 5vw side padding, so allow for it — every section's content now lines up on the same 1100px column */
 .wrap { max-width: calc(1100px + 10vw); }
 @media (min-width: 900px) {
@@ -1640,6 +1641,16 @@ body.subpage-active:has(.article-panel.active) .diag-float { display: block; }
 .cohort-band-foot { margin-top: 1.75rem; text-align: center; font-size: 0.95rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); }
 .cohort-logos { justify-content: center; }
 @media (max-width: 768px) { .cohort-band-foot { font-size: 0.82rem; margin-top: 1.25rem; } }
+
+/* Bigger floating diagnostic button on laptops/desktops */
+@media (min-width: 900px) {
+  .diag-float { bottom: 2rem; right: 2rem; }
+  .diag-float-btn { gap: 0.8rem; padding: 1rem 1.7rem 1rem 1.1rem; border-width: 2px; }
+  .diag-float-dot { width: 44px; height: 44px; font-size: 1.2rem; }
+  .diag-float-dot svg { width: 22px; height: 22px; }
+  .diag-float-top { font-size: 0.72rem; margin-bottom: 0.3rem; }
+  .diag-float-main { font-size: 1.02rem; }
+}
 /* ── Rotating reviews ── */
 .reviews-grid { transition: opacity .45s ease; }
 .reviews-grid.rev-fade { opacity: 0; }
@@ -3384,6 +3395,14 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a) {
     var href = this.getAttribute('href');
     if (!href || href.length < 2) return;
     var target = null; try { target = document.querySelector(href); } catch (err) {}
+    // On a blog or other subpage the homepage sections are hidden — go back to the homepage first, then scroll.
+    if (target && document.body.classList.contains('subpage-active') && !target.closest('.page-panel, .article-panel')) {
+      e.preventDefault();
+      if (typeof closeSidebar === 'function') { try { closeSidebar(); } catch (err) {} }
+      showPage('home');
+      setTimeout(function(){ window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - 70, behavior: 'smooth' }); }, 150);
+      return;
+    }
     if (target) {
       e.preventDefault();
       var offset = 70; // nav height
