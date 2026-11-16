@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UCAT Workshop | UCAT Complete Guidance</title>
+<meta name="description" content="Workshop attendees: leave your details to receive the UCAT diagnostic test link and 5 more traps and strategies.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#FAFAF8">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Outfit,system-ui,-apple-system,sans-serif;background:#FAFAF8;color:#0D0D0D;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:28px 18px 40px;-webkit-font-smoothing:antialiased}
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;margin-bottom:26px}
+  .brand img{width:52px;height:52px;display:block}
+  .brand b{display:block;font-size:1.02rem;letter-spacing:.03em}
+  .brand span{font-size:.8rem;color:#6E6A61}
+  .card{width:100%;max-width:460px;background:#fff;border:1px solid #E6E2DA;border-radius:16px;padding:28px 24px 26px;box-shadow:0 10px 40px rgba(13,13,13,.06)}
+  .eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.14em;color:#C27A0E;text-transform:uppercase;margin-bottom:10px}
+  h1{font-family:Lora,Georgia,serif;font-weight:600;font-size:1.6rem;line-height:1.22;margin-bottom:12px}
+  h1 em{font-style:italic;color:#E8940A}
+  .lead{font-size:.95rem;line-height:1.6;color:#3a3a3a;margin-bottom:20px}
+  label{display:block;font-size:.8rem;font-weight:600;margin:14px 0 6px}
+  input{width:100%;font:inherit;font-size:1rem;padding:.75rem .85rem;border:1px solid #D9D4CA;border-radius:10px;background:#FAFAF8;color:inherit}
+  input:focus{outline:2px solid #E8940A;outline-offset:1px;border-color:#E8940A;background:#fff}
+  .hp{position:absolute;left:-9999px;opacity:0}
+  button{width:100%;margin-top:22px;font:inherit;font-weight:700;font-size:1rem;padding:.9rem 1rem;border:0;border-radius:10px;background:#0D0D0D;color:#fff;cursor:pointer}
+  button:hover{background:#2a2a2a}button:disabled{opacity:.6;cursor:default}
+  .err{display:none;margin-top:12px;font-size:.85rem;color:#B42318;line-height:1.5}
+  .fine{margin-top:14px;font-size:.74rem;color:#6E6A61;line-height:1.5;text-align:center}
+  .done{display:none;text-align:center;padding:10px 0 4px}
+  .done .tick{width:58px;height:58px;border-radius:50%;background:#FCF1DE;color:#E8940A;font-size:1.8rem;line-height:58px;margin:0 auto 14px}
+  .done h1{margin-bottom:10px}
+  .foot{margin-top:22px;font-size:.78rem;color:#6E6A61;text-align:center}
+  .foot a{color:inherit}
+</style>
+</head>
+<body>
+  <a class="brand" href="/">
+    <img src="/icon-192.png" alt="UCAT Complete Guidance logo">
+    <div><b>UCAT COMPLETE GUIDANCE</b><span>by Sarthak Mehta</span></div>
+  </a>
+
+  <main class="card">
+    <div id="form-view">
+      <div class="eyebrow">UCAT Workshop</div>
+      <h1>Get the diagnostic test and <em>5 more traps + strategies</em></h1>
+      <p class="lead">Thanks for joining today's UCAT workshop. Enter your details and I'll send you the diagnostic test link by email or message, along with 5 more traps and strategies like the ones we covered today.</p>
+      <form id="ws-form" novalidate>
+        <label for="f-name">Full name</label>
+        <input id="f-name" name="name" type="text" autocomplete="name" required maxlength="80">
+        <label for="f-email">Email</label>
+        <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required maxlength="120">
+        <label for="f-phone">Phone number</label>
+        <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required maxlength="20" placeholder="04XX XXX XXX">
+        <input class="hp" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button type="submit" id="f-btn">Send me the link</button>
+        <p class="err" id="f-err" role="alert"></p>
+        <p class="fine">Your details are only used to send you the test link and UCAT strategies.</p>
+      </form>
+    </div>
+    <div class="done" id="done-view" role="status">
+      <div class="tick">✓</div>
+      <h1>Thank you, <em id="done-name"></em></h1>
+      <p class="lead" style="margin-bottom:0">Your details are in. I'll send the diagnostic test link and the 5 extra traps and strategies by email or message shortly.</p>
+    </div>
+  </main>
+
+  <p class="foot"><a href="/">ucatcompleteguidance.com</a> · <a href="mailto:enquiries@ucatcompleteguidance.com">enquiries@ucatcompleteguidance.com</a></p>
+
+<script>
+(function(){
+  var KEY = '666842b2-1e93-45ac-b1ae-380b9f7db050';
+  var form = document.getElementById('ws-form'), btn = document.getElementById('f-btn'), err = document.getElementById('f-err');
+  function fail(m){ err.textContent = m; err.style.display = 'block'; btn.disabled = false; btn.textContent = 'Send me the link'; }
+  form.addEventListener('submit', function(e){
+    e.preventDefault(); err.style.display = 'none';
+    var name = form.name.value.trim(), email = form.email.value.trim(), phone = form.phone.value.trim();
+    if (name.length < 2) return fail('Please enter your name.');
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) return fail('Please enter a valid email address.');
+    if (phone.replace(/\D/g, '').length < 8) return fail('Please enter a valid phone number.');
+    btn.disabled = true; btn.textContent = 'Sending…';
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ access_key: KEY, from_name: 'UCAT Complete Guidance website', subject: 'UCAT workshop sign-up: ' + name, replyto: email,
+        Name: name, Email: email, Phone: phone, Request: 'Send diagnostic test link + 5 extra traps and strategies', Source: 'UCAT Workshop QR form', botcheck: form.botcheck.checked })
+    }).then(function(r){ return r.json().then(function(j){ return { ok: r.ok && j.success, j: j }; }); })
+      .then(function(r){
+        if (!r.ok) return fail('Sorry, that did not send. Please try again, or email enquiries@ucatcompleteguidance.com.');
+        document.getElementById('done-name').textContent = name.split(' ')[0];
+        document.getElementById('form-view').style.display = 'none'; document.getElementById('done-view').style.display = 'block';
+      }).catch(function(){ fail('Sorry, that did not send. Check your connection and try again.'); });
+  });
+})();
+</script>
+</body>
+</html>
