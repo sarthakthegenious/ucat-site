@@ -791,7 +791,9 @@ input,textarea{-webkit-user-select:text;user-select:text}
 document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&['c','x','a','p','s','u'].includes(e.key.toLowerCase())&&!(e.target.closest&&e.target.closest('input,textarea')))e.preventDefault();});
 const TOTAL = 19;
 let currentSlide = 0;
-let gateCompleted = false;
+// Workshop link (…/diagnostic-test/?access=workshop) skips the contact-details step
+const WORKSHOP_ACCESS = /[?&]access=workshop(&|$)/i.test(location.search);
+let gateCompleted = WORKSHOP_ACCESS;
 
 const scores = {
   vr: {first:0, second:0, total:2},
@@ -836,6 +838,7 @@ function goTo(idx) {
   if (idx < 0 || idx >= TOTAL) return;
   // Block advancing past gate until it's completed
   if (idx > 7 && !gateCompleted) return;
+  if (idx === 7 && WORKSHOP_ACCESS) idx = currentSlide > 7 ? 6 : 8;
   document.querySelector('.slide.active').classList.remove('active');
   document.querySelector(`.slide[data-slide="${idx}"]`).classList.add('active');
   currentSlide = idx;
